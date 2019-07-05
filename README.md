@@ -7,7 +7,6 @@ Together with Darrick, I am running the **Homotopy theory seminar** continuing i
 ##### References:
 **Simplicial sheaves**:
 1. *Sheaves and homotopy theory* by Daniel Dugger
-
 2. *Simplicial presheaves and derived algebraic geometry* by Bertrand Toen
 
 3. *Local homotopy theory* by John F. Jardine
