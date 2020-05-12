@@ -1,3 +1,5 @@
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+
 # Higher differential geometry seminar (Summer 2019)
 
 Together with Darrick, I am running the **Homotopy theory seminar** continuing in summer 2019 (mainly in June). We are mainly focusing on *higher structure in differential geometry and topology*. Topics includes: *higher holonomy/parallel transport, superconnections/representations up to homotopy, dg manifolds/$L_\infty$ algebroids, simplicial (pre)sheaves, $(\infty,1)$-sheaves/$\infty$-stacks, and string topology*.
