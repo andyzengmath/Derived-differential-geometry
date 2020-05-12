@@ -14,6 +14,7 @@ Together with Darrick, I am running the **Homotopy theory seminar** continuing i
 3. *Local homotopy theory* by John F. Jardine
 
 **Differential graded manifolds**:
+
 4. *Introduction to graded geometry* by Maxime Fairon
 
 5. *Differential graded manifolds and associated stacks: an overview* by Dmitry Roytenberg
@@ -21,6 +22,7 @@ Together with Darrick, I am running the **Homotopy theory seminar** continuing i
 6. *Superconnections and Parallel Transport* by Florin Dumitrescu
 
 **Stacks, derived geometry**
+
 7. *Differentiable stacks and gerbes* by Kai Behrend and Ping Xu
 
 8. *Derived smooth manifolds* by David I. Spivak
@@ -30,6 +32,7 @@ Together with Darrick, I am running the **Homotopy theory seminar** continuing i
 10. *An introduction to d-manifolds and derived differential geometry* by Dominic Joyce
 
 **Iterated integrals**
+
 11. [*Iterated path integrals* by K. T. Chen](https://projecteuclid.org/euclid.bams/1183539443)
 
 12. [*Iterated integrals of superconnections* by K. Igusa](https://arxiv.org/abs/0912.0249)
@@ -39,6 +42,7 @@ Together with Darrick, I am running the **Homotopy theory seminar** continuing i
 14. [*"Parallel" transport - revisited* by J. Stasheff](https://arxiv.org/abs/1011.4693)
 
 **Chen's $\pi_1$ de Rham Theorem**
+
 15. [*Iterated integrals of differential forms and loop space homology* by K. T. Chen](https://www.jstor.org/stable/1970846?seq=1#metadata_info_tab_contents)
 
 16. [* Algebras of iterated path integrals and fundamental groups by K. T. Chen
@@ -48,6 +52,7 @@ Together with Darrick, I am running the **Homotopy theory seminar** continuing i
 18.  [*On Chen's iterated integrals* by V. K. A. M. Gugenheim](https://projecteuclid.org/download/pdf_1/euclid.ijm/1256049021)
 
 **Parallel Transport**
+
 19. *Connections, holonomy and path space homology* by K. T. Chen
 
 20. [*Extension of $C^\infty$ function algebra by integrals and Malcev completion of $\pi_1$* by K. T. Chen](https://www.sciencedirect.com/science/article/pii/0001870877901207)
