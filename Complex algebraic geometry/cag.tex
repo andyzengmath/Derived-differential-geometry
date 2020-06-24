@@ -1,0 +1,1477 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.1 (10/6/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % Main document font size
+letterpaper， % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+headinclude,footinclude, % Extra spacing for the header and footer
+BCOR5mm, % Binding correction
+]{scrartcl}
+
+\input{structure.tex} % Include the structure.tex file which specified the document structure and layout
+\usepackage{tikz}
+\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+\newcommand{\Z}{{\mathbf{Z}}}
+\newcommand{\Q}{{\mathbf{Q}}}
+\newcommand{\R}{{\mathbf{R}}}
+\newcommand{\C}{{\mathbf{C}}}
+\newcommand{\cp}{{\mathbf{P}}}
+
+\newcommand{\N}{{\mathbf{N}}}
+\newcommand{\A}{{\mathbf{A}}}
+\newcommand{\s}{{\mathbb{S}}}
+\newcommand{\p}{{\mathfrak{p}}}
+\newcommand{\m}{{\mathfrak{m}}}
+
+\newcommand{\B}{{\mathcal{B}}}
+\newcommand{\T}{{\mathcal{T}}}
+\newcommand{\secc}{\operatorname{sec}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\irr}{\operatorname{Irr}}
+\newcommand{\fra}{\operatorname{Frac}}
+\newcommand{\ca}{\mathsf{C}}
+\newcommand{\da}{\mathsf{D}}
+\newcommand{\ia}{\mathsf{I}}
+\newcommand{\f}{\mathcal{F}}
+\newcommand{\ob}{\operatorname{Obj}}
+\newcommand{\set}{\mathsf{Set}}
+\newcommand{\var}{\mathsf{Var}}
+\newcommand{\sch}{\mathsf{Sch}}
+\newcommand{\gp}{\mathsf{Grp}}
+\newcommand{\aff}{\mathsf{Aff}}
+\newcommand{\alg}{\mathsf{Alg}}
+\newcommand{\ring}{\mathsf{Ring}}
+\newcommand{\cring}{\mathsf{CommRing}}
+\newcommand{\calg}{\mathsf{CommAlg}}
+\newcommand{\ass}{\mathsf{Assoc}}
+\newcommand{\fd}{\mathsf{Field}}
+\newcommand{\ho}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\fun}{\operatorname{Fun}}
+\newcommand{\mo}{\operatorname{Mor}}
+\newcommand{\bl}{\operatorname{Bl}}
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\proj}{\operatorname{Pr}}
+\newcommand{\lie}{\operatorname{Lie}}
+\newcommand{\stab}{\operatorname{Stab}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\bfs}{\textbf}
+\newcommand{\its}{\textit}
+\newcommand{\gal}{\operatorname{Gal}}
+\newcommand{\en}{\operatorname{End}}
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+
+\title{{ Complex Algebraic Geometry}} % The article title
+
+\author{{Qingyun Zeng\textsuperscript{1}}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+
+\date{} % An optional date to appear under the author(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+
+\maketitle % Print the title/author/date block
+
+\setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
+
+\tableofcontents % Print the table of contents
+
+%\listoffigures % Print the list of figures
+
+%\listoftables % Print the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\section*{Abstract} % This section will not appear in the table of contents due to the star (\section*)
+This is the course notes of \textit{ MATH 624/625 Complex algebraic geometry} taught by Prof. Tony  Pantev in Fall 2017/Spring 2018 semester. Topics include:
+
+Algebraic geometry over algebraically closed fields, using ideas from commutative algebra. Topics include: Affine and projective algebraic varieties, morphisms and rational maps, singularities and blowing up, rings of functions, algebraic curves, Riemann Roch theorem, elliptic curves, Jacobian varieties, sheaves, schemes, divisors, line bundles, cohomology of varieties, classification of surfaces.
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR AFFILIATIONS
+%----------------------------------------------------------------------------------------
+
+{\let\thefootnote\relax\footnotetext{* \textit{Department of Mathematics, University of Pennsylvania, Philadelphia PA19104, United States}}}
+
+
+
+%----------------------------------------------------------------------------------------
+
+\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\section{Basic algebraic geometry}
+\subsection{Algebraic sets}
+\begin{definition}Let $\{f_i\}_{i}$ be a collection of polynomials, define the zero set $V(f_1, \cdots, f_k)=\{ s\in \A^n| f_i(a)=0\quad \forall i=1,\cdots, n  \}.$
+	\end{definition}
+Note that different collection of polynomials can give the same $V$. For example, if $g_1,\dots,g_k \in \C [X]$, we add the polynomial $\sum_i g_if_i$ to $\{f_1,\cdots, f_k \}$, the we have 
+\begin{equation*}
+V(f_1, \cdots, f_k)=V\Big(f_1, \cdots, f_k, \sum_i g_if_i\Big)
+\end{equation*}
+Hence $\{f_j\}\sim \{ h_j\}$ iff $f_i$ is algebraically dependent on $\{h_j\}$ iff $<\{f_i\}_i>=<\{h_j\}_j> \subset \C[X]$. Clearly $\{f_i\}\sim \{h_j\} \Leftrightarrow V(f_1, \cdots, f_k)=V(h_1, \cdots, h_s)$. In fact, they are eqaul to $V=\{a\in \A^n| f(a)=0\quad \forall f\in <\{f_i \}>\}$. More generally, we can define for any $I \lhd \C[X]$,
+\begin{equation*}
+V(I)=\{a\in \A^n| f(a)=0 \quad \forall f\in I \}\subset \A^n
+\end{equation*} 
+\begin{thm}[Hilbert basis theorem]
+For any prime ideal $\p \lhd \C [X]$, $\p$ is finitely generated, i.e. $\p=<f_1, \cdots, f_k>$ for some $k\in \N$.
+\end{thm}
+
+\begin{pr} 
+\	
+	
+\begin{enumerate}
+	\item all closed algebraic sets in $\A^n$ are the subsets $V(\p)$ for some $\p \lhd \C[X]$.
+	\item If $\p_1\subset  \p_2 \lhd \C[X]$ are both prime, then $V(\p_2)\subset V(\p_1)$. 
+	\item $\bigcap_{i=1}^m V(\p_i)=V(\sum_{i=1}^m \p_i).$
+	\item if $\m \lhd \C [X]$ is a maximal ideal, i.e. 
+	\begin{equation*}
+	\m =< x_1-a_1, \cdots, x_n-a_n>
+	\end{equation*}
+	then $V(\m)=(a_1,\cdots, a_n)\in \A^n$.
+\end{enumerate}
+\end{pr}
+
+\begin{rem}
+	If $\{f_i\}\sim \{ h_j \} \Rightarrow V(\{f_i \})=V(\{h_j\} )$. But the converse is not true. For example $V(f)=V(f^2)$ for any $f\in \C[X]$. Remedy: look at weakly equivalent collections: $\{f_i\}\stackrel{weakly}{\sim}\{h_j\}$ if there exist $\{r_i\}$ and $\{s_j\}$ such that $\{ f_i^{r_i} \}$ is algebraically dependent on $\{h_j \}$, and $\{h_j^{s_j}\}$ is algebraically dependent on $\{f_i\}$, i.e. $\{f_i\}\stackrel{weakly}{\sim}\{h_j\} \Leftrightarrow \sqrt{<f_i>}=\sqrt{<h_j>}$.
+\end{rem}
+
+\begin{thm}[Hilbert's Nullstellensatz]
+	We have $	I\big(V(\p) \big)=\sqrt{\p}$ for any $\p \lhd \C[X]$. 
+\end{thm}
+To keep track of closed algebraic subsets up to reparametrization, we need the notion of a morphism.
+
+\begin{definition}
+	Let $V\subset \A^n, W\subset \A^m$. A {\bfseries morphism } between $V$ and $W$ is a map $f:V\to W$ given by polynomials $f_1, \cdots, f_m \in \C[x]$. 
+\end{definition}
+
+\begin{rem}
+	Different looking closed algebraic subsets can be isomorphic. Consider $V=\A^1, W=\{(x_1,x_2)\subset \A^2| x_2=x_1^3 \}$. Let $f:V\to W, x_1 \mapsto (x_1,{x_1}^3)$ and $g: W\to V, (x_1,x_2)\mapsto x_1$. Then $g\circ f= \id_V$ and $f \circ g= \id_W$, hence gives an isomorphism. 
+\end{rem}
+It turns out that a full isomorphism of closed algebraic sets is the collection of all polynomial functions.
+\begin{definition}
+	If $V \subset \A^n$ is a closed algebraic set, then a regular function on $V$ is a morphism $f:V\to \A^1$, i.e $f$ is given by a polynomial in n variables. We denote $\C[V]$ all regular functions on $V$. Note that this is a commutative ring as well as a $\C$-algebra.
+\end{definition}
+
+\begin{pr}
+	\
+	
+\begin{enumerate}
+	\item $\C[\A^n]=\C[X]$.
+	\item If $V\subset \A^n$, then $\C[X]\to \C [V], f\mapsto f_V$ is a algebra homomorphism which is a surjection. Hence $\C[V]$ is a quotient of $\C[X]$:
+	\begin{equation*}
+	\ker (res|v)=\{f \in \C[X]| f|V=0 \}=I(V)
+	\end{equation*}
+	which implies that $\C[V]=\C[X]/I(V)$. Indeed, if $p\in V$, then $\m_p=\{f\in \C[X]| f(p)=0 \}\lhd \C[X]=\ker \Big( \C[X] \stackrel{ev_p}{\longrightarrow}\C\Big).$
+\end{enumerate}
+\end{pr}
+
+If $V\subset \A^n$, $W\subset \A^m$ are closed algebraic sets, and $f:V\to W$ is a morphism, then 
+\begin{align*}
+f^*: \C[W]&\longrightarrow \C[V]\\&h \mapsto \circ f
+\end{align*}
+is an algebra homomorphism. Conversely, given $\phi: \C[W]\to \C[V]$, there exists a unique $f:V\to W$ such that $f^*=\phi$.
+
+\subsection{varieties}
+\begin{definition}
+	The category of affine algebraic varieties over $\C$ is the opposite category of finitely generated commutative $\C$-algebras, i.e.
+	\begin{equation*}
+	\var^{\aff}_{\C}=\Big(\calg_{\C}^{ft,red} \Big)^{op}
+	\end{equation*}
+\end{definition}
+\begin{pr}
+	key properties of $\C[V]$:
+	\begin{enumerate}
+		\item $\C[V]$ is a finite type commutative algebra over $\C$.
+		\item it is reduced (has no nonzero nilpotent elements) since $\C[V]=\C[X]/I(V)$ where $I(V)$ is a radical.
+		\item $V$ is in bijection with the set $\spec^m(\C[V])$.
+	\end{enumerate}
+\end{pr}
+\begin{definition}
+	The category of affine schemes over $\C$, $\sch^{\aff}_{\C}$  is the opposite category of commutative $\C$-algebras $\calg_{\C}$.
+\end{definition}
+
+A commutative reduced algebra of finite type is identified with the polynomial functions on a closed  algebraic set. Think of  $	\var^{\aff}_{\C}=\Big(\calg_{\C}^{ft,red} \Big)^{op}$ as pairs $(V,A)$, where $V$ is reconstructed from $A$ by $V=\spec^m(A)$. Then $a\in A$ is naturally a function on $V$
+\begin{align*}
+V &\stackrel{a}{\longrightarrow}  \C\\
+\m & \mapsto q_{\m}(a)
+\end{align*}
+where $q_{\m}:A\to \C$ is the algebra homomorphism given by the composition 
+\begin{center}
+	\begin{tikzcd}
+	A\ar[r,""]\ar[rr,out=-30,in=210,swap,"q_{\m}"] & A/{\m}\ar[r,""] & \C
+	\end{tikzcd}
+\end{center}
+where the first map is the quotient map, and the second map is the field isomorphism $\C \to A\to A/{\m}, z\to z 1_A\to \hat{z}$ by Nullstellensatz.
+
+\begin{rem}
+	This gives a map of $\C-\alg$:
+	\begin{align*}
+	A&\longrightarrow \fun(V,\C)\\
+	a &\mapsto a
+	\end{align*}
+	and this is an algebra homomorphism. In fact, it is injective since $A$ is reduced.
+\end{rem}
+
+\begin{rem}
+	 If $\phi:A\to B$ is an algebra homomorphism, then  $f:\spec^m(B)\to \spec^m (A)$, and we get on functions
+\begin{align*}
+\fun \big(\spec^m(A), \C \big)  &\stackrel{f^*}{\longrightarrow} 	\fun \big(\spec^m(B), \C \big)\\
+A\ni g&\stackrel{-\circ f}{\mapsto} g\circ f \in B
+\end{align*}
+\end{rem}
+\begin{ex}
+	If $f:V\to W$ is a regular map of closed algebraic sets (= regular maps of affine algebraic variety over $\C$ $\Leftrightarrow$ reduced finite type algebra), then the preimage of closed algebraic set in $W$ are not in general closed algebraic but could be closed algebraic by reduction. 
+\end{ex}
+\begin{ex}
+	Images of $f:V\to W$ are not closed algebraic in general. For example, consider 
+	\begin{align*}
+	\A^1 &\longrightarrow \A^3\\
+	t&\to (t,t^2,t^3)
+	\end{align*}
+	then $f(V)$ is not closed algebraic. Another example: consider
+		\begin{align*}
+	\A^2 &\longrightarrow \A^2\\
+	(x,y) &\to (x,xy)
+	\end{align*}
+\end{ex}
+
+$\sch^{\aff}_{\C}$ behaves better: fibre product of affine schemes are affine schemes, i.e. if $X, Y, Z$ are affine schemes with $f:V\to W$ and $g:Z\to W$, we have the following diagram
+\begin{center}
+	\begin{tikzcd}
+	
+	V\times_{W}Z \arrow[r, "\hat{f}"] \arrow[d,"", red]& Z \arrow[d, "g" red] \\
+	V \arrow[r, red, "f" blue]
+	&W
+	\end{tikzcd}
+\end{center}
+then $V\times_{W}Z $ is the pullback and is an affine scheme.
+
+To understand this, we need to be able to interpret a commutative algebra $A$ over $\C$ as functions on 'space'=scheme.
+
+First try: take the space to be $\spec^{m}(A)$, then we still have	$A\to  \fun(V,\C)$. However, if $A$ is non-reduced, it will not be a subalgebra in $\fun(V,\C)$.
+
+\begin{ex}
+	Let $A=\C[x]/(x^2)$, then $\spec^m(A)=(x)$. Consider 
+		\begin{align*}
+	A&\longrightarrow \fun(\spec^m(A)=\C ,\C)\\
+	&a_0+a_1 x \mapsto a_0
+	\end{align*}
+\end{ex}
+then $A\to  \fun(V,\C)$ has a kernel $(x)$. Also, $\phi:A\to B$ determines $\fun \to \fun$
+\begin{center}
+	\begin{tikzcd}
+	
+	A \arrow[r, "\phi "] \arrow[d,"not\ \subset", red]& B \arrow[d, "not\ \subset" red] \\
+	\fun \big(\spec^m(A), \C \big) \arrow[r, red, "\psi" blue]
+	&\fun \big(\spec^m(B), \C \big) 
+	\end{tikzcd}
+\end{center}
+
+\begin{prop}We have the following relations
+  \begin{enumerate}
+  	\item $\var^{\aff}_{\C} \subset \sch^{\aff, ft}_{\C}\subset \sch^{\aff}_{\C} $
+  	\item If $\mathfrak{X}$ (corresponding to algebra $A$) is an affine scheme of finite type, then we can associate a natural variety $\mathfrak{X}_{red}$ to $\mathfrak{X}$, called the {\bfseries reduction} of $\mathfrak{X}$. $\mathfrak{X}_{red}$= variety corresponding to $A/R_A$, where $R_A$ is the nilradical (ideal in $A$ of all nilpotent elements).
+  \end{enumerate}
+\end{prop}
+We expected that when $\mathfrak{X}_{red}$ defined geometrically, we should have a closed
+\begin{equation*}
+\mathfrak{X}_{red} \hookrightarrow	\mathfrak{X} 	
+\end{equation*}
+corresponding the map of algebras
+\begin{equation*}
+A/R_A \leftarrow A
+\end{equation*}
+
+If $\phi: A\to B$ is a homomorphism of $\C$-algebra, then $\phi(R_A)\to R_B$ implies that $\phi$  induces a homomorphism $\phi_{red}:A_{red}\to B_{red}$, i.e. if we have a map of schemes of finite type $f:\mathfrak{X}\to \mathfrak{Y}$, then it induces a map
+\begin{center}
+	\begin{tikzcd}
+	
+	\mathfrak{X} \arrow[r, "f "] \arrow[d,hookleftarrow,"", red]& \mathfrak{Y} \arrow[d,hookleftarrow, "" red] \\
+		\mathfrak{X}_{red}  \arrow[r, red, "f_{red}" blue]
+	& \mathfrak{Y}_{red} 
+	\end{tikzcd}
+\end{center}
+
+Thus we get a functor 
+\begin{center}
+	\begin{tikzcd}
+	\sch^{\aff,ft}_{\C}   \ar[r,""] 
+	& \var^{\aff}_{\C} \arrow[l, bend left=50, "inclusion"{name=D, draw=red}]
+	\end{tikzcd}
+\end{center}
+
+For any affine scheme $(\mathfrak{X},A)$ and $I\lhd A$, we can get a natural subscheme zero(I)= all points in $\mathfrak{X}$ on which all the elements in $I$ vanish. For example, $\C[zero(I)]=A/I$. where zero(I) $\hookrightarrow \mathfrak{X}$ corresponds to $A/I \leftarrow A$.
+
+\begin{exercise}
+	$\mathfrak{X}_{red}=zero(R_A)$.
+\end{exercise} 
+
+\begin{ex}
+	If $A=\C[x]/(x^2)$, and  $\mathfrak{X}$ is the scheme corresponded to $A$, then $(x)=R_A$ defines a subsheme.
+	\begin{equation*}
+	\mathfrak{X}\supset \mathfrak{X}_{red} \Leftrightarrow A/R_A=\big(\C[x]/(x^2)\big)/(x)\simeq \C
+	\end{equation*}
+	Hence $\mathfrak{X}_{red}\subset \mathfrak{X}\subset \A^1$ is a point. So this inclusion of geometry is interesting since $f\in \C[x]$ retains different information when we look at
+	\begin{align*}
+	f\big|_{\mathfrak{X}_{red}} &\longleftrightarrow f(0)\\	f\big|_{\mathfrak{X}_{red}} &\longleftrightarrow \Big(f(0), \frac{df}{dx}(0)\Big)
+	\end{align*}
+\end{ex}
+\begin{definition}
+$\C[x]/(x^2)$ is called the algebra of dual numbers.
+\end{definition}
+Explicitly, set $\epsilon=x+(x^2)$, then $\C[x]/(x^2)$ is generated by $\epsilon$ over $\C$ with the relation $\epsilon^2=0$. We denote $\C[\epsilon]$ for $\C[x]/(x^2)$. As a vector space, $\C[\epsilon]\simeq \C\mathbb{1}\oplus \C \epsilon$. The multiplication in $\C[\epsilon]$ is 
+\begin{equation}
+(a+b\epsilon)(a'+b'\epsilon)=aa'+(ab'+a'b)\epsilon
+\end{equation}
+\begin{rem}
+	Schemes are important since they naturally appear as the fibre of morphisms of schemes (or varieties).
+\end{rem}
+\begin{ex}
+	Let $f:\A^1\to \A^1, x\mapsto x^2$
+	
+	By definition the scheme fibres at $a\in \A^1$ of $f$ have different behavior at $a=0$ and $a\not=0$. We have 
+	\begin{equation*}
+	I\big(f^{-1}(a)\big)= f^{-1}\big( I(a)\big)= f^{-1}  \big( (y-a) \big)=(x^2-a  )\subset \C[x]
+	\end{equation*}
+	Hence, 
+	 then for $a\not=0$
+	 \begin{align*}
+	 f^{-1}(y)=\{-\sqrt{y},\sqrt{y} \} &\Leftrightarrow \C[f^{-1}(a)]= \C[x,y]/(y-a,y-x^2)\\
+	 &=\C[x]/(x^2-a)=\C[x]/(x-\sqrt{a})(x+\sqrt{a})
+	 \end{align*}
+	 hence $f^{-1}(a)$ is a variety ($\coprod$pt). 
+	 
+	 
+	while at $a=0$
+	\begin{equation*}
+	f^{-1}(0)\Leftrightarrow \C[x,y]/(y,y-x^2)\simeq \C[x]/(x^2)
+	\end{equation*} 
+	gives a scheme with a nilpotent in the ring of functions. 
+\end{ex}
+\begin{rem}
+	The behavior of the fibres of $f$ does not determine the local behavior of $f$ in general. For example, let $\mathfrak{Z}=(x+y)(x-y)\subset \A^2$. Consider the map $g:Z\to \A^1, (x,y)\to x$. The fibres of $g$ and the fibres of $f$ behave in the same way, hence the local structures are identical. This example and previous example with nilpotent element not being visible in $\fun\big(\spec^m(\A), \C \big)$ can be revised by refining the substrate of the geometry that we will assign to $A$.  
+\end{rem}
+
+Let $A$ be  a commutative $\C$-algebra. Consider the set
+\begin{equation}
+	\spec(A)=\{ \p \unlhd A | \text{ $\p$ is prime and proper}	 \}
+\end{equation}
+write $[\p]\in \spec(A)$ for the point corresponding to $\p$. For any $I\unlhd A$, define $V(I)=\{[p]|p\supset I \}$. For any $[\p]\in \spec(A)$, we have two algebraic invariance:
+\begin{itemize}
+	\item localization: $A_{\p}=(A-\p)^{-1}A$.
+	\item residual field at $[\p]$: $k_{\p}=A_{\p}/\p A_{\p}$. 
+\end{itemize}
+Now, for any $a\in A$ we want to associate $a$ a function on $\spec(A)$. Crude version: assign an element of $k_{\p}$. Fine version: assign an element of $A_{\p}$. We have algebra maps
+\begin{align*}
+A\longrightarrow& A_{\p} \longrightarrow k_{\p}\\
+a&\longrightarrow q_{\p}(a)
+\end{align*}
+\section{Complex manifolds}
+\subsection{Complex linear algebra}
+Let $V$ be a vector space. We define a \bfs{complex structure} to be a decomposition $V\otimes_{\R}\C=V\oplus \overline{V}$ into a complex vector space $V_{\C}\subset V\otimes_{\R}\C$ and its complex conjugate such that the $\R$-linear map
+\begin{align*}
+V\hookrightarrow& V\otimes_{\R}\C \stackrel{f^*}{\to} V_{\C}\\
+v&\mapsto v\otimes 1
+\end{align*}
+
+\begin{definition}
+	A \bfs{pseudo-Kahler structure} is a choice of a symplectic form$\omega$, an inner product $h$, and a complex structure $J$ so that they are compatible, i.e.
+	\begin{equation*}
+	 h(J\cdot, \cdot)=\omega(\cdot,\cdot)
+	\end{equation*}
+	A \bfs{Kahler structure} os a positive pseudo-Kahler structure, i.e. $(\omega, h, J)$ with $h(J\cdot, \cdot)=\omega(\cdot,\cdot)$ such that $h>0$.
+\end{definition}
+
+\begin{rem}
+	If $(\omega, h, J)$ is a pseudo-Kahler structure on a complex vector space $V_{\C}$, then we have a Hermitian pairing on it
+	\begin{equation*}
+	H=h-i\omega \in V^*\otimes_{\C}V^*
+	\end{equation*}
+	In fact, it's on $V_{\C}^*\otimes_{\C}\overline{V}_{\C}^*$, and $H>0$ if $h>0$.
+\end{rem}
+
+\paragraph{Structures on $\bigwedge^{\bullet}V$.}
+Let $\dim_{\R}V=2n$
+\begin{enumerate}
+	\item First, we have type decomposition $\bigwedge^{k}V=\bigoplus_{i+j=k}\bigwedge^{i,j}V$, which is equivalent to a decomposition $V\otimes_{\R}\C=V_{\C}\oplus \overline{V}_{\C}$, and so $V^*\otimes_{\R}\C=(V\otimes_{\R}\C)^*=V_{\C}^*\oplus \overline{V}_{\C}^*$.
+	\item we have an $\mathfrak{sl}_2$ action (Lefschetz action) on $\bigwedge^{\bullet}V$.
+	Pick an $\R$ basis of $\mathfrak{sl}_2(\R)$
+	\begin{equation*}
+	\begin{pmatrix} 0 & 1\\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0\\ -1 & 0 \end{pmatrix}, \begin{pmatrix} 1 & 0\\ 0 & -1 \end{pmatrix} 
+	\end{equation*}
+	There exists a Lie algebra homomorphism
+	\begin{align*}
+	\begin{pmatrix} 0 & 1\\ 0 & 0 \end{pmatrix} &\mapsto L=\omega \wedge \bullet \\
+	\begin{pmatrix} 0 & 0\\ -1 & 0 \end{pmatrix} & \mapsto i_{\lambda}\bullet\\
+	\begin{pmatrix} 1 & 0\\ 0 & -1 \end{pmatrix} &\mapsto D=	(a-n)\mathbb{1}\quad \text{on $\Lambda^a V$}
+	\end{align*}
+	Here $\lambda \in \bigwedge^2 V$ is the \its{Poisson structure } corresponding to $\lambda=$image of $\omega$ under $i_{\omega}^{-1}$. Hence $\Lambda$ is the ajoint to $L$, i.e.$<\Lambda \alpha, \beta>=<\alpha, L \beta>$ for any $\beta \in \bigwedge V^*$, and by easy calculation we can get $L=\star^{-1}\circ L \circ \star$.
+	\begin{exercise}
+		\
+		
+		\begin{enumerate}
+			\item Check that $D:\bigwedge^{\bullet}V \to \bigwedge^{\bullet}V$ is a graded derivation of the dg structure.
+			\item Check that $[L,D]=2L$, $[L,\Lambda]=D$, and $[\Lambda, D]=2A$.
+			\item Let $V=V_1\oplus V_2$ with $\omega=\omega_1\oplus \omega_2$, then $\bigwedge^{\bullet}V^*=(\bigwedge^{\bullet}V_1^*)\otimes (\bigwedge^{\bullet}V_2^*)$, and the $\mathfrak{sl}_2$-action on the left is the tensor product of the $\mathfrak{sl}_2$-action on the right.
+		
+		\end{enumerate}
+	\end{exercise}
+
+	\item  Choose a symplectic basis $\{p_1, \cdots, p_n, q_1, \cdots, q_n \}$ of $V$, i.e. $\omega=\sum_{i=1}^n p_i^{\vee}\wedge q_i^{\vee}$, then $\lambda=\sum_{i=1}^n p_q\wedge q_i$. Note that we have the Hodge -$\star$ operator : $\bigwedge^q V^{*} \to \bigwedge^{2n-q}V^*$. Then from the symplectic structure, we have
+\begin{center}
+	\begin{tikzcd}
+	\Lambda^q V^*[rd] \arrow[r, "\Lambda^q (i_{\omega}^{-1})"] \arrow[rd, "\star_ {\omega}"]& \Lambda^q(V)\arrow[d, "i_{(\omega^n/n !) }"]  \\
+	&\Lambda^{2n-q} V^*
+	\end{tikzcd}
+\end{center}
+    \begin{exercise}
+    	\begin{enumerate}
+    		\item Check that $\star_{\omega}$ conjugate $L$ to $\Lambda$.
+    		\item Check that if $(V, \omega, h, J)$ is a Kahler vector space, then $\star_{\omega}$ is orthogonal, i.e.
+    		\begin{equation*}
+    		h(\star_{\omega}-, \star_{\omega}-)=h(-,-)
+    		\end{equation*}
+    		\item If $(V, \omega, h, J)$  is a Kahler structure, show that
+    		\begin{equation*}
+    		 \alpha\wedge \star_{\omega} \beta= \pm h(\alpha,\beta) \frac{\omega^n}{n !}
+    		\end{equation*}
+    	\end{enumerate}
+    \end{exercise}
+\end{enumerate}
+
+
+\begin{definition}
+	A form $\alpha\in \bigwedge^{\bullet}V^*$ on a symplectic vector space $(V,\omega)$ is called \bfs{primitive} if $\Lambda \alpha =0$. We denote $P^q:=\ker\big(\bigwedge^q V^* \stackrel{\Lambda}{\longrightarrow} \bigwedge^{q-2} V^* \big)$. Hence $P=\bigoplus_{q=0}^{2n} P^q$.
+\end{definition}
+
+\begin{thm}[Lefschetz decomposition]Let $(V,\omega)$ be a symplectic vector space of dimension $2n$, then for any $k=0,\cdots, 2n$, we have
+	\begin{enumerate}
+		\item $P^k=\ker (L^{n-k-1} \cap \bigwedge^k V^*)$.
+		\item $\bigwedge^k V^*=\bigoplus_{i\ge 0}L^jP^{k-2j}$.
+	\end{enumerate}
+\end{thm}
+\begin{proof}
+	(2) will hold if we have the same decomposition for $(V\otimes \C, \omega \otimes \C )$, so we can assume that $V$ is a complex vector space with a $\C$-symplectic form. Then $\mathfrak{sl}_2(\C)$ acts on $\bigwedge^{\bullet}V^*$. Recall that every finite dimensional of $\mathfrak{sl}_2(\C)$ is completely reducible, and $\mathfrak{sl}_2(\C)$ has a unique irreducible representation in every dimension $n\ge 1$. Given $k\ge 0$, let $W_k$ be the unique irreducible representation of $\mathfrak{sl}_2(\C)$ of dimension $k+1$. 
+	Explicit model for $W_k$:
+	\begin{align*}
+	 W_k&=\{f\in \C[x,y]| \text{$f$ is homogeneous of degree $k$} \}\\
+	 &\simeq \C x^k\oplus \C x^{k-1}y\oplus \cdots \oplus \C y^k
+	\end{align*}
+	The action of $\mathfrak{sl}_2(\C)$ on $W_k$ is given by
+	\begin{equation*}
+	\begin{pmatrix} 0 & 1\\ 0 & 0 \end{pmatrix} \mapsto y\partial_x, \quad \begin{pmatrix} 0 & 0\\ -1 & 0 \end{pmatrix}\mapsto x\partial_y, \quad \begin{pmatrix} 1 & 0\\ 0 & -1 \end{pmatrix} \mapsto x\partial_x-y\partial_y
+	\end{equation*}
+	so if $W_k$ is a direct summand in the Lefschetz representation of $\bigwedge^{\bullet}V^*$, then $L$ acts by $y\partial_x$, $\Lambda$ acts by $x\partial_y$, and $D$ acts by $x\partial_x-y\partial_y$ respectively. Then the primitive forms in $W_k$ is are  the 1-dimensional space spanned by $yx^k$. Observe that $D(x^{k-i}y^i)=(k-2i)x^{k-i}y^i$. Recall $D=(l-n)\mathbb{1}$ on $\bigwedge^{l}V^*$ which yields $l-n=k-2i \Rightarrow l=n+k-2i$. Hence the monomial $x^{k-i}y^i\in W_k\subset \bigwedge^{\bullet}V^*$ corresponds to a form of degree $n+k=2i$. In particular, we have $x^k \in P^{n-k}$ and
+	\begin{align*}
+	L^{k+1}x^k&=0\\
+	L^{k}x^k&=k! y^k\\
+	L^{i}x^k&=k(k-1)\cdots(k-i+1) x^{k-i}y^i \quad i\le k-1
+	\end{align*}
+	This gives (2) for $W_k$ inside $\bigwedge^{\bullet}V^*$ and so for all of $\bigwedge^{\bullet}V^*$.
+	
+	In order to prove  (1), it suffices to check that for all $q$, $\ker (L^{n-q+1})\supset P^q$ and $L^{n-q}: P^q\to \bigwedge^{2n-q} V^*$ is injective. This follows from $L^{k+1}x^k=0$  and $L^{k}x^k=k! y^k$.
+\end{proof}
+
+\begin{rem}
+	A different interpretation of $W_k$ is that
+	\begin{align*}
+	W_k=&\s^k(\text{linear functions on a 2-dimensional sapce})\\
+	=&\s^k \C^2=\s^k(\C x\oplus \C y)
+	\end{align*} 
+	and $A\in \mathfrak{sl}_2(\C)$ acts on $\s^k$ by multiplication $$A: (x,y) \mapsto A \begin{pmatrix}
+	x \\ y
+	\end{pmatrix}$$
+\end{rem}
+\begin{cor}
+	Suppose $(V,\omega)$ is a symplectic vector space of dimension $2n$, then
+	\begin{enumerate}
+		\item $P^k=0$ for any $k>n$.
+		\item $L^{n-k}:\bigwedge^{k} V^*\to \bigwedge^{2n-k} V^*$ is an isomorphism for $k\le n$.
+	\end{enumerate}
+\end{cor}
+\begin{rem}
+	Let $(V,\omega,h,J)$ be a Kahler vector space of dimension $2n$, then the Lefschetz decomposition is compatible with $h$ and $J$:
+	\begin{enumerate}
+		\item Primitive elements is compatible with type decomposition, i.e. if $P\subset (\bigwedge^{\bullet} V^*)\otimes \C$ are the primitive forms, and $P^{p,q}=P\cap \bigwedge^{p,q} V^*$, then $P^k=\oplus_{p+q=k}P^{p,q}$. This is immediate from the fact that $L$ is of type $(1,1)$, $\Lambda$ is of type $(-1,-1)$, and $D$ is of type $(0,0)$. In particular, 
+		\begin{equation*}
+		\Lambda^{p,q} V^*=\bigoplus_{j=0}L^j\Lambda^{p-j,q-j} V^*
+		\end{equation*}
+		\item Let $(V_{\C},H)$ be the Hermitian vector space corresponds to $(V,\omega,h,J)$, where
+		$V_{\C}=(V,J)$ and $H=h-i\omega$. Then an element of the group of isometry of $V_{\C}$  is a linear isomorphism from $V_{\C}$ to  $V_{\C}$  which preserves $H$. $U(V_{\C}, H)\simeq U(n)$ acts on $V_{\C}$ and preserves $H\otimes {\C}$. This action respects the type decomposition $V^*\otimes \C= {V^*}^{1,0}\oplus {V^*}^{0,1}$, hence it acts on each $\bigwedge^{p,q}V^*=\bigwedge^{p}V^*_{\C}\otimes \bigwedge^{q}V^*_{\C}$. If $p+q\le n$, then $P^{p+q}\subset \bigwedge^{p,q}V^*$ is an irreducible $U(n)$ representation.
+		\item The Lefschetz decomposition is a decomposition of $U(n)$ irreducible representation because $\mathfrak{u}(n)$ and $\mathfrak{sl}_2(\C)$ normalize each other in  $\End (\bigwedge^{\bullet}V^* \otimes \C)$.
+	\end{enumerate}
+\end{rem}
+\paragraph{Polarization}
+Given a symplectic vector space $V$ of $dim_{\R} V=2n$, we have two natural operators on the algebra of forms:
+\begin{align*}
+\star: &\Lambda^{q}V^*\to \Lambda^{2n-q}V^*\\
+L^{n-q} : &\Lambda^{q}V^*\to \Lambda^{2n-q}V^*
+\end{align*}
+These two operators are proportional on each $L^j P^k$.
+
+\begin{prop}
+	If $(V,\omega,h,J)$ is a Kahler vector space of $dim_{\R} V=2n$, and $\alpha \in L^{j} P^{p,q}, p+q=k$, then
+	\begin{equation*}
+	\star \alpha= (-1)^{\frac{k(k+1)}{2}}i^{p-q}\frac{j!}{(n-k-i)!}L^{n-k-2j}\bar{\alpha}
+	\end{equation*}
+\end{prop} 
+Let $\omega$ be an ingredient of a Kahler structure and define $\vol=\frac{\omega^n}{n!}$, then $\vol$ can be identified with the Riemannian volume form. Recall that to define a Riemannian volume form one need to specify a metric as well as an orientation. Given any oriented orthonormal basis $\{e_1,\cdots, e_{2n} \}$, define $\vol^{Riem}=e_1^{\vee}\wedge\cdots \wedge e_{2n}^{\vee}$.
+\begin{exercise}
+	Check that $\vol=\vol^{Riem}$.
+\end{exercise}
+
+\begin{definition}
+	Let $(V,\omega,h,J)$ is a Kahler vector space of $dim_{\R} V=2n$, we can define a Hermitian pairing $\Phi$ on $\bigwedge^{\bullet}V^*_{\C}$ by 
+	\begin{equation*}
+	\Phi(\alpha,\beta) \vol= i^{k^2} L^{n-k}( \alpha \wedge \bar{\beta})
+	\end{equation*}
+	for $\alpha, \beta \in \bigwedge^{k}V^*_{\C}$. We call this the Hodge polarization.
+\end{definition}
+By definition of the Lefschetz decomposition is orthogonal with respect to $\Phi$.
+
+\begin{lem}
+	$(-1)^q \Phi(-,-)$ is positive definite on $L^j P^{p,q}$.
+\end{lem}
+\begin{proof}
+	Let $k=p+q$, $\alpha\in L^j P^{p+q}$, then
+	\begin{align*}
+	\Phi(\alpha, \alpha)\vol &=i^{k^2}L^{n-2j-k}(\alpha\wedge \bar{\alpha})\\
+	&=i^{k^2}(-1)^{\frac{k(k+1)}{2}}i^{p-q}\frac{j!}{(n-k-i)!}\alpha\wedge \star \alpha\\
+	&=i^{k^2+k(k+1)+p-q}\frac{j!}{(n-k-i)!}<\alpha,\alpha>_{H}\vol
+	\end{align*}
+	Hence $(-1)^q\Phi(\alpha, \alpha)\vol=i^{2k(k+1)}\frac{j!}{(n-k-i)!}<\alpha,\alpha>_{H}\vol$. Note that $i^{2k(k+1)}=1$ and we are done.
+\end{proof}
+Classically, the polarization is defined differently.
+
+\paragraph{Hodge-Riemann bilinear pairing}
+Define $Q:\bigwedge^{\bullet}V^*\otimes \bigwedge^{\bullet}V^*\to \R$ by
+\begin{equation*}
+\alpha \otimes \beta \longrightarrow (-1)^{ \frac{k(k+1)}{2}}\frac{\alpha\wedge\beta\wedge \omega^{n-k}}{\vol}
+\end{equation*}
+extend $Q$ linearly to $\bigwedge^{\bullet}V^*\otimes \C$. Then
+\begin{equation*}
+	\Psi(\alpha,\beta)=i^{k^2}(-1)^{ \frac{k(k+1)}{2}} Q(\alpha,\overline{\beta})
+\end{equation*}
+becomes the \its{Hodge-Riemann binear relations}.
+\begin{enumerate}
+	\item $bigwedge^{p,q}V^*$ and $bigwedge^{p',q'}V^*$ are $Q$-orthogonal, unless they are equal.
+	\item  For every $0\not=\alpha \in P^{p,q}$, we have 
+	\begin{equation*}
+	i^{p-q}Q(\alpha,\bar{\alpha})=(n-p-q)!<\alpha,\alpha>_H
+	\end{equation*}
+\end{enumerate}
+\subsection{Complex manifolds}
+Let $M$ be a $C^{\infty}$ manifold with $\dim_{\R}(M)=2n$. Globalize $(S,R,C)$ (symplectic structure, Riemannian structure, complex structure) to get structures on $M$.
+
+\begin{definition}
+	$M$ is equipped with an almost symplectic structure, or pseudo-Riemannian structure, or almost complex structure, if we are given one of 
+	\begin{align*}
+	(S):\quad& \omega \in \Gamma_{C^{\infty}}(M, \Lambda^2 T^*M)\quad \text{non-degenerate}\\
+	(R):\quad& h \in \Gamma_{C^{\infty}}(M, S^2 TM)\quad \text{non-degenerate}\\
+	(C):\quad& J \in \Gamma_{C^{\infty}}(M, \End TM)\quad J^2=-\id	
+	\end{align*}
+\end{definition}
+For these structures $\omega, h, J$ to affect geometry, we need to know the properties of $\omega_p, h_p, J_p$ that are preserved when we vary $p\in M$.
+\begin{definition}
+	A tensor structure $f\in \Gamma_{C^{\infty}}(M, T^{\otimes k}M\otimes T^{* \otimes k}M$ is called \bfs{integrable} if for every$p\in M$, there exists a neighborhood $V$ of $p$ with $p\in P\subset M$ and a trivialization $TM|_V\simeq V\times T_pM$ under which the tensor structure is identified with the pull back of $t_p\in T^{\otimes k}_pM\otimes T^{* \otimes k}_pM$.
+\end{definition}
+\begin{rem}
+	We need sufficient condition for integrability that are easy to check. In fact, for $(S)$ and $(C)$, we have such:
+\end{rem}
+
+\begin{thm}[Darboux]
+	An almost symplectic structure is integrable $\Leftrightarrow$ $d\omega=0$.
+\end{thm}
+\begin{thm}[Newlander-Nirenberg]
+	An almost complex structure is integrable if and only if the vector bundle $T^{1,0}M\subset TM\otimes |C$ satisfies
+	\begin{equation*}
+	[T^{1,0}, T^{1,0}] \subset T^{1,0}
+	\end{equation*}
+	(integrable distribution).
+\end{thm}
+
+If we have compatible structure $(M,\omega, h, J)$, then we call $M$ \bfs{almost Kahler}.
+\begin{rem}
+	\begin{enumerate}
+		\item If all $(\omega, h, J)$ are integrable, then we only get flat manifolds.
+		\item if two of them are integrable, this is equivalent to (1).
+	\end{enumerate}
+Idea: we require $\omega, J$ are integrable but the integrable structure are compatible up to 1st derivative.
+\end{rem}
+
+\begin{definition}
+	A \bfs{Kahler structure} on $M$ is a pair $(J,H)$ consists of
+	\begin{enumerate}
+		\item a complex structure $J$ on $M$.
+		\item a Hermitian metric $H$ on $T_{\C}M$ such that $H=h-i\omega$ and $d\omega=0$.
+	\end{enumerate}
+i.e. we have an almost Kahler structure on $M$ with $J$ and $\omega$ are integrable separately.
+\end{definition}
+\begin{definition}
+	A \bfs{Hermitian structure} on $M$ is a pair $(J,H)$ such that $J$ is integrable and $H$ is a Hermitian metric.
+\end{definition}
+
+Let $(M,J)$ be a complex manifold. A system of holomorphic coordinates centered at $p\in M$ is a pair $(U,\underline{z})$ where
+\begin{enumerate}
+	\item $p\in U$.
+	\item $\underline{z}=(z_1,\cdots, z_n):U \to \C^n$ is a $C^{\infty}$ embedding of $U$ as an open subset of $\C^n$ such that $\underline{z}(p)=0$.
+	\item The trivialization $T_UM\simeq \underline{z}^*T\C^n\simeq U\times \C^n $ makes $J$ constant, i.e. if $TM\otimes \C \simeq T^{1,0}M\oplus T^{0,1} M$ is the decomposition corresponding to $J$, then the vector fields $\{\frac{\partial}{\partial z_1},\cdots, \frac{\partial}{\partial z_n} \}$ is a $C^{\infty}$ frame of $T^{1,0}M|_U$. Correspondingly, $\{\frac{\partial}{\partial \overline{z}_1},\cdots, \frac{\partial}{\partial \overline{z}_n} \}$ is a $C^{\infty}$ frame of $T^{0,1}M|_U$.
+\end{enumerate}
+
+If we write $z_i=x_i+iy_i$, then $(x_1,\cdots, x_n,y_1,\cdots, y_n )$ give rise a $C^{\infty}$ coordinate centered at $p\in M$, and moreover
+\begin{align*}
+\frac{\partial}{\partial {z}_i}=&\frac{1}{2}\big( \frac{\partial}{\partial x_i} - \frac{\partial}{\partial y_i}\big)\\
+\frac{\partial}{\partial \overline{z}_i}=&\frac{1}{2}\big( \frac{\partial}{\partial x_i} + \frac{\partial}{\partial y_i}\big)
+\end{align*}
+and the corresponding dual frame is $dz_i=dx_i+idy_i$ and $d\overline{z}_i=dx_i-idy_i$.
+
+\begin{prop}
+	$(M,J,H)$ is a Hermitian manifold, TFAE
+	\begin{enumerate}
+		\item $(J,H)$ is Kahler.
+		\item at every point $p\in M$, there exist a local holomorphic coordinate $(z_1,\cdots,z_n)$ centered at $p$ such that
+		\begin{equation*}
+		H\big( \frac{\partial}{\partial z_i}, \frac{\partial}{\partial z_j}\big)= \delta{ij}+ O(\|z\|^2 )
+		\end{equation*} 
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	Let $\underline{z}$ be a local holomorphic coordinate at $p\in U\subset  M$. Let $H_{ij}=H\big(\frac{\partial}{\partial z_i},\frac{\partial}{\partial z_j}\big)$ which is a $\C$-valued $C^{\infty}$ function on $U$. Since $H=h-i\omega$, $h_{ij}=\re(H_{ij})$, and 
+	\begin{equation*}
+	\omega= \frac{i}{2}\sum_{i,j} h_{ij} dz_i\wedge d\overline{z}_j
+	\end{equation*}
+	if (2) holds then all the first partials of $h_{ij}$ vanishes at $p$ so $d\omega=0$ at $p$. Since we require (2) to be true at every $p\in M$, $d\omega=0$ everywhere.
+	
+	For the converse, let $\underline{z}$ again be a local holomorphic coordinate at $p\in U\subset  M$. Expand $H$ into a power series
+	\begin{equation*}
+	H_{ij}=H_{ij}(0)+\sum_k a_{ij}^k z_k +\sum_k \overline{a}_{ij}^k \overline{z}_k + O(\|z\|^2 )
+	\end{equation*}
+	Replacing  $\underline{z}$ by a constant multiple $A \underline{z}$ for some $A\in GL_n(\C)$, we can assume $H_{ij}(0)=\delta_{ij}$. Assume now $H_{ij}=\delta_{ij}+\sum_k a_{ij}^k z_k +\sum_k \overline{a}_{ij}^k \overline{z}_k$.
+	
+	Look for change of variables $z_i=w_i+q_i(\underline{w})$ where $q_i(\underline{w})$ is a homogeneous quadratic function in $\underline{w}$
+	\begin{equation*}
+	\frac{\partial}{\partial w_i}=\sum_s \frac{\partial z_s}{\partial w_i}\frac{\partial}{\partial z_s}=\sum_s \big(\delta_{is}+\frac{\partial q_s}{\partial w_i}\big)\frac{\partial}{\partial z_s}
+	\end{equation*}
+	Now we can compute the matrix coefficients of $H$  on $\{\frac{\partial}{\partial w_i} \}$
+	\begin{align*}
+	\tilde{H}_{ij}&=H\big(\frac{\partial}{\partial w_i},\frac{\partial}{\partial w_j}\big)=\sum_{s,t}\big(\delta_{is}+\frac{\partial q_s}{\partial w_i}\big)\big(\delta_{jt}+\frac{\overline{\partial q_t}}{\partial w_j}\big)H_{st}\\
+	&=H_{ij}+\sum_s \frac{\partial q_s}{\partial w_i} h_{sj}+ \sum_t \frac{\overline{\partial q_t}}{\partial w_j}h_{it}+ O(\|z\|^2 )
+	\end{align*}
+	Note that $\widetilde{a^k_{ij}}=a^{k}_{ij}+\frac{\partial^2 q_i}{\partial z_i \partial z_k}$. But $d\omega=0$ implies that $a^{k}_{ij}=a^i_{kj}$. Hence take $q_j(\omega)=-\sum_{i,j} a^{k}_{ij}w_iw_k$ and then $\widetilde{a^k_{ij}}=0$.
+\end{proof}
+\paragraph{Notation}
+We denote 
+\begin{enumerate}
+	\item $\mathcal{A}^k_M$= sheaf of germs of $C^{\infty}$ sections of $\bigwedge^k(T^*M\otimes \C)$.
+	\item $\mathcal{A}^{p,q}_M$= sheaf of germs of $C^{\infty}$ sections of $\bigwedge^{p,q}(T^*M)$.
+	\item $\mathcal{A}^k(M)= \Gamma_{C^{\infty}}\big(M,\bigwedge^k(T^*M\otimes \C)\big)$.
+	 	\item $\mathcal{A}^{p,q}(M)= \Gamma_{C^{\infty}}\big(M,\bigwedge^{p,q}(T^*M)\big)$.
+\end{enumerate}
+
+If $(M, \omega)$ almost symplectic, we get following maps
+\begin{align*}
+L:&\mathcal{A}^k(M) \to \mathcal{A}^{k+2}(M)\\ \Lambda:&\mathcal{A}^k(M) \to \mathcal{A}^{k-2}(M)\\ 
+D:&\mathcal{A}^k(M) \to \mathcal{A}^{k}(M)\\ 
+\end{align*}
+
+If $(M,\omega,h,J)$ is an almost Kahler manifold, then we get the decomposition
+\begin{equation*}
+\mathcal{A}^k(M) =\bigoplus_{p+q=k}\mathcal{A}^{p,q}(M) 
+\end{equation*}
+and $L, \Lambda, D$ respect this decomposition. But there exists a problem that these structures do not interact well with the exterior derivative $d$, hence we need the Kahler structure. Let's investigate the source of this problem. Suppose $(M,J)$ is an almost complex manifold, then define
+\begin{equation*}
+d^{a,b}: \mathcal{A}^{\bullet}(M) \to \mathcal{A}^{\bullet+1}(M)
+\end{equation*}
+by
+\begin{equation*}
+d^{a,b}\big|_{\mathcal{A}^{p,q}(M)}=\pi^{p+a,q+b}\circ d 
+\end{equation*}
+where $a+b=1$ for $a,b\in \Z$, and $\pi^{p,q}$ is the projection $\mathcal{A}^{\bullet}(M)\to \mathcal{A}^{p,q}(M)$. In particular, we have $d^{1,0}|_{\mathcal{A}^{0,0}(M)}=\partial$ and $d^{0,1}|_{\mathcal{A}^{0,0}(M)}=\overline{\partial}$.
+
+\begin{prop}The followings are equivalent
+	\begin{enumerate}
+		\item $(M,J)$ is a complex manifold.
+		\item  $d=\partial+\overline{\partial}$.
+		\item $\overline{\partial}^2=0=\partial^2$ and $\partial\overline{\partial}+\overline{\partial}\partial=0$.
+	\end{enumerate}	
+\end{prop}
+\begin{proof}
+	(2) can be checked locally. If $\underline{z}$ is a system of holomorphic coordinates, $\alpha \in \mathcal{A}^{p,q}(M)$ can be written as 
+	\begin{equation*}
+	\alpha=\sum_{\substack{I,J \\|I|=p, |J|=q}}f_{IJ}dz_I\wedge d\overline{z}_J
+	\end{equation*}
+	so 
+	\begin{align*}
+	\partial \alpha=&\sum_{\substack{I,J,k \\|I|=p, |J|=q}}\frac{\partial f_{IJ}}{\partial z_k} dz_k \wedge dz_I\wedge d\overline{z}_J \\
+	\overline{\partial} \alpha=&\sum_{\substack{I,J,k \\|I|=p, |J|=q}}\frac{\partial f_{IJ}}{\partial \overline{z}_k}  d\overline{z}_k \wedge dz_I\wedge d\overline{z}_J
+	\end{align*}
+	Using the condition for a system of homomorphic coordinates, $dz_k=dx_k+idy_k, d\overline{z}_k=dx_k-idy_k$, we get  $d\alpha=\partial \alpha+  	\overline{\partial} \alpha$.
+	
+	(3) follows from (2) and type decomposition of $ d^2=0$.
+\end{proof}
+
+\begin{rem}We can say that $J$ is integrable if and only if $(d^{a,b})^2=$ implies $(a,b)=(1,0)$ or $(0,1)$. 
+	\end{rem}
+If $M$ is almost complex, we still can  write every $(p,q)$ form locally as a sum of forms of the type
+\begin{equation*}
+fa_1\wedge a_p\wedge b_1 \wedge b_q
+\end{equation*}
+where $f\in \mathcal{A}^0_M$ is a local function and $a_i\in \Gamma_{C^{\infty}}\big(M,\bigwedge^{1,0}(T^*M)\big)$, $b_j\in \Gamma_{C^{\infty}}\big(M,\bigwedge^{0,1}(T^*M)\big)$. Hence it suffices to understand $d|_{\mathcal{A}^0_M}$, $\mathcal{A}^1_M$, and the corresponding type decomposition. We have
+\begin{align*}
+d|_{\mathcal{A}^0_M}=& \partial+\overline{\partial}\\
+d|_{\mathcal{A}^1_M}=&d^{-1,2}+d^{0,1}+d^{1,0}+d^{2,-1}
+\end{align*}
+so $d=\partial+\overline{\partial}$ on forms if and only $d^{-1,2}=d^{2,-1}=0$.
+\begin{exercise}
+	Assume the Newlander-Nirenberg theorem, check that $J$ is integrable if and only if $d^{-1,2}=0$ (Nijenhuis tensor).
+\end{exercise}
+
+Let $(M,J )$ be a complex manifold, then $(\bigoplus_{p,q}\mathcal{A}^{p,q}, \partial, \overline{\partial})$ is a bi-complex with $\overline{\partial}^2=0=\partial^2$ and $\partial\overline{\partial}+\overline{\partial}\partial=0$. It has a diagonal complex $\mathcal{A}^n$:
+\begin{equation*}
+	\longrightarrow \mathcal{A}^n_{M}=\bigoplus_{p+q=n}\mathcal{A}_M^{p,q}\stackrel{d=\partial+\overline{\partial}}{\longrightarrow} \mathcal{A}^{n+1}_{M}\stackrel{d}{\longrightarrow} \mathcal{A}^{n+2}_{M}\longrightarrow
+\end{equation*}
+
+
+\begin{definition}
+	Let $(M,J)$ be a complex manifold, then we have several types of cohomology groups built out from forms:
+	\begin{enumerate}
+		\item {$\C$-de-Rham cohomology}
+		\begin{equation*}
+		H^k_{DR}(X,\C)=  \frac{\ker \big(\mathcal{A}^{k}_{M}\stackrel{d}{\longrightarrow} \mathcal{A}^{k+1}_{M} \big)}{\im \big(\mathcal{A}^{k-1}_{M}\stackrel{d}{\longrightarrow} \mathcal{A}^{k}_{M}\big) }
+		\end{equation*}
+		\item $\overline{\partial}$-cohomology
+		\begin{equation*}
+		H^{p,q}_{\overline{\partial}}(M)\simeq H^q(M,\Omega^p_M)= \frac{\ker \big(\mathcal{A}^{p,q}_{M}\stackrel{\overline{\partial}}{\longrightarrow} \mathcal{A}^{p,q+1}_{M} \big)}{\im \big(\mathcal{A}^{p,q-1}_{M}\stackrel{\overline{\partial}}{\longrightarrow} \mathcal{A}^{p,q}_{M}\big) }
+		\end{equation*}
+		and similarly we can define $\partial$-cohomology.
+		\item Dolbeault cohomology
+		\begin{equation*}
+		H^k_{Dol}=\bigoplus_{p+q=k}\mathcal{H}_{\overline{\partial}}^{p,q}(M)=\frac{\ker \big(\mathcal{A}^{k}_{M}\stackrel{\overline{\partial}}{\longrightarrow} \mathcal{A}^{k+1}_{M} \big)}{\im \big(\mathcal{A}^{k-1}_{M}\stackrel{\overline{\partial}}{\longrightarrow} \mathcal{A}^{k}_{M}\big) }
+		\end{equation*}
+ 	\end{enumerate} 
+\end{definition}
+If $(M,J)$ can be completed to a Kahler structure $(M,J,\omega,h)$, then there exists a natural isomorphism between  de Rham cohomology and Dolbeault cohomology. Note that on $(M,J)$ we also have the singular cohomology $H^{\bullet}(M,\R)$.
+\begin{thm}[de Rham]
+	\begin{equation*}
+	H^{\bullet}(M,\C)\simeq H^{\bullet}_{DR}(M,\C)
+	\end{equation*}
+\end{thm}This gives extra structures on $H^{\bullet}_{DR}(M,\C)$ by the map
+\begin{equation*}
+H^{\bullet}(M,\Z)\to H^{\bullet}(M,\C)\simeq H^{\bullet}_{DR}(M,\C)
+\end{equation*}
+
+\begin{definition}
+	Let $M$ be a $C^{\infty}$ manifold. A \its {holomorphic atlas} on $M$ is an atlas $\{(U_i, \phi_i \}$ for $M$ with $\phi_i: U_i \simeq \phi_i(U_i)\subset \C^n$ such that the transition functions $\phi_{ij}=\phi_i\circ \phi_j^{-1}: \phi_j (U_i\cap U_j)\simeq \phi_i (U_i\cap U_j)$ are holomorphic. Two atlas $\{(U_i, \phi_i \}$ and $\{(V_j, \psi_j \}$ are equivalent if $\phi_j\circ \psi_j^{-1}:\phi_i( U_i\cap V_j)\to \psi_j( U_i\cap V_j) $ is a biholomorphic homeomorphism. 
+	A \its{complex manifold} $M$ of dimension $n$ is a  $C^{\infty}$ manifold of dimension $2n$ equipped with an equivalence class of holomorphic atlases. 
+\end{definition}
+\begin{rem}
+	Note that this definition is equivalent to $(M,J)$ with $J$ integrable. Starting with $(M,J)$ we can build an atlas of $M$ which is holomorphic. Conversely, starting with $M$ with a holomorphic atlas, we can use $(z_1,\cdots, z_n):= \phi : U\simeq \phi(U) \subset \C^n$ to define $J: TM\to TM$ by $J_p:T_pM \to T_pM$: $\frac{\partial}{\partial x_i}\mapsto \frac{\partial}{\partial y_i}$, $\frac{\partial}{\partial y_i}\mapsto -\frac{\partial}{\partial x_i}$ for any $p\in M$.
+	\begin{exercise}
+		If $f:U\to V$ is holomorphic map, where $U, V\subset \C^n$. Check that $df_{x}\otimes \C : T_xU\otimes \C \to T_{f(x)V}$ respects the $(1,0)\oplus (0,1)$ decomposition.
+	\end{exercise}
+
+\end{rem}
+\paragraph{Examples of complex manifolds and Kahler manifolds}
+\subsection{Affine space}
+\begin{ex}[Affine space $A^n_{\C}=\C^n$]
+	Let $M=\C^n$, then the complex manifold structure is given by the atlas with a single chart $\C^n \stackrel{\id}{\to }\C^n$. The complex structure $J$ is constant. If we use the group structure, we can trivialize the tangent bundle\begin{center}
+		\begin{tikzcd}
+		
+		TM\arrow[r,equal, " "] \arrow[d,,"", red]& \R^{2n}\times \R^{2n} \arrow[d,, "" red] \\
+		M  \arrow[r, equal, "" blue]
+		& \R^{2n}
+		\end{tikzcd}
+	\end{center}
+$J$ is constant in the bas direction
+\begin{align*}
+J:& \R^{2n} \to \End(\R^{2n})\\
+&p \mapsto \begin{pmatrix}
+x_i \to y_i\\
+y_i \to -x_i
+\end{pmatrix}
+\end{align*} 
+$\C^n$ has a natural Kahler structure with $H=\sum_{i=1}^{n} dz_i\otimes d\overline{z}_i$.
+\end{ex}
+\begin{rem}
+	$\C^n$ is the simplest complex manifold, but we cannot regard it as a local model for complex manifolds. In fact, we cannot expect that a complex manifold can be covered by charts which are biholomorphic to $\C^n$.
+\end{rem}
+
+\subsection{Complex projective spaces}
+\begin{ex}[Complex projective spaces]
+	Let $M=\cp^n$. We get a Kahler structure by the Fubini-Study symplectic form from the Fubini-Study metric:
+	\begin{equation*}
+	\omega_{FS}|_{U_i}=\frac{i}{2\pi}\partial \overline{\partial} \log \big(\sum_{k=0}^{n}\big|\frac{x_k}{x_i}\big|^2 \big)
+	\end{equation*}
+	Equivalently, if $\{z_1, \cdots, z_k\}$ are the affine coordinatesm we have 
+		\begin{equation*}
+	\omega_{FS}|_{U_i}=\frac{i}{2\pi}\partial \overline{\partial} \log \big(1+ \sum_{k=1}^{n}|z_k|^2 \big)
+	\end{equation*}
+
+\begin{exercise}
+	\begin{enumerate}
+		\item Check that $\omega_{FS}$ is well-defined
+		\begin{equation*}
+		(\omega_{FS}|_{U_i})\big|_{U_i\cap U_j}=(\omega_{FS}|_{U_j})\big|_{U_i\cap U_j}
+		\end{equation*}
+		\item Check that $\omega_{FS}\in \mathcal{A}^{1,1}_{\R}(\cp^n)$.
+		\item Consider the projection $\pi: \C^{n+1}-\{0\}\to \cp^n, (x_0,\cdots, x_n)\mapsto (x_0:\cdots : x_n)$, then $\pi^*\omega_{FS}=\frac{i}{2\pi}\partial \overline{\partial} \log \big(\|x\|^2 \big)$ is the Kahler form for the constant Hermitian metric on $\C^n$, where $\|x\|^2= \sum_{i=0}^{n}|x_i|^2$.
+	\end{enumerate}
+\end{exercise}
+
+Finally we want to check that $\omega_{FS}$ is positive definite. Consider an open neighborhood $U_i$ with affine coordinate $\{z_1,\cdots, z_n \}$ on it. Then 
+\begin{equation*}
+\partial \overline{\partial} \log \big(1+ \sum_{k=1}^{n}|z_k|^2 \big)=\sum_{i<j} H_{ij} dz_i\wedge d\overline{z}_j
+\end{equation*}
+We just need to shoe $(H_{ij})_{i,j}$ is positive definite.
+\begin{align*}
+\partial \overline{\partial} \log \big(1+ \sum_{k=1}^{n}|z_k|^2 \big)=& \frac{\sum_i dz_i\wedge d\overline{z}_i }{1+ \sum_{k=1}^{n}|z_k|^2}-\frac{(\sum_i \overline{z}_i\wedge dz_i)\wedge(\sum_j z_j\wedge d\overline{z}_j) }{(1+ \sum_{k=1}^{n}|z_k|^2)^2}
+\end{align*}
+Hence \begin{equation*}
+ H_{ij}=\frac{(1+\|z\|^2)\delta_{ij}-\overline{z}_iz_j}{(1+\|z\|^2)^2}
+\end{equation*}
+Then \begin{align*}
+u^t H \overline{u}=& \frac{1}{(1+\|z\|^2)^2}\big((1+\|z\|^2)\|u\|^2-u^t\overline{z}z^tu \big)\\
+=&\frac{1}{(1+\|z\|^2)^2}\big(\|u\|^2+\|z\|^2\|u\|^2-<u,z><z,u> \big)\\
+=&\frac{1}{(1+\|z\|^2)^2}\big(\|u\|^2+\|z\|^2\|u\|^2-|<u,z>|^2 \big)\ge 0
+\end{align*}
+by Cauchy-Schwartz.
+
+\end{ex}
+Recall the standard Kahler form on $\C^{n+1}$ is $i\sum_{i=1}^n dz_i\wedge d\overline{z}_i=i\sum_{i=1}^n \partial \overline{\partial} \big(|x_i|^2 \big)=i \partial \overline{\partial} \|x\|^2$. If we replace $x$ by $\lambda\cdot x$, then the standard form changes to $i \partial \overline{\partial} \|\lambda\cdot x\|^2=i \partial \overline{\partial}|\lambda |^2 \| x\|^2=i|\lambda |^2 \partial \overline{\partial} \| x\|^2$. But $\partial \overline{\partial}(\log|\lambda |^2+  \log \| x\|^2)=\partial \overline{\partial}  \log \| x\|^2$. Hence the Fubini-Study form is well-defined on $\cp^n$.
+Let's calculate the volume of $\cp^1$ in $\omega_{FS}$.
+\begin{align*}
+\vol(\cp^1)=& \int_{\cp^1} \omega_{FS}\\
+= &\frac{1}{2\pi}\int_{\C}  \frac{1}{(1+|z|^2)^2}dz\wedge d\overline{z}\\
+=&\frac{1}{\pi}\int_{\R^2}  \frac{1}{(1+x^2+y^2)^2}dx\wedge dy \\
+=&2\int_{0}^{\infty}  \frac{r}{(1+r^2)^2}dr =1\\
+\end{align*}
+\begin{ex}
+	Recall that $\vol_{\cp^n}=\frac{\omega_{FS}^n}{n!}$. Compute $\vol{(\cp^n)}$.
+\end{ex}
+\subsubsection{Riemann surface}
+Let $M$ be an oriented 2-dimensional manifold. Suppose $J:TM \to TM$ is an almost complex structure of $M$, then $J$ is integrable. $T^{1,0}\subset TM\otimes \C$ is a complex subbundle of rank 1.
+\begin{lem}
+	If $M$ is an oriented 2-manifold, then choosing $J$ is equivalent to choose a conformal class of metric.
+\end{lem}
+\begin{proof}
+	Let $h$ be a metric on $M$, then for any $p\in M$, define $J_p:T_pM\to T_pM$ to be the unique linear map that satisfies\begin{enumerate}
+		\item $\forall v\not=0$, $(v,J_pv)$ is a positively oriented basis of $T_p M$.
+		\item $(J_p)^2=-\id$.
+		\item $h(J_pv,J_pw)=h(v,w)$.
+	\end{enumerate}
+Note that if we scale $h$ by a positive function, $J$ will not change.
+
+Conversely, if we have an almost complex structure $J$ compatible with the orientation, then define $h_p\in \s^2T_pM$ to be the metric for which $v\not=0 \in T_pM$, the basis $\{v/a,J(v/a)\}$ is an orthonormal basis for $h_p$, and $a>0$ is the number for which $v\wedge Jv =a^2\lambda$, where $\lambda \in \bigwedge^2 TM$ is the Poisson structure corresponding to the positive volume form.
+\end{proof}
+\begin{rem}
+	\begin{enumerate}
+		\item $h_p$ does not depend on the choice of $v$.
+		\item Since metric of  always exists, every orientable 2-manifold admits a complex structure.
+		\item By construction, if $J, h$ are compatible on an oriented 2-manifold, then $\omega(-,-)=h(J-,-)$ is a Kahler form. 
+	\end{enumerate}
+\end{rem}
+
+\subsubsection{Complex tori and complex Lie groups}
+Let $V$ be an $n$-dimensional $\C$-vector space. Consider $\Gamma \subset V$ be a discrete subgroup of order $2n$, then$\mathfrak{X}=V/\Gamma$ is a compact complex manifold and $\pi: V\to \mathfrak{X}$ is holomorphic. If we can choose a basis of $\Gamma $, then $\Gamma$ is freely generated by a real basis of $V$ and we can identify $\Gamma \subset V$ with $\Z^{2n}\subset \R^{2n} \subset \C^n$. Therefore we can think of $\Gamma \simeq \Z^{2n}$ as a $\Z$-linear combination of basis vectors.
+
+Let us look at the quotient map $\pi: \C^n \to \C^n/\Z^{2n}$. Let $U\subset \C^n$ be an  open set which is small so that $U\cap (U+\lambda)=\emptyset$ for any $\lambda \in \Z^{2n}$. If $p=(z_1',\cdots, z_n')\in \C^n$, we can choose $U\ni p$ with this property by $U=B_{\frac{1}{2}}(z_1')\times\cdots\times B_{\frac{1}{2}}(z_n')$, then $q: U \to q(U)$ is a diffeomorphism. Cover $\mathfrak{X}$ by open sets of the form $q(U)$, we can then use charts of the form $q(U)^{-1}$.
+
+\begin{rem}
+	\begin{enumerate}
+		\item As a $C^{\infty}$ manifold, $\mathfrak{X}\simeq \R^{2n}/Z^{2n}\simeq T^n$.
+		\item However, if $\Gamma_1, \Gamma_2$ are different discrete subgroups of $V$ of max rank, then in general $\mathfrak{X}_1=V/\Gamma_1$ and  $\mathfrak{X}_2=V/\Gamma_2$ are not isomorphic as holomorphic Lie groups or even as complex manifolds.
+		\item Every $V/\Gamma$ is a Kahler manifold. Indeed, if $z_1,\cdots, z_n$ are linear coordinates on $V$, then the standard Kahler form $\omega=\frac{1}{2\pi}\sum_{i=1}^{n} dz_i\wedge d\overline{z_i}$ descends to $V/\Gamma$. 
+	\end{enumerate}
+\end{rem} 
+Hence every complex torus is a compact holomorphic abelian Lie group. The converse is also true:
+\begin{lem}
+	Suppose $X$ is a connected compact holomorphic Lie group, then $X$ is a complex torus.
+\end{lem}
+\begin{proof}
+	Let $x\in \mathfrak{X}$, then we get a biholomorphic map $\mathfrak{X}\stackrel{a_x}{\to }\mathfrak{X}: y\mapsto xyx^{-1}$ which respects the group structure. The differential of $a_x$ at $e\in \mathfrak{X}$ gives a linear map $\Ad_x=(da_x)_e: T_e\mathfrak{X}\to T_e\mathfrak{X}$. $\Ad_x \in GL(T_e\mathfrak{X})\subset \End(T_e\mathfrak{X})$ depends holomorphically on $x$, so $\Ad: \mathfrak{X} \to GL_n(\C)\subset \C^{n^2}$ is holomorphic. By maximum principle, $\Ad$ is constant. Since $\Ad_e= \id$, $\Ad: \mathfrak{X}\to \End(T_e\mathfrak{X}): x\to \id$ for any $x$, which implies that $a_x=\id$. Indeed, let $(U,z)$ be a local chart on $\mathfrak{X}$ containing $e$, then we get a function
+	\begin{equation*}
+	a_x^{-1}(U)\stackrel{a_x}{\to}U\stackrel{z_i}{\to } \C
+	\end{equation*}
+	This function expands to a power series in $z_i$, and has coefficients which are well defined analytic functions for $x\in \mathfrak{X}$ which are then constant. Hence $a_x=\id$ for any $x$. Therefore, $\mathfrak{X}$ is commutative.
+	
+	Now, the exponential map $T_e X \stackrel{\exp}{\to}\mathfrak{X}$ is a group homomorphism. Since $X$ is compact, $\exp$ is injective. Therefore, $\mathfrak{X}\simeq T_e X/ \ker(\exp)$.
+\end{proof}
+
+
+\begin{rem}
+	There exist complex structures on noncommutative Lie groups which  are left invariance but not compatible with products.
+\end{rem}
+
+\begin{thm}[Samuel and Wang]
+	If $G$ is any compact $C^{\infty}$ Lie group of dimension $\dim_{\R} G\in 2\Z$, then it admits an integrable left invariant complex structure.
+\end{thm}
+
+Recall $$Sp_n{\C}=\{A\in M_{2n}(\C) | A\begin{pmatrix}
+0 & I_n\\
+-I_n & 0
+\end{pmatrix}A^T=I_{2n}\} $$. More generally, consider complex Lie group $H\subset G$ a closed complex Lie subgroup, then $G/H$ has a natural structure of complex manifold so that:
+\begin{itemize}
+	\item $q: G \to G/H$ is holomorphic.
+	\item $q$ is locally trivial as a holomorphic $H$-embedded map, that is, we can cover $G/H$ by open subsets $U$ such that $q^{-1}(H)\simeq U \times H$ biholomorphically and is compatible with $H$-action.
+\end{itemize}
+Recall that 
+\begin{equation*}
+\cp^n=GL_{n+1}(\C)/\{A\in GL_{n+1}(\C)| A=
+\begin{blockarray}{cc|cccc|cccc}
+& 1 & n  \\
+\begin{block}{c(c|cccc|cccc)}
+1 & * & * \\
+\cline{1-10}% don't use \hline
+n & 0 & * \\
+\end{block}
+\end{blockarray}
+  \}
+\end{equation*}
+\begin{rem}[Samuel-Wang]
+	Every even dimensional compact real Lie group $U$ admits a left invariant complex structure.
+	
+	\its{Idea}: Denote $\lie(U)=\mathfrak{u}$, then $\mathfrak{u}\otimes\C =\mathfrak{g}$ is a complex Lie group. Recall that an almost complex structure on $U$ is a endomorphism $ J: TU\to TU$ with $J^2=\id$. We also have the splitting $TU\otimes \C= T^{1,0}U+ T^{0,1}U$, and $J$ is integrable if $[{T^{0,1}}, T^{0,1}]\subset T^{0,1}$. Since $U$ is a group, $TU\simeq U\times \mathfrak{u}$, and $J$ is left invariant if it is constant under this trivialization. So we have $\mathfrak{g}=\mathfrak{u} \otimes \C= \mathfrak{g}^{1,0}\oplus \mathfrak{g}^{0,1}$ such that $\overline{\mathfrak{g}^{1,0}}=\mathfrak{g}^{0,1}$. $J$ is then integrable if $\mathfrak{g}^{1,0}\subset \mathfrak{g}$ is a complex Lie subalgebra. Using the Cartan-Chevalley basis of $\mathfrak{g}$ and the explicit action of $(\bar{\cdot})$ corresponding to the complex real form, we can construct $\mathfrak{g}^{1,0}$. Let $G^{1,0}\subset G \supset U$ be the complex Lie subgroup corresponding to $\mathfrak{g}^{1,0}$. If $G$ is an adjoint type, then $G^{1,0}\cap U=\{e\}$ and
+\begin{center}
+	\begin{tikzcd}
+	U\ar[r,"\subset"]\ar[rr,out=-30,in=210,swap,"\simeq diffeo"] & G\ar[r,"q"] & G^{1,0}
+	\end{tikzcd}
+\end{center}
+ \end{rem}
+
+\begin{ex}
+	$SU(3)$ can be identified with some compact 4-dimensional complex manifold.
+\end{ex}
+If $U$ is semi-simple and compact with even dimension, then $U$ equipped with any left invariant complex structure cannot be Kahler.
+
+\subsubsection{Nilmanifolds}
+Recall that general method to construct complex manifolds is by taking quotients. Let $X$ be a complex manifold and $\Gamma$ a Lie group acting on $X$ by $a:\Gamma \times X\to X$ which is holomorphic, free, and discrete. Hence we have 
+\begin{enumerate}
+	\item For any $x\in X$, we can find an open neighborhood $U$ of $x$ such that $g(U)\cap U=\emptyset$ for any $g\not= e \in \Gamma$.  
+	\item For $x, y\in X$, $\Gamma_{x}\not=\Gamma_{y}$, we can find $U$, $V$ such that $U\cap g(V)=\emptyset$ for all $g\in \Gamma$. 
+\end{enumerate}
+Notice that (2) implies $X/\Gamma$ is Hausdorff, and the quotient topology providesa systems of holomorphic charts on $X/\Gamma$. Moreover, $p: X\to X/\Gamma$ is a covering space and there exists a unique complex structure on $X/\Gamma$ such that $p$ is holomorphic. 
+\begin{ex}
+	Consider $X=\C^n$ and $\Gamma= \Lambda$.
+\end{ex}
+
+\begin{ex}[Nilmanifolds]
+	Let $G$ be a connected nilpotent complex Lie group. For example, consider the connected closed subgroup of $GL_n(\C)$
+	\begin{equation*}
+	N_n=\bigg\{\left(
+	\begin{array}{ccccc}
+	1                                    \\
+	& 1             &   & \text{\huge*}\\
+	&               & \cdots                \\
+	& \text{\huge 0} &   & 1            \\
+	&               &   &   & 1
+	\end{array}
+	\right)\in GL_n(\C) \bigg\}
+	\end{equation*}
+	Let $\Gamma\subset G$ be  any discrete subgroup. Then $\Gamma $ acts on $G$ by translation and $G/\Gamma$ is a complex manifold.  If $G/\Gamma$ is compact, then $\Gamma $ is cocompact. We call $G/\Gamma$ a \its{nilmanifold}
+\end{ex}
+\begin{ex}[Variant]
+	Let $G$ be a real nilpotent Lie group of even dimension and $\Gamma \subset G$ be a discrete subgroup. If $G$ has a left invariant complex structure, then $G/\Gamma$ inherits a complex structure.
+\end{ex}
+
+\begin{rem}
+	If $G$ a nilpotent  connected complex Lie group, then $\exp: \mathfrak{g}\to G$ is surjective. If $G$ is simply connected, then $\mathfrak{g} \stackrel{\exp}{\simeq} G$ as a complex manifold. So every nilpotent subgroup of a simply connected group $G$ is of the form $\C^n/\Gamma$.
+\end{rem}
+
+\begin{ex}[Heisenberg group]
+	Let $\Gamma=G\cap GL_3(\Z[i])$. If $\gamma\in \Gamma$ is given by $\Gamma=(w_1,w_2,w_3)$ with action $\gamma(z_1,z_2,z_3)=(z_1+w_1,z_2+w_1z_3+w_2,z_3+w_3)$, then we can get a complex nilmanifold $X=G/\Gamma$ which is called a \its{Iwasawa manifold}. Notice that we have the following short exact sequence
+	\begin{align*}
+	0\to& \C \to G \to \C^2\to 0
+	\end{align*}
+	which corresponds to the map $x_2\to (x_1,x_2, x_3) \mapsto (x_1, x_3)$. The corresponding short exact sequence of $\Gamma$ is 
+	\begin{equation*}
+	0\to \Z[i]\to \Gamma \to \Z[i]\oplus\Z[i] \to 0
+	\end{equation*}
+	Then we get a fiber sequence
+	\begin{equation*}
+	\C/\Z[i] \to X \to \C^2/(\Z[i]\oplus\Z[i])
+	\end{equation*}
+	Note that we have a projection map $\C^{n+1}-0 \to S^{2n+1}\times \R_{> 0}, z\mapsto (\frac{z}{\|z\|}, \|z\|)$ and $ \Gamma $ acts on $ \R_{> 0}$ by $ t \mapsto |\lambda|^2 t$. Hence we get a holomorphic principal bundle $X\to \C^2/\Z[i]^{\oplus 2}$. Note that $X$ is not Kahler but the base manifold $\C^2/\Z[i]^{\oplus 2}$ is.
+\end{ex}
+\subsubsection{Calabi-Eckmann manifolds}
+A \its{Calabi-Eckmann manifold} is a complex manifold whose underlying $C^{\infty}$ manifold is a product of two odd dimensional spheres. Calabi-Eckmann manifolds are homogeneous and non-Kähler.
+\begin{ex}[Hopf manifolds]
+	Let $\lambda \in \C^{\times}$, consider $\Z$-action on $\C^{n+1}-0$ given by
+	\begin{equation*}
+	(z_0, \cdots, z_k)\stackrel{k}{\mapsto} \big( \lambda^kz_1, \cdots,  \lambda^k z_n\big)	\end{equation*}
+	which is free and discrete. Then the quotient $X=(\C^{n+1}-0)/\Z$ is called a \its{Hopf manifold}. Notice that $X\stackrel{a}{\to } \cp^n$ is a holomorphic map with fiber $C^{\times}/\Z$(elliptic curve).
+\end{ex}
+Consider $S^{2a+1}\times S^{2b+1}$ for some $a,b\in \Z_+$. We have the principal bundle $\pi: S^{2a+1}\times S^{2b+1} \to \cp^a\times \cp^b$ with fiber $S^1\times S^1$. Using a complex structure on $S^1\times S^1$ combined with the complex structure on $\cp^a\times \cp^b$ we can get a complex structure on $S^{2a+1}\times S^{2b+1}$. Consider \begin{equation*}
+U_{ij}=\{(x,y)\in S^{2a+1}\times S^{2b+1}| x_i\not=0, y_j\not=0  \}
+\end{equation*}
+then $\{ U_{ij}\}$ forms an open cover of  $S^{2a+1}\times S^{2b+1}$. Fix a complex structure on $E_{\tau}=S^1\times S^1$, i.e. we identify it with a  quotient $\C/(\Z+\Z_{\tau})$ with $\im \tau >0$. Next, consider the map $\Phi_{kj}: U_{kj}\to \cp^a\times \cp^b\times E_{\tau}, (x,y)\mapsto \big(\phi_k(x), \psi_j(y), t_{kj}(x,y) \big)$ , where $t_{kj}=\frac{1}{2\pi i}(\log x_k+ \tau \log y_j )+ \Z+ \Z \tau$.
+\begin{exercise}
+	Show that $\Phi$ is a diffeomorphism.
+\end{exercise}
+Note that
+\begin{equation*}
+t_{rs}= t_{kj}+\frac{1}{2\pi i}\bigg(\log \frac{x_r}{x_k}+\log \frac{y_s}{y_j} \bigg)+ \Z +\Z\tau
+\end{equation*}
+
+The complex structure given by $(U_{ij}, \Phi_{ij})$ is called the Calabi-Eckmann manifold $X_{\tau}$ of type $E_{\tau}$. $X_{\tau}$ is not Kahler if $a+b>0$ since $H^2(S^{2a+1}\times S^{2b+1})=0$.
+\subsection{Symplectic reductions}
+
+Let $(M, \omega)$ be a symplectic manifold, and $G$ is a Lie group acting on $M$ by diffeomorphisms. Call this $C^{\infty}$-action $\phi$, i.e. $\phi(g,x)=\phi_g(x)$. For any $\xi \in \mathfrak{g}$, let $\xi_M$ be the vector field generated by $\xi$, i.e.
+\begin{equation*}
+(\xi_M)_x=\frac{d}{dt}\big(\phi_{e^{-t\xi}}(x) \big)\bigg|_{t=0}
+\end{equation*}
+\begin{definition}
+	We say that the $C^{\infty}$ action $\phi$ is \bfs{symplectic} is $\phi^*_g(\omega)=\omega$ for any $g\in G$.
+\end{definition}
+
+\begin{rem}
+	Tangent space to the quotient may not be even dimensional. For instance, let $M=\R^2$, $\omega=dx\wedge dy$, and $G=\R$ acting by $a\cdot (x,y)=(x+a,y)$. Then it is easily verified that $M/G\simeq \R$ which is odd dimensional.  
+\end{rem}
+Let $U\subset M$ be an open set, then $C^{\infty}(U)$ is naturally a Lie algebra with Lie bracket
+\begin{align*}
+\{-,-\}:& C^{\infty}\otimes C^{\infty} \to C^{\infty}\\ &(f,g)\mapsto i_{\lambda} (df\wedge dg)
+\end{align*}  where $\lambda=(i_{\omega})^{-1}\omega\in \bigwedge^2 TM$ .We call this bracket the \bfs{Poisson bracket}. Note that $d\omega=0$ implies that $\{-,-\}$ satisfies the Jacobi identity. Also we have a natural map
+\begin{align*}
+\mathfrak{X}: C^{\infty}(U) &\to \Gamma_{C^{\infty}}(U, TM)\\
+f &\mapsto i_{\lambda}(df):=\mathfrak{X}_f
+\end{align*}
+We call $\mathfrak{X}_f$ the Hamiltonian vector field associated with $f$. In fact, $df=i_{\mathfrak{X}_f}\omega$. By construction $\mathfrak{X}$ is a Lie algebra homomorphism.
+
+\begin{definition}
+	A $C^{\infty}$ action of $G$ on $(M,\omega)$ is \bfs{Hamiltonian} if it is 
+	\begin{enumerate}
+		\item symplectic.
+		\item $\xi_M\in \Gamma_{C^{\infty}}(M, TM)$ is Hamiltonian for any $\xi \in \mathfrak{g}$.
+	\end{enumerate}
+\end{definition}
+
+\begin{lem}
+	Suppose $(M,\omega)$ is a symplectic manifold and $\phi$ is a symplectic action on $(M,\omega)$. Then $\phi$ is Hamiltonian if and only if there exists a linear map $s: \mathfrak{g} \to C^{\infty}(M)$ such that $\xi_M$ is the Hamiltonian vector field corresponding to $-s(\xi)$ for any $\xi\in \mathfrak{g}$, i.e. $	i_{\xi_M}\omega=-ds(\xi)$, more specifically
+	\begin{equation*}
+    \omega(\xi_M, Y)=-ds(\xi) Y
+	\end{equation*}
+	
+\end{lem}
+\begin{proof}
+	($\Leftarrow$) Obvious.
+	
+	($\Rightarrow$) Pick a basis $\{e_1, \cdots, e_k\}$ of $\mathfrak{g}$. Choose functions $f_1, \cdots, f_k \in C^{\infty}(M)$ such that $(e_i)_M=\mathfrak{X}_{f_i}$. Now define $s$ by linearity.
+\end{proof}
+
+Now given $(X,\omega)$ a symplectic manifold with a Hamiltonian action $\phi$, we have $s:\mathfrak{g} \to C^{\infty}(M)$ such that $\xi_M=\mathfrak{X}_{s(\xi)}$. Take the dual of the map $s$, we get
+\begin{equation*}
+s^*=(C^{\infty})^*\to \mathfrak{g}^*
+\end{equation*}
+by 
+\begin{equation*}
+<s^*(x),\xi>=<x,s(\xi)>
+\end{equation*}
+Note that $(C^{\infty})^*$ is in distributional sense. Inside $(C^{\infty})^*$ we have a countable basis $\{\delta_x \}_{x\in M}$, hence $s^*$ is uniquely determined by $\{s^*(\delta_x) \}_{x\in M}$.
+
+
+Define $\mu: M\to \mathfrak{g}^*$ by $\mu(x)= s^*(\delta_x)$ which is a $C^{\infty}$ map satisfying $\mathfrak{X}_{\mu^*\xi }=\xi_M$ for any $\xi\in \mathfrak{g}$. Note that $\mu^*\xi= s(\xi)$.
+
+\begin{definition}
+	$\mu: M\to \mathfrak{g}^*$ is called a \bfs{moment map} if it satisfies $\mathfrak{X}_{\mu^*\xi }=\xi_M$ for any $\xi\in \mathfrak{g}\subset \ho(\mathfrak{g}^*, \R)$.
+\end{definition}
+\begin{definition}
+	An action $G$ is called \bfs{strongly Hamiltonian} if it is symplectic and admits a moment map $\mu: M\to \mathfrak{g}^*$ and $\mu^*:\mathfrak{g} \to C^{\infty} M$ is a Lie algebra homomorphism.
+\end{definition}
+
+\begin{rem}
+	\begin{enumerate}
+		\item The moment map is not unique if exists. In fact, let $\mu, \tilde{\mu}: M\to \mathfrak{g}^*$, then for any $\xi \in \mathfrak{g}$, we have $d\big((\mu-\tilde{\mu})^*\xi \big)=0$. Hence $(\mu-\tilde{\mu}): M\to \mathfrak{g}^*$  is constant on each connected component of $M$.
+		\item If $G$ is connected, the requirement that $\phi$ acts sympectically is redundant for strongly Hamiltonian actions. In fact, if  $G$ acts on $M$ with a moment map $\mu$, then the $\mathfrak{g}$-action on $M$ integrates the infinitesimal action $(\cdot): \mathfrak{g} \to \Gamma_{C^{\infty}}(M,TM)$. Since $(\cdot)$ comes from $\mu$, it preserves the Poisson structure, i.e. it factors through $\mathfrak{X}: C^{\infty}(M)\to \Gamma_{C^{\infty}}(M,TM)$.
+	\end{enumerate}
+\end{rem}
+
+\begin{ex}
+	Suppose $(M,\omega)$ is an exact symplectic manifold, i.e. $\omega=d\alpha$ for some 1-form $\alpha$. Suppose the action $\phi: G\times M \to M$ preserves $\alpha$, i.e. $\phi^*(\alpha)=\alpha$. Then $\phi$ is a strongly Hamiltonian action with moment map $\mu: x\mapsto \big(\xi \mapsto (i_{\xi_M}\alpha)(x ) \big)$
+\end{ex}
+
+\begin{rem}
+	If $\phi$ is a Hamiltonian $G$-action, and $\mu: M\to \mathfrak{g}^*$ is a moment map, then the map $\mu^*:\mathfrak{g}\to C^{\infty}(M)$ will not be a Lie algebra homomorphism. We can compute the defect of $\mu^*$ by looking at the commutators, i.e. for any $\xi, \eta \in \mathfrak{g}$,
+	\begin{equation*}
+	\{\mu^*(\xi), \mu^*(\eta) \}-\mu^*\big([\xi, \eta] \big)
+	\end{equation*}
+	the assignment $\xi \otimes \eta \to \Big(\{\mu^*(\xi), \mu^*(\eta) \}-\mu^*\big([\xi, \eta] \big) \Big)$ gives a map $c:\bigwedge^2(\mathfrak{g}) \to C^{\infty}(M)$. In fact, $d\big(c(\xi \otimes \eta) \big)=0$ for all $\xi, \eta \in \mathfrak{g}$. Hence $c(\xi, \eta)$ is a constant function and hence $c$ is indeed a map $ \bigwedge^2(\mathfrak{g})\to \R$. Moreover, the Jacobi identity implies that 
+	\begin{equation*}
+	c(\eta,\zeta)-c(\xi,\eta)+c(\xi,\zeta)=0
+	\end{equation*}
+	for any $\xi, \eta, \zeta \in \mathfrak{g}$ and $c\in Z^1(\mathfrak{g}, \R)$. If $c$ happens to be a coboundary, i.e. 
+	\begin{equation*}
+	c(\xi, \eta)= a(\eta)-a(\xi)
+	\end{equation*}
+	for some linear map $a: \mathfrak{g} \to \R$, then we can consider the map $\tilde{\mu}=\mu+a: M \to \mathfrak{g}^*$. Then the obstruction $\mathfrak{c}$ for $\tilde{\mu}^*$ being Lie algebra homomorphism is 
+	\begin{equation*}
+	\tilde{c}(\xi, \eta)-a(\eta)+a(\xi)=0
+	\end{equation*}
+	Hence $\phi$ is a Hamiltonian action if and only if $[c]=0$.
+\end{rem}
+
+\begin{thm}[Borel-Serre] Let $\mathfrak{g}$ be a reductive Lie algebra, then $H^k(\mathfrak{g}, \R)=0$ for any $k\ge 1$.
+\end{thm}
+
+Suppose $(M,\omega)$ is a symplectic manifold equipped with a strongly Hamiltonian action.
+
+\paragraph{Properties}
+\begin{enumerate}
+	\item If $x\in M$, we have a linear map $d\mu_x:T_x M \to \mathfrak{g}^*\simeq T_{\mu(x)}\mathfrak{g}^*$. Dualizing this map we get $d\mu_x^*: \mathfrak{g} \to T_xM^*$, which is given by $\xi \mapsto -(i_{\xi_M}\omega)$.
+	\item $\im (d\mu_x)\subset \mathfrak{g}^*$ is $\big(\lie (\stab_x) \big)^{\perp}=\{\alpha\in \mathfrak{g}^*| \alpha(\xi)=0, \forall \xi \in \lie(\stab_x) \}$.
+	
+	\item $\ker (d\mu_x) \subset T_x M$ is equal to $\{v\in T_xM, w(v, T_{x}O_x)=0 \}$.
+	\item Recall, an action $G\times M \to M$ is free if $\stab_x=\{e\}$ for any $x\in M$, and is locally free if $\stab_x$ is discrete. Hence the action on $M$ is free if and only if for all $x\in M$, $\lie(\stab_x)=0$, or $d\mu_x$ is surjective, or $\mu$ is a submersion at $p$.
+	\item If the action of $G$ is locally free at all points inside $\mu^{-1}(0)$,, then $\mu$ is regular at all $x\in \mu^{-1}(0)$, i.e. $0$ is a regular value of $\mu$. Furthermore, $G$ acts on $\mu^{-1}(0)$ and $\dim\big(\lie(\stab_x) \big)=0$ for all $x\in \mu^{-1}(0)$. Therefore, $\dim_{\R}O_x=\dim_{\R} G$. If the quotient $\mu^{-1}(0)/G$ is a manifold, then $$\dim \mu^{-1}(0)/G=\dim M-2\dim_{\R}(\mathfrak{g})$$ Also, for any $x\in \mu^{-1}(0)$,
+	\begin{equation*}
+	T_x \mu^{-1}(0)=\ker d\mu_x=\big(T_xO_x\big)^{\perp \omega}
+	\end{equation*}
+		If $\mu^{-1}(0)/G$ is a manifold, then
+		\begin{equation*}
+		T_{\mu^{-1}(x)/G, O_x}= T_x\mu^{-1}(0)/T_xO_x=\big(T_xO_x\big)^{\perp \omega}/T_xO_x
+		\end{equation*}
+		Note that we have $T_x O_x\subset T_x \mu^{-1}(0)=\big(T_xO_x\big)^{\perp \omega}$. Hence $T_xO_x$ satisfies that for any $v, w\in T_x O_x$, we have $\omega(v,w)=0$. Recall such subspaces are call \itshape{isotropic}.
+\end{enumerate}
+
+\begin{lem}
+	Suppose that $(V, \omega)$ is a symplectic vector space, and $I\subset V$ is an isotropic subspace. Then $\omega$ induces a nondegenerate 2-form on the quotient $I^{\perp \omega}/I$.
+\end{lem}
+
+\begin{proof}
+	Given $\tilde{v}, \tilde{w}\in I^{\perp \omega}/I$, where $\tilde{v}=v+I, \tilde{w}=w+I$.  Define
+	\begin{equation*}
+	\tilde{\omega}(\tilde{v}, \tilde{w})=\omega(v,w)
+	\end{equation*}
+	First let us verify $\tilde{w}$ is well defined. Pick some representatives of $\tilde{v}, \tilde{w}$, say $v+a$ and $w+b$ with $a,b\in I$, then
+	\begin{equation*}
+	\omega(v+a,w+b)=\omega(v,w)+\omega(a,w)=\omega(v,b)+\omega(a,b)
+	\end{equation*}
+	Since $I$ is isotropic, $\omega(a,b)=0$. Also $\omega(a,w)=\omega(v,b)=0$ by our construction. Hence $\omega(v+a,w+b)=\omega(v,w)$ is independent of representatives chosen. Next, we want to show $\tilde{\omega}$ is nondegenerate. Suppose there exists $\tilde{x}\in  I^{\perp \omega}/I$ such that $\tilde{\omega}(\tilde{x},\tilde{y})=0$ for all $\tilde{y}\in I^{\perp \omega}/I$. Let $\tilde{x}=x+I$, thus $\omega(x,y)=0$ for all $y\in I^{\perp \omega}$, which implies that $x\in \big(I^{\perp \omega}\big)^{\perp \omega}=I$. Hence $\tilde{x}=\tilde{0}$.
+\end{proof}
+
+\begin{cor}
+	If $G$ acts on $(M, \omega)$ strongly Hamiltonianly and is locally free at each point, then $\mu^{-1}(0)$ is a closed submanifold in $M$ of codimension equal to $\dim \mathfrak{g}$. The subspace $\mathcal{T}\subset T\mu^{-1}(0)$ consisting of vector fields tangent to orbits is a subbundle of rank $\dim \mathfrak{g}$. We have 
+	\begin{equation*}
+	\mathcal{T}\subset T\mu^{-1}(0)\subset TM|_{\mu^{1}(0)}
+	\end{equation*}
+	and 
+	\begin{equation*}
+	T\mu^{-1}(0)=\mathcal{T}^{\perp \omega}
+	\end{equation*}
+	moreover, $\omega$ induces a nondegenerate sections in $\bigwedge^2(T\mu^{-1}(0)/G)^*$. 
+\end{cor}
+
+\begin{thm}[M. Weinstein]
+	Let $(M, \omega)$ be a symplectic manifold, and $G$ a compact Lie group acting on $M$ Hamiltonianly. Let $\mu: M\to \mathfrak{g}^*$  be an equivariant moment map and $G$ acts freely on $\mu^{-1}(0)$. Then $M_{red}=\mu^{-1}(0)/G$ is a manifold of dimension $\dim M-2 \dim \mathfrak{g}$, and the quotient map
+	\begin{equation*}
+	q: \mu^{-1}(0)\to M_{red}
+	\end{equation*}
+	is a principal bundle. $M_{red}$ has natural symplectic form $\omega_{red}$ such that $q^* w_{red}= \omega|_{T\mu^{-1}(0)}$.
+\end{thm}
+
+\begin{proof}
+	We apply the slice theorem.
+\end{proof}
+\subsection{Moduli spaces	}
+So far, we have seen two different ways of constructing complex manifolds: taking quotients and taking solutions of sets of equations in $\A^n$ or $\cp^n$. We also have some other techniques, for example, moduli spaces. The idea of moduli spaces is to parametrize a  collection of  geometric  objects by other geometric objects.
+
+\begin{ex}[Spaces of affine hypersurfaces]
+	A smooth affine hypersurface of degree $d$ in $\mathcal{A}^n$ is a submanifold $X\subset \A^n$ given by one polynomial equation of degree $d$
+	\begin{equation*}
+	X=\{x\in \A^n| f(x)=0\}
+	\end{equation*}
+	for a given $f\in \C[x_1,x_2,\cdots, x_n]$ with $\deg f=d$. $X$ is a manifold implies that $df(x)\not=0$ for all $x\in X$, i.e. $V(f, \partial_{x_1}f,\cdots, \partial_{x_n}f)$ defines the empty subset of $X$.  The parameter space for all $f$ such that
+\begin{equation*}
+	\begin{cases}
+  \deg f=d\\
+ V(f, \partial_{x_1}f,\cdots, \partial_{x_n}f)=\emptyset
+\end{cases} 
+\end{equation*}
+is an open subset in $\C[x_1,\cdots, x_n]_{\le d}$.
+
+Similarly, we can consider the space of smooth projective hypersurfaces of degree $d$. This space consists of all homogeneous polynomials of degree $d$ in $x_0, x_1, \cdots, x_n$ such that $X=\{x\in \cp^n| f(x)=0 \}$ which is $C^{\infty}$. 
+\begin{exercise}
+	Check that if $f\in \C[x_0,\cdots, x_n]$ is homogeneous of degree $d$, then $X$ is a submanifold if and only if $df(x)\not=0$ for all $x\in \C^{n+1}-\{0\}$ such that $[x]\in X$.
+\end{exercise}
+Hence the parameter space of smooth projective hypersurfaces of degree $d$ is open in $$\cp \big(\text{homogeneous polynomials of degree $d$ in $x_0,\cdots, x_n$} \big)$$ 
+\end{ex}
+
+\begin{ex}
+	Suppose $V$ be a finite dimensional vector space over $\C$. Let $$A=\big(\text{set of all associative algebra structures on $V$} \big)$$ Then $A$ is a subset in the collection of all tensors $m: V\otimes V \to V$ such that $m\big(a, m(b,c) \big)=m\big(m(a,b),c \big)$ for all $a,b,c\in V$. Hence $A\subset V^*\otimes V^*\otimes V$ consists of all $m$ such that
+	 $$\ass(m)=m\big(-,m(-,-)\big)-m\big(m(-,-),- \big)$$
+	which vanishes on $V\otimes V$. Note that $\ass(m)\in V^*\otimes V^*\otimes V^*\otimes V$. In fact, $\ass: V^{*\otimes 2}\otimes V \to V^{*\otimes 3}\otimes V$ is a polynomial map. Hence $A$ is naturally an affine algebraic variety.
+\end{ex}
+
+\begin{ex}[Space of polygons]
+	Let us consider $\R^3$ with inner product $<-,->$.
+	\begin{definition}
+		An $n$-{\itshape gon}  $P$ in $\R^3$ is a collection of $n$ distinct points joined in a cyclic order by oriented line segments. An $n$-gon is uniquely determined by its cyclically ordered vertices.
+	\end{definition}
+We identify two $n$-gons by orientation preserving rigid motions. Let $E_3$ be the group of rigid motion in $\R^3$. We have a short exact sequence
+\begin{equation*}
+0\to T_3\to E_3\to SO(3)\to 0
+\end{equation*}
+where $T_3\simeq (\R^3, +)$. Set
+\begin{equation*}
+\mathcal{P}_n=\frac{\text{all $n$-gons in $\R^3$ with ordered vertices}}{E_3}
+\end{equation*}
+
+Then there exists a natural map 
+\begin{equation*}
+\mathcal{P}_n\to \R^n
+\end{equation*}
+which maps an $n$-gon $P$ the the vector in $\R$ which consists of length of each edge of $P$. Fix an $n$-tuple $\underline{a}=(a_1,\cdots, a_n)\in (\R_+)^n$, we can look at $$Y(\underline{a})=\frac{P_{\underline{a}}}{E_3}$$ where $P_{\underline{a}}$ consists of all polygons $P\subset \R^3$ with ordered vertices and edges of length $(a_1, \cdots, a_n)$. From the definition, $Y(\underline{a})\not=0$ if and only if 
+\begin{equation*}
+a_i\le a_1+\cdots+ \hat{a_i}+\cdots a_n
+\end{equation*}
+for all $1\le i\le n$.
+\begin{rem}
+	$\R_+$ acts on $\mathcal{P}_n$ by rescaling all edges. Hence $\lambda \in \R_+$ identifies $Y(\underline{a})\simeq Y(\lambda \underline{a})$. Now consider $\sum_i a_i=z$ and fix the first coordinate. Then we just need specify $n$ different directions mod $SO(3)$ to specify an $n$-gon, which turns out to be a point $x\in(S^2)^2$. Define 
+	\begin{equation*}
+	X=\{ (x_1,\cdots, x_n)| x_i\in \R^3, \|x_i\|=1, \sum_i a_ix_i=0, \text{and edges close into a polygon} \}
+	\end{equation*}
+	so $Y(\underline{a})=X/SO(3)$. In fact, this is a symplectic reduction. $\big( (S^2)^{ n}, \sum_{i=1}^n a_i P_i^* \omega_{FS}\big)$ is a symplectic manifold where $SO(3)$ acts on it Hamiltonianly with a moment map
+	\begin{align*}
+	\mu: (S^2)^n &\to (\mathfrak{so}(3))^*\simeq \R^3\\
+	(x_1,\cdots, x_n) &\mapsto \sum_{i=1}^n a_ix_i 
+	\end{align*}
+	Moreover, $Y(\underline{a})$ is Kahler with dimension $2n-6$. As a complex manifold,  $Y(\underline{a})$ can be identified as \begin{equation*}
+	\big(\text{suitable open sets in $(\cp^1)^n$}\big)/PSL_2(\C)
+	\end{equation*}
+\end{rem}
+\end{ex}
+\begin{definition}
+	A point $(x_1,\cdots, x_n)\in (\cp^1)^n$ is called {\itshape semistable} if $\sum_{x_i=x} a_i \le 1$ for all $x\in S^2$. Let $(\cp^1 )^n_{\underline{a},ss}$ denotes the open subset of semistable points, then $$(\cp^1 )^n_{\underline{a},ss}\subset (\cp^1)^n-\{\text{diagonals}\}$$
+\end{definition}
+It turns out that $(\cp^1 )^n_{\underline{a},ss}/PSL_2(\C)\simeq Y(\underline{a})$ as a $C^{\infty}$ manifold. More precisely, we have 
+\begin{center}
+	\begin{tikzcd}
+	X\arrow[r,hookrightarrow, " "] \arrow[d,,"", red]& (\cp^1 )^n_{\underline{a},ss} \arrow[d,, "" red] \\
+	Y(\underline{a})=X/SO(3)  \arrow[r, , "\sim" blue]
+	& (\cp^1 )^n_{\underline{a},ss}/PSL_2(\C)
+	\end{tikzcd}
+\end{center}
+\subsection{Blow-up}
+Blowing up is a particular modification of complex manifolds to remove indeterminateness of meromorphic maps.
+
+\paragraph{Blow up a smooth cone}
+	Consider the standard holomorphic map of complex manifolds
+	\begin{equation*}
+	\pi: \big(\C^n-\{0\}\big) \longrightarrow \cp^{n-1}
+	\end{equation*}
+	we can view it as a meromorphic map $\C^n \dashrightarrow \cp^{n-1}$ which in coordinate charts are given by meromorphic functions. We want to modify $\C^n$ such that this map becomes a holomorphic map. More precisely, we want to construct a new space $X\stackrel{\epsilon}{\rightarrow} \C^n$ such that the composition
+	\begin{equation*}
+	X\stackrel{\epsilon}{\rightarrow} \C^n \to \cp^{n-1}
+	\end{equation*}
+	is holomorphic. Observe that $\big(\C^n-\{0\}\big) \stackrel{\pi}{\rightarrow}\cp^{n-1}$ has the same information as $\Gamma_{\pi}\subset (\C^n-\{0\})\times \cp^{n-1}$ does, where $\Gamma_{\pi}$, where $\Gamma_{\pi}$ is the graph of $\pi$ inside $\C^n \times \cp^{n-1}$. Note that $\Gamma_{\pi}$ is a closed submanifold of $\C^n \times \cp^{n-1}$ which is isomorphic to $\C^n-\{0\}$ via the first projection. To extend $\pi$ to a holomorphic map from $\C^n$ to $\cp^{n-1}$, we can take the closure $\Gamma$ of $\Gamma_{\pi}$,   i.e. $\Gamma =\overline{\Gamma}_{\pi}\subset \C^n \times \cp^{n-1}$. Even if $\Gamma $ is not a graph, we can get a map $\Gamma \to \cp^{n-1}$ induced by $\proj_{\cp^{n-1}}$ induced by   
+		\begin{center}
+		\begin{tikzcd}
+		& \Gamma\arrow[d, hookrightarrow] & \\
+		& \C^n\times \cp^{n-1}\arrow{dl}{\proj_{\C^n}} \arrow{dr}{\proj_{\cp^{n-1}}} &  \\
+		\C^n  &                         & \cp^{n-1}
+		\end{tikzcd}
+	\end{center}
+Note that $\Gamma \cap (\C^n-\{0\})\times \cp^{n-1}=\Gamma_{\pi}$. Hence 
+\begin{equation*}
+\Gamma_{\pi}=\big(\Gamma -\proj_{\C^n}^{-1}(0)\big)\stackrel{\sim}{\longrightarrow} \big(\C^n-\{0\}\big)
+\end{equation*}
+and $\proj_{\C^n}^{-1}(0)\simeq \big(\{0\}\times \cp^{n-1}\big)$, which implies that $\Gamma \stackrel{\epsilon}{\rightarrow} \C^n$ is a modification. We have $\epsilon=\proj_{\C^{n}}\big|_{\Gamma}$, and $\hat{\pi}:\Gamma \to \cp^{n-1}$ has the property that
+\begin{center}
+	\begin{tikzcd}
+	 \Gamma \arrow[r, "\hat{\pi}"]\arrow[d, hookleftarrow] & \cp^{n-1} \\
+	 \Gamma_{\pi}\simeq \big(\C^{n}-\{0\}\big)\arrow[ru, "{\pi}"] & 
+	 
+	\end{tikzcd}
+\end{center}
+
+
+
+\begin{definition}
+	 $\Gamma$ is the {\bfseries blow up} of $\C^n$ at $0\in \C^n$. The fibre of $\epsilon$ over $0\in \C^n$ is not a point since
+	 \begin{align*}
+	 \Gamma_{\pi}=&
+	 \left \{\begin{tabular}{c|c}
+	 $(x,l)$&  $x\in\big( \C^n-\{0\}\big) , l\in \cp^{n-1}$ \\
+	 &\text{s.t. $l$ is the line spanned by $\{0,x\}$, i.e. $x\in l$}
+	 \end{tabular}\right \}\\
+	 =&\big\{(x,l)| x\in\big( \C^n-\{0\}\big) , l\in \cp^{n-1}, x\in l \big\}
+	 \end{align*}
+	 Hence we have 
+	 \begin{equation*}
+	 \Gamma=\big\{(x,l)| x\in \C^n , l\in \cp^{n-1}, x\in l \big\}
+	 \end{equation*}
+	 We have two maps: $\hat{\pi}:\Gamma \to \cp^{n-1}$ sending $(x,l)$ to $l$, and $\epsilon: \Gamma \to \C^n$ sending $(x,l)$ to $x$. Hence $\epsilon^{-1}(0)=\{(0,l)| l\in \cp^{n-1}\}=\cp^{n-1}$.
+\end{definition}
+
+\begin{rem}
+	This makes sense without the choice of coordinates. In fact, if $V$ is a finite dimensional vector space over $\C$, and $\pi: (V-\{0\})\to \cp(V)$ is the projectivization map. We can then modify this map by defining 
+	\begin{equation*}
+	\bl_0 V=\{ (x,l)| x\in V, x\in l, l\in \cp(V)\}
+	\end{equation*}
+	and we get a commutative diagram
+	\begin{center}
+		\begin{tikzcd}[column sep=small]
+		& \bl_0(V) \arrow[dl,"\epsilon"] \arrow[dr,"\hat{\pi}"] & \\
+		V \arrow[rr,dashed,"\pi"] &                         & \cp(V)
+		\end{tikzcd}
+	\end{center}
+Hence $\epsilon\big( \bl_0(V)-\epsilon^{-1}(0)\big)\simeq V-\{0\}$ and $\epsilon^{-1}(0)\simeq \cp(V)$.
+\end{rem}
+\begin{rem}
+	If we choose coordinates, then we can write $\Gamma= \bl_0(V)$ by equations. If $(x_1, \cdots, x_n)$ are coordinates on $V$, and $(\xi_1: \cdots: \xi_n)$ are corresponding homogeneous coordinates on $\cp(V)$, then $\Gamma\subset V\times \cp(V)$ consists of $(x,\xi)$ such that all the $2\times 2$ minors of 
+	\begin{equation*}
+	\left(\begin{array}{ccc} x_1 & \cdots & x_n\\ \xi_1 & \cdots & \xi_n \end{array}\right)	
+	\end{equation*}  
+	are 0, i.e. $x_i\xi_j=\xi_i x_j$ for all $1\le i,j\le n$.
+	Computing the Jacobian in any charts shows that $\Gamma \subset \C^n \times \cp^{n-1}$ is a closed submanifold of dimension $n$ over $\C$. 
+\end{rem}
+
+\begin{rem}
+	We have the following commutative diagram
+	\begin{center}
+		\begin{tikzcd}
+		\Gamma \arrow[r, hookrightarrow]\arrow[rd, "\hat{\pi}"] & V\times \cp(V) \arrow[d, "\proj_{\cp(V)}"] \\
+	 & 	\cp (V)	
+		\end{tikzcd}
+	\end{center}
+For any $l \in \cp(V)$, $\hat{\pi}^{-1}(l)\subset V\times \cp(V)=V\times \{l\}$ is the line sitting inside $V$ passing through the origin. $\proj_{\cp(V)}$ is a trivial line bundle through $V$, hence $\hat{\pi}$ is a line subbundle of $\proj_{\cp(V)}$. We call this subbundle the universal line bundle parameterizing by $\cp(V)$. We call this bundle the tautological line bundle $\mathcal{O}_V(-1)$.
+\end{rem}
+\begin{rem}
+	If $S^{2n-1}\subset V$, then the graph of the map $S^{2n-1}\to \cp(V)$ is a subset of $\Gamma$. Given any $l\in \cp(V)$, the intersection $S^{2n-1}\cap l$ is the unit circle inside $l$. Hence we get a unit circle bundle $S^{2n-1}\to \cp(V)$. Note that this bundle sits inside $\mathcal{O}_V(-1)$. On the other hand , $\mathcal{O}_V(-1)\subset \underline{V}$ where $\underline{V}$ is the trivial bundle with fiber $V$. We can pass to the quotient and get a short exact sequence
+	\begin{equation*}
+	0\to \mathcal{O}_V(-1) \to \underline{V}\to Q\to 0
+	\end{equation*}
+	where $Q$ is the universal quotient bundle. We also call this bundle the universal hyperplane bundle and denote it by $\mathcal{O}_V(1)$.
+\end{rem}
+\begin{exercise}
+	Show that $\Gamma\big(\cp(V), \mathcal{O}_V(1) \big)=V^*$ and $\Gamma\big(\cp(V), \mathcal{O}_V(-1) \big)=0$, i.e. there exists only trival global sections on $\mathcal{O}_V(-1)$. \itshape{Hint}:	we have a canonical map 
+	\begin{center}
+		\begin{tikzcd}
+		\Gamma\big(\cp(V), \mathcal{O}_V(1)\big)=V^* \arrow[r,"ev_l"]\arrow[rd, ""] & \mathcal{O}_V(1)_l \arrow[d, ""] \\
+		& 	l^*
+		\end{tikzcd}
+	\end{center}
+\end{exercise}
+\begin{exercise}
+	Define $\mathcal{O}_V(-k)=\mathcal{O}_V(-1)^{\otimes k}$ and $\mathcal{O}_V(k)=\mathcal{O}_V(1)^{\otimes k}$. Show that 
+	\begin{equation*}
+	\Gamma\big(\cp(V), \mathcal{O}_V(k) \big)\begin{cases}
+	S^k V^* \quad &k>0\\
+	0  &k<0
+	\end{cases}
+	\end{equation*}
+	Note that $S^k V^*$ corresponds to the space of homogeneous polynomials of degree $k$.
+\end{exercise}
+
+\begin{rem}
+	Let $T$ be a 1-dimensional vector space over $\cp$ and $V$ an $n$-dimensional vector space, then $V$ and $V\otimes T$ have the same projectivization. We have the following maps
+	\begin{align*}
+\cp(V)&\to \cp (V \otimes T)\\
+l&\mapsto l\otimes T 
+	\end{align*} 
+	and conversely 
+	\begin{align*}
+	\cp(V\otimes T) &\mapsto \cp(V) \\
+	L &\mapsto L\otimes T^*
+	\end{align*}
+	Note that we have using the fact that $T\otimes T^*\simeq \C$ in 1-dimension.
+	
+	Let $P=\cp(V)=\cp(V\otimes T)$, then we get two line bundle on $P$: $\mathcal{O}_V(-1)$ and $\mathcal{O}_{V\otimes T}(-1)$. Check that $\mathcal{O}_{V\otimes T}(-1) \simeq \mathcal{O}_V(-1)\otimes T$.
+\end{rem}
+
+\begin{ex}[Blow up a vector space]
+	Let $V$ be a finite dimensional vector space over $\C$ and $W\subset V$ a subspace of dimension $m$, then we have a linear map $V\to V/W \dashrightarrow \cp(V/W)$. In fact, we have a well-defined holomorphic map which is the linear projection centered at $W$
+	\begin{align*}
+	\pi_W: V&\to V/W\to \cp (V/W)\\
+	x&\longleftrightarrow span \big\{W,\{x\} \big\}/W  
+	\end{align*}
+	where $span \big\{W,\{x\} \big\}/W  $ is the span of $x$ in $V/W$.
+	Define $\bl_W(V)=$ closure of the graph of $\pi_W$ in $V\times \cp (V/W)= \big\{(x,S)|W\subset S\subset V, x\in S, \dim S/W=1   \big\}$. Similar to the previous example, we have a commutative diagram
+		\begin{center}
+		\begin{tikzcd}[column sep=small]
+		& \bl_W(V) \arrow[dl,"\epsilon"] \arrow[dr,"\hat{\pi}_W"] & \\
+		V \arrow[rr,dashed,""] &                         & \cp(V)
+		\end{tikzcd}
+	\end{center}
+where $\hat{\pi}_W(l)=q^{-1}(l)\subset V$ and $q:V\to V/W$ is the quotient map. Also, $\epsilon|_{\bl_W(V)-\epsilon^{-1}(W)}\simeq V-W$, and hence $\epsilon^{-1}(W)=W\times \cp(V/W)$.
+\end{ex}
+\begin{rem}
+	$\bl_W(V)$ is a manifold. In fact, let $x_1,\cdots, x_n$ be  coordinates  on $V$ such that $W=\{x_{m+1}, x_{m+2}, \cdots, x_n=0 \}$, then if $\xi_{m+1}, \cdots, \xi_n$ are homogeneous coordinates on $\cp (V/W)$. $\bl_W(V)=\{x_i \xi_j=x_j \xi_i| i,j=m+1,\cdots, n  \}$.
+\end{rem}
+\begin{rem}
+	If $V$ is a vector space with $\dim_{\C} V=n$, and $W\subset V$ is a subspace of $\dim_{\C}W=n-1$, then $\bl_W V=V$. 
+\end{rem}
+
+\paragraph{Blow up along a submanifold}
+	Let $X$ be a complex manifold of dimension $n$ and $Z\subset X$ a submanifold of dimension $m$. We want to define $\bl_Z(X)\stackrel{\epsilon}{\to}X$. Suppose $(U,w), (U,z)$ are two coordinate charts on $X$, where $w=(w_1,\cdots, w_n): U \to \C$ are coordinates on $X$ and $z=(z_1,\cdots, z_n): U \to \C$ satisfies $Z\cap U=\{z_{m+1}=\cdots=z_n=0 \}$. We can also assume $w_{m+1},\cdots, w_n$ vanish on $Z\cap U$, hence $w_k(z)=a_{k,m+1}z_{k,m+1}+\cdots+a_{k,n}z_n$ for $k\ge m+1$, where $a_{p,q}$'s are holomorphic functions of $z$. Hence $a_{p,q}$, $p,q =m+1, \cdots, n$ is invertible on $Z\cap U$.
+
+\section{Sheaves}
+\subsection{Sheaves}
+\subsection{Stacks}
+\subsection{Derived categories}
+
+\section{Hodge theory}
+\section{Vanishing theorems}
+
+%----------------------------------------------------------------------------------------
+%	METHODS
+%----------------------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\refname}{\spacedlowsmallcaps{References}} % For modifying the bibliography heading
+
+\bibliographystyle{unsrt}
+
+\bibliography{sample.bib} % The file containing the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
