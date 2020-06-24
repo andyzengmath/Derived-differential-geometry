@@ -1,0 +1,796 @@
+
+
+%------------------------------------------------------------------------------
+% Beginning of journal.tex
+%------------------------------------------------------------------------------
+%
+% AMS-LaTeX version 2 sample file for journals, based on amsart.cls.
+%
+%        ***     DO NOT USE THIS FILE AS A STARTER.      ***
+%        ***  USE THE JOURNAL-SPECIFIC *.TEMPLATE FILE.  ***
+%
+% Replace amsart by the documentclass for the target journal, e.g., tran-l.
+%
+\documentclass[11pt]{amsart}
+
+%     If your article includes graphics, uncomment this command.
+\usepackage{tikz-cd}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\setlength{\textheight}{8.5in} \setlength{\textwidth}{6.5in}
+\oddsidemargin 0in \evensidemargin 0in
+\usepackage[mathscr]{euscript}
+
+
+\numberwithin{equation}{section}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{exer}[thm]{Exercise}
+
+
+\numberwithin{equation}{section}
+\newcommand{\bull}{\cdot}
+\newcommand{\del}{\partial}
+\newcommand{\Sq}{\mbox{Sq}}
+\newcommand{\loc}{{\mbox{loc}}}
+\newcommand{\supp}{\mbox{supp}}
+\renewcommand{\del}{\partial}
+\newcommand{\CL}{{\mathcal L}}
+\newcommand{\CM}{{\mathcal M}}
+\newcommand{\cc}{{\mathbold c}}
+\newcommand{\CC}{{\mathsf C}}
+\newcommand{\CD}{{\mathsf D}}
+\newcommand{\CG}{{\mathcal G}}
+\newcommand{\CP}{{\mathbb P}}
+\newcommand{\CF}{{\mathcal F}}
+\newcommand{\CN}{{\mathcal N}}
+\newcommand{\CO}{{\mathcal O}}
+\newcommand{\Cinfh}{S^\infty}
+\renewcommand{\H}{{\cal H}}
+\newcommand{\cinf}{{\mathcal C}^{\infty}}
+
+\newcommand{\A}{{\mathcal{A}}}
+\newcommand{\CW}{{\mathcal{W}}}
+\newcommand{\cm}{{\mathcal{M}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Lx}{{\mathbb{L}}}
+\newcommand{\M}{{\mathfrak{M}}}
+\newcommand{\Sp}{{\mathscr{S}}}
+
+\newcommand{\e}{\mathcal{E}}
+\newcommand{\f}{\mathcal{F}}
+\newcommand{\g}{\mathfrak{g}}
+\newcommand{\B}{{\mathcal{B}}}
+\newcommand{\T}{{\mathcal{T}}}
+\newcommand{\secc}{\operatorname{sec}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\irr}{\operatorname{Irr}}
+\newcommand{\fra}{\operatorname{Frac}}
+\newcommand{\ca}{\mathsf{C}}
+\newcommand{\y}{\mathsf{y}}
+\newcommand{\sh}{\mathsf{Sh}}
+\newcommand{\ho}{\mathsf{Ho}}
+\newcommand{\da}{\mathsf{D}}
+\newcommand{\ia}{\mathsf{I}}
+\newcommand{\ob}{\operatorname{Obj}}
+\newcommand{\set}{\mathsf{Set}}
+\newcommand{\var}{\mathsf{Var}}
+\newcommand{\sch}{\mathsf{Sch}}
+\newcommand{\Mod}{\mathsf{Mod}}
+\newcommand{\gp}{\mathsf{Grp}}
+\newcommand{\gpd}{\mathsf{Grpd}}
+\newcommand{\cat}{\mathsf{Cat}}
+\newcommand{\aff}{\mathsf{Aff}}
+\newcommand{\mfd}{\mathsf{Mfd}}
+\newcommand{\dmfd}{\mathsf{dMfd}}
+\newcommand{\alg}{\mathsf{Alg}}
+\newcommand{\ring}{\mathsf{Ring}}
+\newcommand{\cring}{\mathsf{CommRing}}
+\newcommand{\calg}{\mathsf{CommAlg}}
+\newcommand{\qcoh}{\mathsf{QCoh}}
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\fd}{\mathsf{Field}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\map}{\operatorname{Map}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\sing}{\operatorname{Sing}}
+\newcommand{\fun}{\operatorname{Fun}}
+\newcommand{\mo}{\operatorname{Mor}}
+\newcommand{\open}{\operatorname{Open}}
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\Char}{\operatorname{Char}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\dens}{\operatorname{Dens}}
+\newcommand{\holim}{\operatorname{Holim}}
+\newcommand{\hocolim}{\operatorname{Hocolim}}
+\newcommand{\bfs}{\textbf}
+\newcommand{\its}{\textit}
+\newcommand{\gal}{\operatorname{Gal}}
+\newcommand{\en}{\operatorname{End}}
+\newcommand{\sym}{\operatorname{Sym}}
+\begin{document}
+
+\title{Introduction to $\infty$-categories with  an application to derived differential topology}
+
+%    Information for first author
+\author{Qingyun Zeng}
+%    Address of record for the research reported here
+%\address{}
+%    Current address
+\curraddr{Department of Mathematics,
+ University of Pennsylvania, Philadelphia, PA 19104}
+\email{qze@math.upenn.edu}
+%    \thanks will become a 1st page footnote.
+\thanks{
+}
+
+%    Information for second author
+
+
+
+%    General info
+%\subjclass[2000]{Primary 54C40, 14E20; Secondary 46E25, 20C20}
+
+%\date{January 1, 2001 and, in revised form, June 22, 2001.}
+
+\dedicatory{}
+
+\keywords{Homotopy theory, $\infty$-categories, differential geometry, algebraic topology}
+
+\begin{abstract}
+This is a note for a talk on $\infty$-categories and derived differential topology in MATH 619 Homotopy theory at Penn in Spring 2019.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+%% The correct journal style for \specialsection is all uppercase; a known bug
+%% in amsart.cls prevents this, so input must be uppercase until it is fixed.
+%\specialsection*{This is a Special Section Head}
+
+
+
+\section{Problems arising in geometry}
+In order to motivate the necessity of $\infty$-categories, let us first look at following problems arising in alegrbaic and differential geometry.
+
+
+\subsection{Derived categories}
+Consider $X\in \sch_k$ be a scheme over some field $k$, we can consider the category of quasi-coherent sheaves $\qcoh$ on $X$. Recall a quasi-coherent sheaf   $\mathcal{F}$ of $X$ is a sheaf of modules over the structure sheaf $\CO_X$ that is locally presentable, i.e. locally we have a following exact sequence
+\begin{equation*}
+\CO_X^{I_\alpha}|_{U_\alpha} \to \CO_X^{J_\alpha}|_{U_\alpha} \to \mathcal{F}|_{U_\alpha}\to 0,
+\end{equation*}
+where $\{{U_\alpha}\}_{\alpha}$ is a cover of $X$. The (unbounded) derived $D(X)=D\big(\qcoh(x)\big)$ is defined to be the homotopy category of a Quillen model structure on the category of unbounded chain complexes over $\qcoh(X)$. This is a powerful invariant of schemes especially when $X$ is not smooth since it contains the cotangent complex $\Lx_X$ of $X$ and dualizing complex $\omega_X$ of $X$. Note that, if $X$ is not smooth, then $\Lx_X$ and $\omega_X$ may not be bounded.
+
+The problem with the classical derived categories is that it does not behave well under gluing, i.e. in general we have $D(X) \not= \lim_{\{U_{\alpha}\}} D(U_{\alpha})$ where $\{U_{\alpha} \}_{\alpha}$ is a Zariski cover of $X$. An easy example is taking $X=\CP^1$ covered by two principal open sets $U_0$ and $U_1$, it's easy to verify that
+\begin{equation*}
+D(\CP^1) \to D(U_0) \times_{D(U_0\cap U_1)} D(U_1)
+\end{equation*} 
+is not faithful. In order to solve this problem, we want to pass to the $\infty$-derived category of $X$, denoted by $L_{\qcoh}(X)$ which behaves well under gluing by taking the homotopy fiber product (homotopy pullback). In particular, for our previous example $X=\CP^1$, we have
+\begin{equation*}
+L_{\qcoh}(X) = L_{\qcoh}(U_0)\times_{L_{\qcoh}(U_0 \cap U_1)} L_{\qcoh}(U_1)
+\end{equation*} 
+
+\subsection{Moduli problems}
+\subsection{Stacks and higher stacks}
+Let $\M_g$ be the moduli space of curves of genus $g$, that is, a functor sending $\spec(A)$ to the classes of  curves over $\spec(A)$ for some $A\in \calg$. The differential geometric analogue of $\M_g$ is that for each base space $S$ we have a category such that its objects are fiber bundle $X\to S$ fibered in Riemann surfaces endowed with a fiberwise smoothly varing complex structure. 
+
+Usually,we want to put geometric structures on moduli spaces, like manifold or varites/schemes. However, $\M_g$ is not a sheaf on $\sch_k$, since two elliptic curves could be isomorphic under a base extensions. That implies that we cannot represent $\M_g$ by schemes and even algebraic spaces. Note that the Yoneda embedding gives a functor $\y: \sch_k \to   \sh(\aff)$ by sending $X \to \hom (-, X)$, where $\hom(-,X)$ is a functor $\aff^{op}\to \set$. In order to solve our representability problem, we want to construct a functor similar to $\hom (-, X)$, but we want to categorify the codomain $\set$ by replacing it to the category of groupoids $\gpd$, which is equivalent to the 1-homotopy type. Then we recover the functor $\M_g:\aff^{op} \to \gpd$ which is the moduli stack over elliptic curves of genus $g$. 
+
+We can define higher stacks by passing the codomain of $\aff^{op} \to \gpd$ to higher homotopy types. 
+\begin{center}
+	\begin{tikzcd}
+&  & \mathscr{S}                 \\
+&  & \cdots \arrow[u, hook] \\
+&  & \mathscr{S}^{\le n} \arrow[u, hook] \\
+&  & \cdots \arrow[u, hook] \\
+&  & \Sp^{\le 2} \arrow[u, hook] \\
+\aff^{op} \arrow[rr] \arrow[rru]  \arrow[rruuu]  \arrow[rruuuuu] &  & \gpd = \Sp^{\le 1} \arrow[u, hook]
+\end{tikzcd}
+\end{center}
+Here $\mathscr{S}$ denote the category of spaces, which is considered to be the $\infty$-homotopy types.
+
+
+
+\section{Higher categories and $\infty$-categories}
+
+The basic idea of higher categories is that we don't only consider the morphisms between objects, but also want to keep track of higher morphisms, i.e. morphisms between morphisms, morphisms between morphisms between morphisms etc. 
+
+\begin{example}
+	Consider $\cat$ the category consists of all small categories. The object of $\cat$ are just small categories, with morphisms as functors between categories. Note that we also have a notion of morphisms between morphisms here, which is just natural transfomations between functors. Hence $\cat$ is naturally a 2-category with ojects as small categories, 1-morhisms as functors, and 2-morhphisms as natural transformations between functors. 
+\end{example}
+
+Another 2-category which comes from geometry is stacks over a base scheme $S$, which is a 
+
+Notice that in $\cat$, all morphisms between small categories in fact forms a category $\fun(\cat)$ with natural transformations between functors as morphisms. Hence, we can also think of $\cat$ as a category enriched in 1-categories. This leads to the definition of (strict) $n$-categories:
+
+\begin{defn}
+	A (strict) $n$-category is a category enriched in (strict) $(n-1)$-categories.
+\end{defn}
+
+Unfortunately, many higher categories in geometry and topology are not strict, for example, higher structures like associativity only holds up to isomorphisms with some coherence relations. This leads to the definition of weak $n$-categories. Weak 2-categories are well-understood, but even just weak 3-categories, the coherence conditions are very complicated and hard to work with. Hence, we would like to search for a better notion of (weak) higher categories and even $\infty$-categories.
+
+First of all, we still want the weak $n$-categories to be enriched in weak $(n-1)$-categories. Next, we would like the weak $n$-groupoids to model the homotopy $n$-type of spaces. The latter is called the (strong) homotopy hypothesis. Followed these two principles, we have
+
+\begin{defn}
+	A (weak) $\infty$-groupoid is a topological space.
+\end{defn}
+Note that te category of topological spaces clearly corresponds to the homotopy $\infty$-type. 
+
+\begin{example}[Fundamental $\infty$-groupoid of a topological space]
+	To see why the above definition is reasonable, we consider any $X\in \top$ and construct its fundamental $\infty$-groupoid $\Pi_{\infty} X$. Define $\ob (\Pi_{\infty}(X))$ to be points in $X$, and 1-morphisms to be path in $X$. Note that path in $X$ is not strictly associative, and hence not strictly invertible as well. Define the 2 morphisms to be homotopies between paths. Observe that 1-morphisms are invertible up to homotopies, i.e. 2-morphisms. Then continuing this fashion, we can define $n$-morphisms to be homotopies between $(n-1)$-morphisms, and $(n-1)$-morphisms are then invertible up to $n$-morphisms.
+\end{example}
+
+It is still hard to see how to see what the structure of a weak $\infty$-category should be. In order to simplify our construction, we want to consider $\infty$-categories which have all morphisms invertible at some level.
+
+\begin{defn}
+	An $(\infty,n)$-category is a weak $\infty$-category such that all $k$-morphisms are (weakly) invertible for $k>n$. 
+\end{defn}
+
+\begin{rem}
+	Since a weak $\infty$-groupoid has all morphisms (weakly) invertible, it corresponds to an $(\infty,0)$-category. In principle, we still want the $(\infty, n)$-categories to be enriched in $(\infty, n-1)$ category.
+\end{rem}
+\begin{defn}
+	An $(\infty,1)$ category is a category enriched in topological spaces.
+\end{defn}
+This is one of the model for $\infty$-categories, namely the topological enriched categories. In the following sections we shall see variations of it.
+\section{Categorical motivations of $\infty$-categories}
+
+Recall that simplicial sets are designed to model spaces. For each category $\CC$, we can built a simplicial set related to $\CC$ by taking its nerve $\CN \CC$, where
+\begin{equation*}
+(\CN \CC)_n = \hom_{\cat}([n]. \CC)
+\end{equation*}
+\begin{example}
+	Let $G$ be a group, which is considered as a category with one object, then canonically $|\CN G| \simeq BG$. Here $|-|$ denotes the geometric realization and $BG$ is the classifying space of $G$.
+\end{example}
+
+If we know informations about the categories, then clearly we know informations about their nerves. In fact, we have
+\begin{prop}
+	If $f:\CC \to \CD$ is an equivalence of categories, then $\CN(f): \CN \CC \to \CN \CD$ is a weak equivalence.
+\end{prop}
+This is not surprising. It is then natural to think whether the converse is true. It seems like the nerve captures all the informations of the original category.
+
+\begin{example}
+	Let $[0]$ be the category $\bullet$ with one object and no non-identity morphisms, $I$ be $\bullet \leftrightarrow \bullet$. Both nerves are contractible. Consider $[1]$ being $\bullet \to \bullet$, then $\CN [1]$ is also contractible, but clearly $[1]$ is not equivalent to $I$ or $[0]$.
+\end{example}
+
+What is the problem here? Note that the weak equivalence between simplicial sets comes after taking geometric realization, where we lost the information of the directions of arrows, for example, we can not distinguish whether a 1-simplex comes an isomorphism or not. Nevertheless, the converse will hold if both $\CC$ and $\CD$ are groupoids.
+\begin{prop}
+	$f:\CC \to \CD$ is an equivalence of groupoids if and only if $\CN(f): \CN \CC \to \CN \CD$ is a weak equivalence.
+\end{prop}
+
+This tells us that in order to think of simplicial sets as spaces, there is a closer relation to groupoids than general categories.
+
+In order to distinguish nerves from non-equivalent category, we have two possible constructions, and each leads to a model of $\infty$-category:
+\begin{enumerate}
+	\item We change the definition of weak equivalence so that non-equivalent categories will not have weakly equivalent nerves.
+	\item We refine the nerve construction which can distinguish isomorphisms from other morphisms.
+\end{enumerate}
+\subsection{Quasi-categories}
+
+First, let us recall the definition of Kan complexes:
+\begin{defn}
+	A Kan complex $X_{\bullet} \in s\set$ is a simplicial set such that the canonical map $X_{\bullet} \to \ast$ is a Kan fibration, i.e. for any $n\ge 0$, $0\le k \le n$, we have a lift
+	\begin{center}
+		\begin{tikzcd}
+		\Lambda^k[n] \arrow[rr] \arrow[d, hook] &  & X_{\bullet} \\
+		\Delta[n] \arrow[rru, dotted]        &  &  
+		\end{tikzcd}
+	\end{center}
+\end{defn}
+
+Let's look at lower dimensional case. Consider $n=2$, we have 
+\begin{equation*}
+\partial \Delta[2] = \begin{tikzcd}
+& v_1 \arrow[rd] &   \\
+v_0 \arrow[ru] \arrow[rr] &              & v_2
+\end{tikzcd}
+\end{equation*}
+\begin{equation*}
+\Lambda^0[2] = \begin{tikzcd}
+& v_1  &   \\
+v_0 \arrow[ru] \arrow[rr] &              & v_2
+\end{tikzcd}
+\end{equation*}
+
+\begin{equation*}
+\Lambda^1[2] = \begin{tikzcd}
+& v_1 \arrow[rd] &   \\
+v_0 \arrow[ru] &              & v_2
+\end{tikzcd}
+\end{equation*}
+\begin{equation*}
+\Lambda^2[2] = \begin{tikzcd}
+& v_1 \arrow[rd] &   \\
+v_0  \arrow[rr] &              & v_2
+\end{tikzcd}
+\end{equation*}
+
+For example, consider the horn $i:\Lambda^0[2]\to X_{\bullet}$. This horn specifies two arrows in $X_{\bullet}$, call them $f: i(v_0)\to i(v_1)$ and $g:i(v_1)\to i(v_2)$. The horn filling property requires the extension of this horn to a 2-simplex by an arrow $h: i(v_0)\to i(v_2)$ together with a homotopy between $g\circ f$ and $h$.
+
+\begin{exer}
+	Show that for any $X\in \top$, $\sing X$ is a Kan complex. Here $\sing: \Top \to s\set$ is the Singular complex functor which takes singular complexes for a given topological spaces. Note that $\sing$ is right adjoint to the geometric realization
+	\begin{equation*}
+	({\vert- \vert} \dashv \sing) \colon \Top \stackrel{\overset{{|-|}}{\longleftarrow}}{\underset{\sing}{\longrightarrow}} s\set
+	\end{equation*}
+	above is actually a Quillen adjunction.
+	\end{exer}
+
+We also have another large class of Kan complexes:
+\begin{prop}
+	The nerve of a groupoid is a Kan complex.
+\end{prop}
+\begin{proof}
+	For example, for \begin{center}
+		\begin{tikzcd}
+	\Lambda^2[0] \arrow[rr] \arrow[d, hook] &  & \CN X_{\bullet} \\
+	\Delta[2] \arrow[rru, dotted]        &  &  
+	\end{tikzcd}
+	\end{center}
+the lift exists since we can invert $i(v_0)\to i(v_1)$ ( since $X_{\bullet}$ is a groupoid). 
+\end{proof}
+Since composition in a category is unique, if a simplicial set $X_{\bullet}$ is the nerve of a groupoid, all the lifts are unique. Hence
+\begin{prop}
+	A Kan complex is the nerve of a groupoid iff all the lifts
+		\begin{center}
+		\begin{tikzcd}
+		\Lambda^k[n] \arrow[rr] \arrow[d, hook] &  & X_{\bullet} \\
+		\Delta[n] \arrow[rru, dotted]        &  &  
+		\end{tikzcd}
+	\end{center}
+are unique, where $0\le n, 0\le k \le n$.
+\end{prop}
+This result tells us that Kan complexes are indeed groupoids 'up to homotopy'. Since Kan complexes are just fibrant objects in  $s\set$, we know that a fibrant replacement of a simplicial set behaves like the nerve of a groupoid. Now we might wonder what is the notion of categories 'up to homotopy'?
+
+\begin{defn}
+		A Quasi-category $X_{\bullet} \in s\set$ is a simplicial set such that for any $n\ge 0$, $1\le k \le n-1$, we have a lift
+	\begin{center}
+		\begin{tikzcd}
+		\Lambda^k[n] \arrow[rr] \arrow[d, hook] &  & X_{\bullet} \\
+		\Delta[n] \arrow[rru, dotted]        &  &  
+		\end{tikzcd}
+	\end{center}
+Note that these lifts corresponding exactly the filling of 'inner horns', hence we also call a quasi-category to be a weak Kan complex.
+\end{defn}
+
+Similar to the proof of the nerve of groupoids, we have
+\begin{prop}
+A quasi-category is the nerve of a category iff all above lifts are unique.
+\end{prop}
+We can build a model structure on $s\set$ where all fibrant objects are quasi-categories, and then we would expect that there are less weak equivalence. This is the Joyal model structure on $s\set$.
+
+
+
+\subsection{Complete Segal spaces}
+\section{Simplicial localizations}
+Let $(\cm,\CW)$ be a category with weak equivalences (homotopical category), we can get a localization $\cm[\CW^{-1}]$. For example, if $\cm$ is a model category, then $\cm[\CW^{-1}]$ corresponds to the homotopy category of $\cm$. The problem with this localization process is that it does not preserve limits and colimits.
+
+\begin{example}
+	Note that
+	\begin{center}
+		\begin{tikzcd}
+		S^0 \arrow[d] \arrow[r] & S^1 \arrow[d,"\times 2"] \\
+		\ast \arrow[r]           & S^1          
+		\end{tikzcd}
+	\end{center}
+\end{example}
+is a pullback diagram, but if we take the map from $D^2$ and localize, we get
+\begin{center}
+	\begin{tikzcd}
+	\Hom_{\ho(\Top)}(D^2, S^0) \arrow[d] \arrow[r] & \Hom_{\ho(\Top)}(D^2, S^1) \arrow[d] \\
+	\Hom_{\ho(\Top)}(D^2, \ast) \arrow[r]           & \Hom_{\ho(\Top)}(D^2, S^1)          
+	\end{tikzcd} 
+\end{center}
+which is not a pull back since  $\Hom_{\ho(\Top)}(D^2, S^0)$ consists of two points but all the others conist of just one point. To fix this, we should take the mapping spaces and then
+
+\begin{center}
+	\begin{tikzcd}
+	\map_{(\Top)}(D^2, S^0) \arrow[d] \arrow[r] & \map_{(\Top)}(D^2, S^1) \arrow[d] \\
+	\map_{(\Top)}(D^2, \ast) \arrow[r]           & \map_{(\Top)}(D^2, S^1)          
+	\end{tikzcd} 
+\end{center}
+is a homotopy pullback. In general, how should we define mapping spaces for $\cm$?
+
+\subsection{Simplicial categories}
+
+First, let's recall the definition of simplicial categories.
+
+\begin{defn}
+	Let $\CC$ be a category. $\CC$ is called a {\bf simplicial category} if it is enriched in simplicial sets. In particular, 
+	\begin{enumerate}
+		\item For any $X,Y\in \ob \CC$, we have a simplicial set $\map_{}(X,Y)$, called the mapping space between $X$ and $Y$.
+		\item For any $X, Y, Z \in \ob \CC$, there is a composition map
+		\begin{equation*}
+		\map(X,Y) \times \map (Y,Z) \to \map (X,Z)
+		\end{equation*}
+		\item For any $X\in \ob \CC$, the canonical map $\Delta[0] \to \map(X,X)$ specifies the identity map.
+		\item  For any $X,Y\in \ob \CC$, we have
+		\begin{equation*}
+		 \map(X,Y)_0 \simeq \Hom(X,Y)
+		\end{equation*}
+		which is compatible with compositions.
+	\end{enumerate}
+\end{defn}
+
+\begin{rem}
+	Note that simplicial categories could also mean simplicial objects in $\cat$, and what we presented before is simplicially enriched categories. These two notions are not equivalent. We will always mean simplicial categories to be simplicially enriched categories.
+\end{rem}
+\begin{rem}
+	Since simplicial sets are designed to model spaces, simplicial categories provide another model for $(\infty,1)$-categories.
+\end{rem}
+
+Suppose we have a model category $\CM$ which is also a simplicial category, then we have a notion of simplicial model categories if these two notions are compatible.
+
+\begin{defn}
+	A {\bf simplicial model category} $\CM$ is a model category as well as a simplicial category and satisfies:
+	\begin{enumerate}
+		\item For any $X, Y \in \ob(\CM)$ and $K\in s\set$, there exist an object $X\otimes K$ and $Y^K$ such that
+		\begin{equation*}
+		\map(X\otimes K, Y)\simeq \map (K, \map (X,Y))\simeq \map (X, Y^K)
+		\end{equation*} 
+		which is natural in $X, Y, K$.
+		\item  For any $i: A\to B$ a cofibration, and $p:X\to Y$ a fibration,
+		\begin{equation*}
+		 \map(B,X) \to \map (A,X) \times_{\map(A,Y)} \map(B, Y)
+		\end{equation*}
+		is a fibration, and is a weak equivalence if either $i$ or $p$ is.
+	\end{enumerate}
+\end{defn}
+
+\begin{example}
+	$s\set$ is naturally a simplicial model category with $K\otimes L = K \times L$, and $\map(K,L)=L^K$ is given by
+	\begin{equation*}
+	\map(K,L)_n = \Hom_{s\set}(K\times \Delta[n], L)
+	\end{equation*}
+\end{example}
+\subsection{Simplicial localizations}
+Let $\CC$ be a category. The {\bf free category on $\CC$} is a category $F\CC$ with the same objects as $\CC$ and morphisms which are freely generated by non-identity morphisms in $\CC$. There are two natural functors $\phi: F\CC \to \CC$ which takes any generating morphisms $Fc$ to the morphism $c\in \CC$, and $\psi: F\CC \to F^2\CC$ which takes the generating morphisms $Fc$ of $F\CC$ to the generating morphisms $F(F\CC)$.
+
+
+\begin{defn}
+	The {\bf standard simplicial resolution} of $\CC$ is a simplicial category $F_{\bullet}\CC$ which has $F^{k+1}\CC$ in degree $k$ with face map $d_i: F^{k+1} \CC \to F^k \CC$ given by $F^i\phi F^{k-i}$ and degeneracy map given by $F^i\psi F^{k-i}$. 
+\end{defn}
+Note that here $F_{\bullet}\CC$ is actually a simplical object in $\cat$, but the free functor does not change objects, it could be easily shown that $F_{\bullet}\CC$ is actually a simplicially enriched category.
+
+
+Now we have all the machineries to define the homotopical version of localizations with respect to weak equivalences.
+
+\begin{defn}
+	Let $(\cm, \CW)$ be a category with weak equivalences, the {\bf simplicial localization} of $\cm$ with respect to $\CW$ is $(F_{\bullet}\CW)^{-1}(F_{\bullet}\CM)$, which is constructed by levelwise localizations. We denote $(F_{\bullet}\CW)^{-1}(F_{\bullet}\CM)$ by $L(\cm, \CW)$ or simply $L\cm$.
+\end{defn}
+
+For any simplicial categories, we can recover original categories by taking components. In fact, let $\CC$ be a simplical category, we define its category of components $\pi_0\CC$ to be a category with $\ob(\pi_0 \CC)=\ob \CC$ and $\Hom_{\pi_0 \CC}(X,Y)=\pi_0 \map_{\CC}(X,Y)$. The following theorem tells us that the simplicial localization is indeed a higher homotopicial version of homotopy categories.
+\begin{thm}
+	Let $(\cm, \CW)$ be a category with weak equivalences, then
+	\begin{equation*}
+	\pi_0 L(\cm, \CW) \simeq  \cm[\CW^{-1}]
+	\end{equation*}
+\end{thm}
+
+The problem with the standard simplicial localization is that we might get just a category with proper classes of morphisms between fixed objects. This is what also happening in the ordinary localizations. Another way of producing simplicial categories is the Hammock localization.
+
+\begin{defn}
+	Let $(\cm, \CW)$ be a category with weak equivalences, the {\bf hammock localization} of $\cm$ with respect to $\CW$ is a simplicial category $L^H(\cm, \CW)$ such that
+		\begin{enumerate}
+			\item $\ob (L^H(\cm, \CW))=\ob(\cm)$.
+			\item For any $x, y \in \cm$, $\map_{L^H\cm} (X,Y)$ has $k$-simplices the reduced hammock of width $k$ and arbitrary length $n$
+		\begin{center}
+			\begin{tikzcd}
+			& C_{0,1} \arrow[r, no head] \arrow[d,"\sim"] & C_{0,2} \arrow[r, no head] \arrow[d,"\sim"] & \cdots \arrow[r, no head] \arrow[d,"\sim"] & C_{0,n-1} \arrow[rdd, no head] \arrow[d,"\sim"] &   \\
+			& C_{1,1} \arrow[r, no head] \arrow[d,"\sim"] & C_{1,2} \arrow[r, no head] \arrow[d,"\sim"] & \cdots \arrow[r, no head] \arrow[d,"\sim"] & C_{1,n-1} \arrow[d,"\sim"]                      &   \\
+			X \arrow[ruu, no head] \arrow[ru, no head] \arrow[r, no head] \arrow[rd, no head] & \cdots \arrow[r, no head] \arrow[d,"\sim"] & \cdots \arrow[r, no head] \arrow[d,"\sim"] & \cdots \arrow[r, no head] \arrow[d,"\sim"] & \cdots \arrow[r, no head] \arrow[d,"\sim"]   & Y \\
+			& C_{k,1} \arrow[r, no head]           & C_{k,2} \arrow[r, no head]           & \cdots \arrow[r, no head]           & C_{k,n-1} \arrow[ru, no head]            &  
+			\end{tikzcd}
+			such that
+			\begin{itemize}
+				\item All vertical maps are in $\CW$.
+				\item Horizontal maps are zig-zags, i.e. $\cdots \leftarrow \bullet\rightarrow \bullet \leftarrow \bullet \cdots$, and the arrows going to the left are in $\CW$.
+				\item No column contains only identities.
+				\item In each column, the horizontal arrows go in the same direction. 
+			\end{itemize}
+		\end{center}
+		\end{enumerate}
+	In the case of model category, the description of hammocks localization can be greatly simplified and it suffices to consider hammocks of length 3. For simplicity, we also denote the hammock localization by $L^H\cm$. Then a natural question is that are $L^H\cm$ and $L\cm$ the same? Or at least in some sense. 
+	
+	\begin{defn}
+		Let $F:\CC \to \CD$ be a simplicial functor between simplicial categories, then $F$ is called a {\bf Dwyer-Kan equivalence} if 
+	    \begin{enumerate}
+	    	\item For any $X, Y \in \ob \CC$, $\map_{\CC}(X,Y) \to \map_{\CD}(FX,FX)$ is a weak equivalence.
+	    	\item The induced functor $\pi_0 F: \pi_0 \CC \to \pi_0 \CD$ is an equivalence of categories.
+	    \end{enumerate}
+	\end{defn} 
+\end{defn}
+
+\begin{thm}
+	Let $\cm$ be a model category, then $L^H\cm$ and $L\cm$ are Dwyer-Kan equivalent.
+\end{thm}
+
+In fact, up to Dwyer-Kan equivalence, any simplicial categories can be obtained as simplicial localizations from some categories with weak equivalences.
+
+\begin{rem}
+	We view a category with weak equivalences as a model for a homotopy theory, which determines a simplicial category by simplicial localization. Hence the simplicial categories together with Dwyer-Kan equivalences actually form 'homotopy theory of homotopy theories'.
+\end{rem}
+
+\subsection{Homotopy mapping spaces}
+Let $\M$ be a simplicial model category. First, as a consequence of the axiom for a simplicial model category,we have 
+\begin{prop}
+	Let $A, B, X \in \ob \cm$, $A\to B$ be a cofibration, and $X$ is a fibrant object, then 
+	\begin{equation*}
+	\map(B,X) \to \map (A,X)
+	\end{equation*}
+	is a fibration.
+\end{prop}
+
+If we have an weak equivalence $X\simeq X'$, in general $\map(X,Y)$ may not be weakly equivalent to $\map (X',Y)$, and similarly for $\map(Y,X)$ and $\map (Y,X')$. In order to get a homotopy invariant mapping space, we need to take the cofirant/fibrant replacements.
+
+\begin{defn}
+	We define the {\bf homotopy mapping space} to be $\map^h_{\cm} (X,Y) =\map_{\cm}(X^c, Y^f)$. Here $X^c$ and $Y^f$ denote the cofirant replacement and firant replacement of $X$ and $Y$ respectively.
+\end{defn}
+Note that we can also define gomotopy mapping space for a model category which is not simplicial by taking simplicial/cosimplicial resolution or $L\cm$. Let's go back to the case when $\cm$ is a model category. The following proposition justifies that the notion of homotopy mapping space is indeed a higher homotopical version of ordinary hom set in $\ho(\cm)$.
+\begin{prop}
+	In a model category, $\map^h_{\cm}$ is fibrant, and we have
+	\begin{equation*}
+	\pi_0 \map^h_{\cm}(X,Y) \simeq \Hom_{\ho(\cm)}(X,Y)
+	\end{equation*}
+\end{prop} 
+Now we can verify that the homotopy mapping spaces do solve problems about preserving limits at the beginning of this section.
+\begin{prop}Let $\cm$ be a model category and $\CC$ be a small category.
+	\begin{enumerate}
+		\item Let $X\in \ob\cm$ be cofibrant, and $Y: \CC \to \cm$ a digram of fibrant objects, then we have a weak equivalence
+		\begin{equation*}
+		\map_{\cm}(X, \holim_{\CC}Y_{\alpha} ) \simeq \holim_{\CC} \map_{\cm}(X, Y_{\alpha})
+		\end{equation*}
+		\item Let $Y\in \ob\cm$ be fibrant, and $X: \CC \to \cm$ a digram of cofibrant objects, then we have a weak equivalence
+		\begin{equation*}
+		\map_{\cm}(\hocolim_{\CC}X_{\alpha}, Y ) \simeq \holim_{\CC} \map_{\cm}(X_{\alpha}, Y)
+		\end{equation*}
+	\end{enumerate}
+\end{prop}
+
+Note that by our assumption, we can taking the ordinary limits/colimits for homotopy limits/colimits.
+\section{Derived differential topology}
+%\section*{This is an unnumbered first-level section head}
+
+
+In this section, we will briefly introduce {\it derived differential topology}. Roughly speaking, derived differential topology is the $\cinf$ counterpart of derived algebraic geometry(DAG), where 'derived' is in the sense of Lurie and T\"{o}en-Vezzosi. Derived algebraic geometry is older and more developed. In general, derived geometry studies 'derived' spaces, which capture higher homotopical data of the classical spaces. The $\infty$-category of derived manifolds $\dmfd$ contains the ordinary smooth manifolds, but also many highly singular objects. People are using derived differential topology in studying moduli spaces, intersection theory, derived cobordisms etc. In order to do so, we need to apply the theory of $\infty$-categories heavily, especially Lurie's 'Structured space'. Below is a brief outline of the development of the theory of derived differential topology:
+
+\begin{enumerate}
+	\item Spivak (2008) first defined the $\infty$-category of derived manifolds using homotopy sheaves of homotopy rings, which was introduced to study intersection theory and derived coboardisms.
+	\item Borisov-Noel(2011) gave an equivalent definition of derived manifolds using simplical $\cinf$ rings.
+	\item Joyce(2012) introduced $\mathcal{D}$-manifolds, which forms a strict 2-category. He also introduced $\mathcal{D}$-orbifolds. The main purpose of Joyce's work is to study moduli spaces arising in differential and symplectic geometry, including those used to define {\it Donaldson}, {\it Donaldson-Thomas}, {\it Gromov-Witten} and {\it Seiberg-Witten invariants}, {\it Floer theories}, and {\it Fukaya categories}.
+	\item Lurie(2011) also gave a brief mentioning of derived differential toplogy in {\it DAG V: Strucured space}, which will be further developed in {\it Spectral algebraic geometry}.  
+\end{enumerate}
+Let $\mfd$ be the category of smooth manifolds.
+
+\begin{example}[Pontrjagin-Thom construction] 
+	Let $X\in \mfd$ be a compact manifold and $\Omega$ the unoriented cobordism ring. $X$ represent a class $[X] \in \Omega$. The Pontrjagin-Thom construction tells us that $[X]$ is classified by a homotopy class of maps $S^n$ to the Thom spectrum $MO$ for $n$ large enough. We can always pick a representative $f$ from this class such that $f$ is smooth (away from base point) and meets the zero section $B\subset MO$ transversely. Then we have $f^{-1}(B)$ is a manifold which is cobordant to $X$, i.e. $[f^{-1}(B)]=[X] \in \Omega$. We have the following pullback diagram
+		\begin{center}
+		\begin{tikzcd}
+		f^{-1} B \arrow[d] \arrow[r] & B \arrow[d,""] \\
+		S^n \arrow[r]           & MO         
+		\end{tikzcd}
+	\end{center}
+\end{example}
+The transvesality is essential in the above construction. We first represent a class in $\Omega$ by a homotopy class of maps, which has a dense collection of smooth maps. Once we perturb the map to be transversal to the zero section, then we can get an actual manifold rather than just a class in $\Omega$. Suppose that the transeverality is not require, we would have that a correspondence between smooth maps $S^n\to Mo$ and the zero loci of them.
+
+However, transeverality is essential in $\mfd$. For example, let $f:X\to Z$, $g:Y\to Z$ be arbitrary smooth maps, then the fiber product of $f$ and $g$ does not exists in general. If we resitrict to the case that $f$ and $g$ are transversal to each other, i.e. $f_{*}T_xX +g_{*}T_yY=T_zZ$ for $f(x)=g(y)=z$, then the fiber product $X\times_Z Y$ exists in $\mfd$. In particular, for if either $f$ or $g$ is a submersion, then $X\times_Z Y$ exists.
+\begin{rem}
+	There does exist pullback when $f$ and $g$ are not transversal to each other. Try to find an example.
+\end{rem}
+
+The idea of derived differential topology (geometry) is that we want to correct certain limits that exist in $\mfd$ but do not have the correct cohomological properties. In particular, we can form fiber product from non-transversal maps.
+
+\subsection{Structured spaces}
+Let $X\in \Top$, then we usually equipped $X$ with some additional geometry structures on $X$ by associated $X$ with a sheaf $\CF$ on it.
+
+	\begin{enumerate}
+		\item Let $|X|$ be the underling topological space of a scheme $X$, then $\CF = \CO_X$ is the structure sheaf of $X$ with value in the category of commutative rings $\cring$.
+		\item Again $|X|$ be the underling topological space of a scheme $X$, we let $\CF$ be a quasi-coherent sheaf of $\CO_X$-modules on $X$.
+		\item $|X|$ same as before. Let $\CF$ be an object of the derived category of quasi-coherent sheaves $D(\qcoh(X))$. This sheaf can be identified as a sheaf taking values in some $\infty$-category of module spectra.
+		\item Let $X\in \mfd$, and $\CF$ be the sheaf of $C^{\infty}$ functions on $X$. This sheaf takes value in $\cring$ as well. Note that any smooth maps $f:\R \to \R$ induce a morphism $\CF \to \CF$. In fact, it is easy to see that $C^{\infty}(X)$ has more delicate structure than simply being an $\R$-algebra.  
+	\end{enumerate}
+
+We want to define so called {\it structured spaces} introduced by Lurie which generalizes all the above examples and allow us to build the foundation of derived differential topology.
+
+First recall we say that a category is {\it locally presentable} if it is cocomplete and contains a small set $S$ of small objects such that every objects in the category is a nice colimit over objects in $S$. We have a natural extension of this definition to $\infty$-categories:
+\begin{defn}
+	Let $\mathscr{D}$ be an $(\infty,1)$-category. We say $\mathscr{D}$ is {\bf locally presentable} if there is a small set $S$ of small objects such that every object of $\mathscr{D}$ can be presented by $(\infty,1)$-colimit over objects in $S$.
+\end{defn}
+
+\begin{rem}
+	Suppose our $\infty$-categories are modeled by simplicial categories and we assume mapping spaces are Kan complexes. We have the {\bf homotopy coherent nerve} functor $N:s\set\cat \to s\set$ sending simplicial categories to quasi-categories. Then the $(\infty,1)$-(co)limits in quasi-categories correspond exactly homotopy (co)limits in simplicial categories. 
+\end{rem}
+
+
+Let $\mathscr{D}$ be a locally presentable $\infty$-category and $\mathscr{C}$ be a small $\infty$-category with finite limits. We put a Grothendieck topology on $\mathscr{C}$ generated by covers $\{U_i\to U \}$.
+
+\begin{defn}
+	A $\mathscr{D}$-valued sheaf on $\mathscr{C}$ is a functor $F: \mathscr{C}^{op}\to \mathscr{D}$ such that 
+	\begin{equation*}
+	F(U) \to \prod_i F(U_i) \rightrightarrows \prod_{j,k} F(U_j\times_{U}U_k)\substack{\rightarrow\\[-1em] \rightarrow \\[-1em] \rightarrow}
+	\end{equation*}
+	is a limit digram. Denote the category of $\mathscr{D}$-valued sheaves on $\mathscr{C}$ by $\sh(\mathscr{C};\mathscr{D})$.
+\end{defn}
+For example, let $X\in \Top$ and $\open(X)$ be the poset generated by open subspaces of $X$. Then $\sh(\open(X),\set)$ recovers the classical notion of sheaves.
+
+Let $X, Y\in \Top$,  and $f: X\to Y$ be a morphism in $\Top$, i.e. a continuous function. We have an adjunction
+\begin{equation*}
+f^{-1}: \sh(Y,\mathscr{D}) \substack{\longrightarrow\\[-1em]  \longleftarrow}\sh(X,\mathscr{D}): f_*
+\end{equation*}
+where $f_*$ and $f^{-1}$ are the direct image functor and inverse image respectively. Consider the functor $\sh(-;\mathscr{D})^{op}: \Top\to \cat_{\infty}$ from topological spaces to $\infty$-categories which sends continuous functions $f$ to direct image functors $f_{*}$ between the opposite categories of $\mathscr{D}$-valued sheaves.
+
+In general. we can describe a functor $\mathscr{D} \to \cat_{\infty}$ equivalently by a locally cocartesian fibration $\mathscr{C}\to \mathscr{D}$. 
+\begin{defn}
+	Let $\pi: \mathscr{C}\to \mathscr{D}$ be a functor between $\infty$-categories. Let $\alpha: x \to y$ be a morphism in $\mathscr{D}$, we call a morphism $\tilde{\alpha}: a\to b$ in $\mathscr{D}$ {\bf locally cocartesian lift} if $\pi(\tilde{\alpha})= \alpha$, and precomposing  $\tilde{\alpha}$ induces an equivalence
+	\begin{equation*}
+	\tilde{\alpha}^*: \map_{\mathscr{C}_y}(b,c) \stackrel{-\circ \tilde{\alpha}}{\longrightarrow} \map_{\mathscr{C}}(a,c) \times_{\map_{\mathscr{C}}(x,y)} \{\alpha \}
+	\end{equation*}
+	where $\map_{\mathscr{C}_y}(b,c)$ is the mapping space in the fiber $\mathscr{C}_y$ over $y$. We called $\pi$ a {\bf locally cocartesian fibration} if for any $\alpha: x\to y$ in $\mathscr{D}$ and $a\in \mathscr{C}_x$, we can find a locally cocartesian lift of $\alpha$. If all locally cocartesian arrows are closed under composition, we say $\pi$ is a cocartesian fibration.
+\end{defn}
+
+
+\begin{example}
+	Let consider a simple case of cocartesian fibration. Consider the categories of modules $\Mod_A$ over some ring $A$. Consider a ring homomorphism $\phi: A\to B$, then naturally we have an induced maps on modules $\phi_!: \Mod_A \to \Mod_B$ by extension of scalars, i.e. for any $M\in \Mod_A$, $\phi_!(M)= M\otimes_A B$. If we consider a category $\Mod$ of modules over all rings with objects $(A,M)$ where $M$ is a module over $A$, and morphisms have the form $(A,M) \to (B,N)$ where is a combination of ring homomorphism $A \to B$ and an $A$-linear map $M\to N$. It is easy to verify that this is a well defined category. 
+	
+	Now consider a functor $\pi: \Mod\to \ring$ by mapping $(A,M)$ to $A$. Let $\phi: A\to B$ and $M$ an $A$-module, then we have a canonical map $\tilde{\phi}:(A,M)\to (B, \phi_!M)=(B, M\otimes_A B)$ induced a bijection by precomposition:
+	
+	\begin{equation*}
+	\{(B,\phi_! M) \to (B,N)\ \text{in}\ \pi^{-1}(B)  \}\stackrel{\simeq}{\longrightarrow} \{(A,M)\stackrel{\psi}{\longrightarrow} (B,N)            \ \text{s.t}\ \pi(\psi)=\phi \}
+	\end{equation*}
+\end{example}
+
+Now given a locally cocartesian fibration $\pi: \mathscr{C}\to \mathscr{D}$, let $\alpha: x\to y$ be a morphism in $\mathscr{D}$, then we have an induced functor $\alpha_! : \mathscr{C}_x \to \mathscr{C}_y$ between fiber of $x$ and $y$ respectively. In fact, let $a\in \mathscr{C}_x$, then $\alpha_!(a)=b$ for a locally cocartesian lift $a\to b$ of $\alpha$. In order to get $\alpha_!\beta_!= (\alpha\beta)_!$, we need the locally cocartesian arrows to be composable, which is ok if $\pi$ is a cocartesian fibration.
+
+\begin{defn}[$\mathscr{D}$-structured spaces]
+	Let $X\in \top$ and $\mathscr{D}$ be a locally presentable $\infty$-category, then we say $(X,\CO_X)$ is a $\mathscr{D}$-structured space if $\CO_X$ is a $\mathscr{D}$-valued sheaf. A map between two $\mathscr{D}$-structured space is a pair $(f, \tilde{f})$ where $f:X\to Y$ is a morphism in $\Top$ and $\tilde{f}: \CO_Y \to f_{*}\CO_X$ is a sheaf morphism. 
+\end{defn}
+
+Denote the $\infty$-category of $\mathscr{D}$-structured spaces by $\Top_{\mathscr{D}}$. The functor $\sh(-;\mathscr{D})^{op}: \Top\to \cat_{\infty}$ classifies a cocartesian fibration $\pi : \Top_{\mathscr{D}}\to \Top$. Denote the terminal object in $\Top$ by $*$. Consider the inclusion $i: \sh(*, \mathscr{D})\to \Top_{\mathscr{D}}$. Since $\pi: \Top_{\mathscr{D}}\to \Top$ is a cocartesian fibration, this inclusion functor has a left joint $\Gamma$ such that
+
+\begin{equation*}
+\Gamma: \Top_{\mathscr{D}} \substack{\longrightarrow\\[-1em]  \longleftarrow}\sh(*, \mathscr{D})\simeq \mathscr{D}^{op} : i
+\end{equation*}
+which sends $(X, \CO_X)$ to its global sections $\CO_X(X)$.
+\subsection{Construction of $\infty$-category $\dmfd$}
+
+As we observed before, $\mfd$ does not have fiber products. In algebraic geometry, we have the category of schemes $\sch_k$ has fiber product since we have $\aff\sch^{op}_k\simeq \calg$ and we just need to compute the tensor product of commutative rings locally. Here we want to mimic the construction in algebraic geometry to extend the category of manifolds by looking at the algebraic structure on it. This method is developed in the context of {\it synthetic differential geometry}.
+
+As in the beginning of this section, any $X\in \mfd$ has an associated sheaf of rings of smooth function $\CO_X=C^{\infty}(X)$ on $X$. We can regard $X$ as a $\R$-scheme modeled on $\R^{\dim X}$ where the structure sheaf $\CO_X$ is a sheaf of local $\R$-algebras. Under this point of view, we can reinterpret many fundamental concepts in geometry and topology with more intrinsic constructions, for example
+\begin{enumerate}
+	\item The cotangent space at $x\in X$ is isomorphic to $I_p/I_p^2$, where $I_p$ is the unique maximal ideal of the stalk of $\CO_X$ at $x$.
+	\item Consider the diagonal map $\Delta: X\to X\times X$. Let $\mathcal{I}$ be the sheaf of germs of smooth functions on $X\times X$ which vanish on the diagonal. Then consider the pullback of $\mathcal{I}/\mathcal{I}^2$ to $X$, denoted by $ \Delta^*( \mathcal{I}/\mathcal{I}^2)$. This construction yields a locally free sheaf called the {\it cotangent sheaf}. It is easy to verify that $ \Delta^*( \mathcal{I}/\mathcal{I}^2)$ corresponds to the cotangent bundle $T^*X$.
+	\item We can also construct Taylor series (jets) in a similar fashion.
+\end{enumerate}
+
+However, a shortage of this method is that we lost the $C^{\infty}$ structure of manifolds. For example, $C^{\infty}(X)$ has much richer structures than simply being an $\R$-algebra. In order to solve this issue, we want to enlarge the category of manifolds to $\cinf$-schemes by constructions from $\cinf$-rings.
+
+\begin{defn}
+	A $\cinf$-ring is a set $A$ such that for every $C^{\infty}$ function $\phi: \R^n\to \R^m$, there is an operation $\phi_*: A^{\times n}\to A^{\times m}$, and if we have another $C^{\infty}$ function $\psi: \R^m \to \R^k$, the following diagram commutes
+	\begin{center}
+		\begin{tikzcd}
+		A^{\times n} \arrow[r, "\phi_*"] \arrow[rd, "(\psi\circ \phi)_*"'] & A^{\times m} \arrow[d, "\psi_*"] \\
+		& A^{\times k}          
+		\end{tikzcd}
+	\end{center}
+\end{defn}
+
+In synthetic differential geometry, we define {\it affine $\cinf$-schemes} to be the opposite category of $\cinf$-rings, and then by gluing we get $\cinf$-schemes. $\mfd$ is a full subcategory of the category of $\cinf$-schemes $\cinf\sch$.
+
+Let $X\in \sch_k$, we have a canonical functor $\y_X=\Hom(-,X): \aff\sch_k^{op}\to \set$. Recall at the beginning of this note, we talked about how to categorify the codomain of this functor to get (higher) stacks. In derived algebraic geometry, we also want to pass the domain  $\aff\sch_k^{op}\simeq \calg$ to its (higher homotopical) derived version. Usually we replace commutative algebras by simplicial commutative algebras $s\calg$ or differential graded commutative algebras $\calg^{dg}$(for $\Char(k)=0$ ). We will apply these constructions to $\cinf$-ring, and we will model derived $\cinf$-rings by (connective) dg $\cinf$-rings.
+
+\begin{defn}
+	A dg-$\cinf$-ring is a non-negatively graded commutative dg-algebra over $\R$ such that $A_0$ has a structure of $\cinf$-ring. Denote the category of dg-$\cinf$-rings by $\cinf\alg^{dg}$.
+\end{defn}
+\begin{example}[derived critical locus]
+	Let $X\in\mfd$, and $\{f_i\}_{i=1}^n$ is a collection of $C^{\infty}$ functions on $X$. Consider a dg $\cinf$-ring defined by $A=C^{\infty}(M)[\eta_1,\cdots, \eta_n]$ which is the polynomial algebra generated by $\eta_1,\cdots, \eta_n$ in degree 1 over $ C^{\infty}(M)$, and satisfying $\del \eta_i =f_i$ for any $i$. $A$ models the {\it derived crtical locus} of a function $f=(f_1,\cdots,f_n): M\to \R^n$ on $M$. We have $\pi_0(A)=C^{\infty}(M)/(f_1,\cdots,f_n)$. Note that if $0$ is a regular value of $f$, then $A$ is quasi-isomorphic to $C^{\infty}\big(f^{-1}(0) \big)$. 
+\end{example}
+
+There is a tractable model structure on $\cinf\alg^{dg}$, where weak equivalences are quasi-isomorphism (as dga), and fibrations are surjections on all non-zero degrees. Denote the associated $\infty$-category of $\cinf\alg^{dg}$ by $\cinf\alg_{\infty}$.
+
+Consider the category of $\mathscr{D}=\cinf\alg_{\infty}$ structured spaces, called $\cinf$-ringed spaces, and we denote it $\Top_{\cinf}$. 
+
+
+\begin{defn}[Locally $\cinf$-ringed spaces]
+	Define the category of {\it Locally $\cinf$-ringed spaces} $\Top_{\cinf}^{loc} \subset \Top_{\cinf}$ by
+	\begin{enumerate}
+		\item the objects of $\Top_{\cinf}^{loc}$ are structured spaces $(X,\CO_X)$ such that each stalk of the zeroth homotopy sheaf $\pi_0(\CO_X)_x$ is a local (discrete) $\cinf$-rings with residual field $\R$.
+		\item  morphisms are morphisms $(X, \CO_X) \to (Y, \CO_Y)$ such that the map of stalks $\pi_0(\CO_{X,x})\to \pi_0 (\CO_{Y,f(x)})$ is a map of local rings. 
+	\end{enumerate}
+\end{defn}
+
+\begin{prop}
+	The global section functor $\Gamma$ fits into an adjunction with a right adjoint $\spec$ \begin{equation*}
+	\Gamma: \Top_{\cinf}^{loc}\  \substack{\longrightarrow\\[-1em]  \longleftarrow}\   \cinf\alg :\spec
+	\end{equation*}
+\end{prop}
+
+Now we define the essential image of the functor $\spec$ to be the ($\infty$-) category of {\bf affine derived manifolds }, denoted by $\dmfd^{\aff}$. We call a locally $\cinf$-ringed space $(X,\CO_X)$ a {\bf derived manifold} if there exists an open cover $\{U_i\}_i$ of $X$ such that each $(U_i, \CO_X|_{U_i})\in \dmfd^{\aff}$. Denote the ($\infty$-) category of derived manifolds by $\dmfd$.
+
+Clearly, $\mfd$ is a full subcategory of $\dmfd$, since for $M\in\mfd$, $M\simeq \spec\big(C^{\infty}(M) \big)$. In particular, we see that all smooth manifolds as derived manifolds are affine. 
+
+\begin{example}
+	The derived crtical locus introduced before are derived manifolds. We have seen that derived crtical locus is a derived enhancement of the classical critical locus. 
+\end{example} 
+
+\begin{example}
+	Another large class of derived manifolds are given by {\it differential graded manifolds}. 
+	A {\it graded manifold} is defined to be a locally ringed space $\mathcal{M}=(M,\CO_{\mathcal{M}})$ where $M$ is a smooth manifold, and the structure sheaf $\CO_{\mathcal{M}}$ of $\mathcal{M}$ is locally isomorphic to $\CO(U)\otimes \sym (V^*)$ for an open set $U\subset M$ and $V$ a vector space. Here $\CO$ denotes the structure sheaf of $M$ as a smooth manifold and $\sym$ denotes the supercommutative tensor product. By a result of Batcher, any graded manifold $\mathcal{M}$ can be realized by a graded vector bundle $E\to M$ such that $\CO_{\mathcal{M}} \simeq \Gamma (\sym E^*)$. We say a graded manifold is a {\it differential graded manifold} if it is equipped with a degree $+1$ vector field $Q$ with $Q^2=0$.
+\end{example}
+
+\begin{example}
+	Joyce showed that many constructions in producing moduli spaces, for example, moduli spaces of $J$-holomorphic curves, yields derived manifolds. 
+\end{example}
+
+Let's go back to our motivating example of Pontrjagin-Thom construction. We want to see whether $\dmfd$ solves the transversality problem in $\mfd$. 
+\begin{prop}[Spivak(2008)]
+	The $\infty$-category $\dmfd$ has the following properties:
+	\begin{enumerate}
+		\item Let $X\in \mfd$ and $A,B$ be submanifolds of $X$, then the homotopy pull back $A\times_X B\in \dmfd$. We call $A\times_X B\in \dmfd$ the {\bf derived intersection} of $A$ and $B$ in $X$.
+		\item There exist an equivalence relation on the compact objects of $\dmfd$ which extend cobordism relation in $\mfd$, i.e. for any $X\in \mfd$, there is a ring $\Omega^{der}$, which is called the {\bf derived cobordism ring} over $X$, and a functor $i: \mfd \to \dmfd$ which induces a homomorphism $i_*: \Omega(T) \to \Omega^{der}(T)$.
+		\item we have a derived cup product formula. Let $A,B$ be compact submanifolds of $X$, then we have
+		\begin{equation*}
+		[A]\smile[B] =[A\cap B]
+		\end{equation*}
+		in $\Omega^{der}(X)$.
+	\end{enumerate}
+\end{prop}
+%% The correct journal style for \specialsection is a uppercase; a known bug
+%% in amsart.cls prevents this, so 
+%\specialsection*{This is a Special Section Head}
+%\specialsection*{THIS IS A SPECIAL SECTION HEAD}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{10}
+
+\bibitem {A} Julia E. Bergner, {\it A survey of $(\infty, 1)$-categories}, Proceedings of the IMA workshop on n-categories
+\bibitem {A} Eduardo J. Dubuc, {\it $\cinf$-Schemes}, American Journal of Mathematics, Vol. 103, No. 4 (Aug., 1981), pp. 683-690
+
+\bibitem {A} Jacob Lurie, {\it DAV G: Structured spaces}, arXiv:0905.0459
+\bibitem {A} Jacob Lurie, {\it Higher algebra}, in progress
+\bibitem {A} Jacob Lurie, {\it Higher topos theory}
+\bibitem {A} Jacob Lurie, {\it Spectral algebraic geometry}, in progress
+\bibitem {B} Dominic Joyce, {\it D-manifolds and d-orbifolds: a theory of derived differential geometry}, arXiv.org > math > 
+\bibitem {B} Dominic Joyce, {\it Algebraic geometry over $\cinf$-rings}, arXiv:1001.0023
+\bibitem {A} David I. Spivak, {\it Derived Smooth Manifolds}, Duke Math J.
+\bibitem {B} Bertrand T\"oen, {\it Derived algebraic geometry}, EMS Surv. Math. Sci. 1 (2014), 153–240
+\bibitem {B} Bertrand T\"oen, Gabriele Vezzosi, {\it Homotopical Algebraic Geometry I: Topos theory}, Adv. Math
+\bibitem {B} Bertrand T\"oen, Gabriele Vezzosi, {\it Homotopical Algebraic Geometry II: geometric stacks and applications}
+\end{thebibliography}
+
+\end{document}
+
+%------------------------------------------------------------------------------
+% End of journal.tex
+%------------------------------------------------------------------------------

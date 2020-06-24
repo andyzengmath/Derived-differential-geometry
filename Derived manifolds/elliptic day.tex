@@ -1,0 +1,367 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+\usepackage{amssymb}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\usepackage{tikz-cd}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ques}[thm]{Question}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+\newcommand{\bull}{\cdot}
+\newcommand{\del}{\partial}
+\newcommand{\Sq}{\mbox{Sq}}
+\newcommand{\loc}{{\mbox{loc}}}
+\newcommand{\supp}{\mbox{supp}}
+\renewcommand{\del}{\partial}
+\newcommand{\CL}{{\mathcal L}}
+\newcommand{\CM}{{\mathcal M}}
+\newcommand{\cc}{{\mathbold c}}
+\newcommand{\CC}{{\mathsf C}}
+\newcommand{\CG}{{\mathcal G}}
+\newcommand{\CP}{{\mathbb P}}
+\newcommand{\CF}{{\mathcal F}}
+\newcommand{\CO}{{\mathcal O}}
+\newcommand{\Cinfh}{S^\infty}
+\renewcommand{\H}{{\cal H}}
+
+\newcommand{\A}{{\mathcal{A}}}
+\newcommand{\T}{{\mathcal{T}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\N}{{\mathbb{N}}}
+
+
+\newcommand{\e}{\mathcal{E}}
+\newcommand{\y}{\mathsf{y}}
+\newcommand{\p}{\mathsf{p}}
+\newcommand{\sh}{\mathsf{Sh}}
+\newcommand{\psh}{\mathsf{PSh}}
+\newcommand{\pshi}{\mathsf{PSh_{\infty,1}}}
+\newcommand{\f}{\mathcal{F}}
+\newcommand{\po}{\mathcal{P}}
+\newcommand{\g}{\mathfrak{g}}
+\newcommand{\B}{{\mathcal{B}}}
+\newcommand{\m}{{\mathsf{M}}}
+\newcommand{\secc}{\operatorname{sec}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\irr}{\operatorname{Irr}}
+\newcommand{\fra}{\operatorname{Frac}}
+\newcommand{\ca}{\mathsf{C}}
+\newcommand{\da}{\mathsf{D}}
+\newcommand{\ia}{\mathsf{I}}
+\newcommand{\ob}{\operatorname{Obj}}
+\newcommand{\set}{\mathsf{Set}}
+\newcommand{\dm}{\mathsf{dMfd}}
+\newcommand{\mfd}{\mathsf{Mfd}}
+\newcommand{\var}{\mathsf{Var}}
+\newcommand{\sch}{\mathsf{Sch}}
+
+\newcommand{\gp}{\mathsf{Grp}}
+\newcommand{\gpd}{\mathsf{Grpd}}
+\newcommand{\lgpd}{\mathsf{LieGrpd}}
+\newcommand{\gpdi}{\mathsf{Grpd_{\infty}}}
+\newcommand{\lgpi}{\mathsf{dLie_{\infty}Grpd}}
+
+\newcommand{\lali}{\mathsf{dL_{\infty}Algd}}
+\newcommand{\lgpn}{\mathsf{dLie_{n}Grpd}}
+\newcommand{\aff}{\mathsf{Aff}}
+\newcommand{\alg}{\mathsf{Alg}}
+\newcommand{\ring}{\mathsf{Ring}}
+\newcommand{\cring}{\mathsf{CommRing}}
+\newcommand{\calg}{\mathsf{CommAlg}}
+\newcommand{\cialg}{\mathcal{C}^{\infty}\mathsf{Alg}}
+\newcommand{\fd}{\mathsf{Field}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\map}{\operatorname{Map}}
+\newcommand{\kan}{\operatorname{Kan}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\fun}{\operatorname{Fun}}
+\newcommand{\funi}{\operatorname{Fun_{\infty}}}
+\newcommand{\mor}{\operatorname{Mor}}
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\vol}{\operatorname{Vol}}
+\newcommand{\dens}{\operatorname{Dens}}
+\newcommand{\der}{\operatorname{Der}}
+\newcommand{\ider}{\operatorname{InnDer}}
+\newcommand{\bfs}{\textbf}
+\newcommand{\its}{\textit}
+\newcommand{\gal}{\operatorname{Gal}}
+\newcommand{\en}{\operatorname{End}}
+\newcommand{\sym}{\operatorname{Sym}}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Derived Lie $\infty$-groupoids]{Homotopy theory of derived Lie $\infty$-groupoids and singular foliations} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Qingyun Zeng} % Your name
+\institute[Penn] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+University of Pennsylvania \\ % Your institution for the title page
+\medskip
+\textit{qze@math.upenn.com} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Lie groupoid and foliations} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+\begin{frame}
+	\frametitle{Lie groupoids in differential geometry}
+	{\bf Lie groupoids} are groupoid objects in the category of smooth manifolds $\mfd$. Let $\mathcal{G}\in \lgpd$, then $\mathcal{G}: \mathcal{G}_1\rightrightarrows \mathcal{G}_0$ where $\mathcal{G}_0,\mathcal{G}_1\in \mfd$ and both structure maps are submersions.
+	
+	
+		Lie goupoids are useful since it is an important tool in studying various areas in geometry and topology, for example, index theory, $K$-theory, foliations, poisson geometry, gauge theory etc.
+	
+	Note that Morita equivalences of Lie groupoids corresponds to differentiable stacks.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Foliations}
+	Recall a (regular) {\bf foliation} $\CF$ of a manifold $M^n$ is a partition of $M$ into disjoint union of dimension $p$ immersed submanifolds.
+	\begin{definition}[Stefan]
+	A {\bf singular foliation} $\CF$ is a subsheaf of the sheaf of vector fields on $M$ $\mathfrak{X}$ locally finitely generated as an $\mathcal{O}_M$ module and is closed under Lie brackets.  
+	\end{definition}
+A singular foliation induces a partition of $M$ into (possibly non-equal dimensional) leaves. Note that unlike regular foliations, singular dimensions are not uniquely characterized by leaves.
+\end{frame}
+
+
+\subsection{} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Lie groupoids and algebroids in foliations}
+For any foliated manifolds $(M,\CF)$, we can construct {\bf holonomy groupoids} $\mathcal{G}\rightrightarrows
+ M$ where $\mathcal{G}$ consists of holonomy classes of paths in each leaf. Holonomy groupoids are Lie groupoids. 
+
+
+
+
+Debord(2001) constructed the holonomy groupoids for {\it almost regular} foliations for which the union of leaves of maximal dimension is a dense open subset of the underlying manifold. 
+
+Androulidakis-Skandalis (2006) constructed holonomy groupoids for arbitrary singular foliations, but their generalizations could be highly singular, in particular not Lie groupoids. 
+
+
+On the other hand, every {\bf Lie algebroid} $A\stackrel{\rho}{\to}TM$ induces a singular foliation $\CF = \rho\big(\Gamma(A) \big)$. However, not every foliation is induced from a Lie algebroid.
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}\frametitle{$L_{\infty}$-algebroids associated to foliations}
+	Let $M$ be a smooth manifold and $E=(E_{-i})_{0\le i\le \infty}$ be a graded vector bundle over $M$. Let $\CO_M$ be the sheaf of $C^{\infty}$ functions on $M$. An {\bf $L_{\infty}$-algebroid} structure on $E$ is a sheaf of $L_{\infty}$-algebra structures on the sheaf of sections of $E$ with an anchor map $\rho: E_{0} \to TM$ such that
+	\begin{enumerate}
+		\item For $n=2$ and one of the entry having order 1, we have the Leibniz rule
+		\begin{equation*}
+		\{x, fy \}_2=f\{x,y \}_2+\rho(x)[f]y
+		\end{equation*}
+		where $x\in \Gamma(E_0)$, $y\in \Gamma(E)$, $f\in \CO_M$. For $n\ge 3$, all brackets $\{\cdots \}_n$ is $\CO_M$-linear. 
+		\item $E$ is a dg $\CO_M$ module. In addition, $\rho\circ d^{(1)}=0$. 
+	\end{enumerate} 
+
+\begin{rem}
+	$L_{\infty}$-algebroids are equivalented to non-negatively graded {\bf differential graded manifolds}(NQ-manifolds).
+\end{rem}
+\end{frame}
+\begin{frame}
+\frametitle{$L_{\infty}$-algebroids associated to foliations}
+
+
+
+Let's consider singular foliations $\CF$ which admit  resolutions by vector bundles $\cdots E_{-2}\to E_{-1}\to \CF \to 0$.  
+
+\begin{thm}[Laurent-Gengoux, Lavau, Strobl (2018)]
+For such foliations, there exists a {\it {universal} $L_{\infty}$}-algebroid whose linear part is the given resolution.	
+\end{thm}
+
+
+\end{frame}
+
+%------------------------------------------------
+\section{Derived Lie $\infty$-groupoids}
+\begin{frame}
+\frametitle{Derived differential geometry}
+
+The theory of derived manifolds are developed by Spivak(2008), Borisov-Noel(2011), Joyce(2012), Nuiten(2018) etc.
+
+\begin{definition}[Nuiten 2018]
+A {\bf derived manifold} is locally modeled on dg $\mathcal{C}^{\infty}$ rings. 
+\end{definition}
+
+Note that the category of dg $\mathcal{C}^{\infty}$ rings forms a tractable model category, which presents an $\infty$-category $\cialg$.
+
+Nuiten(2018) showed that derived $L_{\infty}$-algebroids forms a {\it semi-model category}, where weak equivalences are $L_{\infty}$ quasi-isomorphisms and fibrations are degreewise surjections. Denote the associated $\infty$-category by $\lali$.
+\end{frame}
+\begin{frame}{Derived Lie $\infty$-groupoids}
+Let's consider simplicial objects in derived manifolds $X_{\bullet}: \Delta^{op} \to \dm$.
+
+Let $X_{\bullet}$, $Y_{\bullet}$ be two simplicial derived manifolds, a map $f: X_{\bullet}\to Y_{\bullet}$ is a {\it Kan fibration} if 
+\begin{equation*}
+X_k\to Y_k \times_{Y(\Lambda^i[k])} X(\Lambda^i[k])
+\end{equation*}
+is a surjective subersion for all $0\le i \le k$ and $k\ge 1$. We call $X_{\bullet}$ a {\bf derived Lie $\infty$-groupoid} if the canonical map $ X_{\bullet}\to \ast$ is a Kan fibration. Denote the category of derived Lie $\infty$-groupoid by $\lgpi$. 
+\end{frame}
+\begin{frame}{Derived Lie $\infty$-groupoids}
+	
+Recall that a {\bf category of fibrant objects}(CFO) consists of two extraordinary classes of morphisms: fibrations and weak equivalences, which gives a weaker version of a model category but still permits many operations of homotopy theory.
+
+Rogers-Zhu(2018) showed that Lie $\infty$-groupoids in Banach manifolds forms an {\it incomplete category of fibrant objects}, where the 'incomplete' mainly comes from the fact that the category of Banach manifolds lacks of many limits.
+
+Let's consider $\dm$ equipped with a Grothendieck topology generated by surjective submesions. We have an embedding of $\y:\lgpi \to s\psh(\dm)$ induced from the Yonena embedding.
+\begin{prop}[Z.]$\lgpi$ forms a category of fibrant objects, where fibrations are Kan fibrations and weak equivalences are given by stalkwise weak equivalences (in $s\set$).
+	\end{prop}
+\end{frame}
+
+%------------------------------------------------
+\section{Back to singular foliations}
+%------------------------------------------------
+
+\begin{frame}{Back to singular foliations}
+We already know how to present a singular foliation by Lie algebroids and $L_{\infty}$ algebroids. Debord(2008) showed that {\it almost injective} Lie algebroids are integrable, and in fact they integrates to the holonomy groupoids of the foliations induced by the original algebroids.
+
+\begin{ques}
+	What is the corresponding picture for (derived) $L_{\infty}$-algebroids and Lie $\infty$-groupoids?
+\end{ques}
+
+Laurent-Gengoux, Lavau, Strobl (2018) showed that
+	if $(E_{\bullet},Q)$ be a universal Lie $\infty$-algebroid of a singular foliation $\CF$, the 1-truncated groupoid of $(E_{\bullet},Q)$ is a universal cover of the connected component of the manifold of units of the holonomy groupoid in the sense of Androulidakis-Skandalis.
+
+
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}{Integrating $L_{\infty}$-algebroids}
+Severa-Siran(2019) used Sullivan's integrating functor $$\Hom_{cdga}\big(CE(E_{\bullet},Q), \Omega(\Delta^n,d)\big)$$
+which integrates $L_{\infty}$-algebroids to Lie $\infty$-groupoids, which generalizes Henriques(2008)'s results in integrating $L_{\infty}$-algebras.
+
+This suggests us to apply the integrating functor to derived $L_{\infty}$-algebroids. 
+
+Rogers and Zhu(2018) looked at the integrating function from Lie $n$-algebras to Lie $n$-groups and relates the homotopy theory of Lie $n$-algebras (CFO) to the homotopy theory of Lie $n$-groups (iCFO). This inspires us to consider how integration functor relates the semi-model structure on $\lali$ and CFO on $\lgpi$.
+
+{\bf Goal:} {\it canonically construct derived Lie $\infty$-groupoids for 'nice' singular foliations (e.g. admits resolution) which lifts the structure of holonomy groupoids.}
+\end{frame}
+
+
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
