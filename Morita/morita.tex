@@ -1,0 +1,368 @@
+\documentclass[12pt]{amsart}
+\setlength{\textheight}{8.5in} \setlength{\textwidth}{6.5in}
+\oddsidemargin 0in \evensidemargin 0in
+
+
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage[all]{xy}
+\usepackage[bbgreekl]{mathbbol}
+\usepackage{tikz-cd}
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{example}[thm]{Example}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+\newcommand{\bull}{\cdot}
+\newcommand{\del}{\partial}
+\newcommand{\Sq}{\mbox{Sq}}
+\newcommand{\loc}{{\mbox{loc}}}
+\newcommand{\supp}{\mbox{supp}}
+\renewcommand{\del}{\partial}
+\newcommand{\CL}{{\mathcal L}}
+\newcommand{\cc}{{\mathbold c}}
+\newcommand{\CC}{{\mathsf C}}
+\newcommand{\CG}{{\mathcal G}}
+\newcommand{\CP}{{\mathcal P}}
+\newcommand{\CF}{{\mathcal F}}
+\newcommand{\Cinfh}{S^\infty}
+\renewcommand{\H}{{\cal H}}
+
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\N}{{\mathbb{N}}}
+
+\newcommand{\B}{{\mathcal{B}}}
+\newcommand{\T}{{\mathcal{T}}}
+\newcommand{\f}{\mathcal{F}}
+
+\begin{document}
+	\author{Qingyun Zeng}
+\title{Morita equivalence and differentiable Groupoids }
+\curraddr{\textsc{Department of Mathematics,
+	University of Pennsylvania, Philadelphia, PA 19104}}
+\email{\tt{qze@math.upenn.edu}}
+
+
+\maketitle
+\tableofcontents	
+\section{Biaction groupoid}
+
+Let $\CG_1: X_1 \rightrightarrows X_0$ and $\CG_2: Y_1 \rightrightarrows Y_0$ be differentiable groupoids.
+Suppose $P$ is  a principal $(\CG_1,\CG_2)$ bibundle (bitosor) such that there exists homeomorphisms $\rho_2: P/X_1\to Y_0$ and $\rho_1: P/Y_1 \to X_0$, i.e. we have a principal $(\CG_1,\CG_2)$ bibundle,
+
+	\begin{center}
+	\begin{tikzcd}
+		X_1\arrow[d, red, shift right=1.5ex] \arrow[d, blue]& P\arrow{dl}{\rho_1} \arrow{dr}{\rho_2} & Y_1\arrow[d, red]\arrow[d, blue, shift left=1.5ex] \\
+		X_0  &                         & Y_0
+	\end{tikzcd}
+\end{center}
+then we say $P$ is a $(\CG_1,\CG_2)$ equivalence, or $\CG_1$ and $\CG_2$ are {\it Morita equivalent}. We want to prove the following result.
+
+\begin{prop}
+	If $\CG_1$ and $\CG_2$ are Morita equivalent, then $B\CG_1$ and $B\CG_2$ are homotopy equivalent.
+\end{prop}
+First, form the bimodule structure of $P$, we can construct a {\it $(\CG_1,\CG_2)$-biaction groupoid} $ X_1\times_{t,X_0,\rho_1} P\times_{s,Y_0,\rho_2}Y_1\rightrightarrows P$ with structure maps
+\begin{align*}
+&s\big((x, p, y)\big)=x &t\big((x, p, y)\big)=x\cdot p\cdot y\\
+&\rho_1(x\cdot p)=s(x)  &\rho_1( p)=t(x) \\
+&\rho_2(p\cdot y)=t(y)  &\rho_2(p)=s(y)
+\end{align*}
+The $\CG_1$ and $\CG_2$ commutes under this construction, i.e. $(x\cdot p)\cdot y=x\cdot (p\cdot y)$. Let $(x_1,p_1,y_1), (x_2,p_2,y_2)$ be two composable morphisms, then 
+\begin{equation*}
+t\big((x_1, p_1, y_1)\big)=x_1\cdot p_1\cdot y_1=s\big((x_2, p_2, y_2)\big)=p_2
+\end{equation*}
+then 
+\begin{equation*}
+t\big((x_2, p_2, y_2)\big)=x_2\cdot p_2\cdot y_2=x_2 x_1\cdot p_1\cdot y_1 y_2
+\end{equation*}
+Note that $s(x_1)=\rho_1(x_1\cdot p)=\rho_1(x_1\cdot p \cdot y_1)=\rho_1(p_2)=t(x_2)$. Similarly $t(y_1)=s(y_2)$. Hence the composition is well defined.
+
+Next, let's consider the  map $\rho_2$. Consider the {\it pull back groupoid} $\rho_2^* \CG_2$  along $\rho_2: P\to Y_0$. 
+	\begin{center}
+	\begin{tikzcd}
+		
+P \times_{s,Y_0} Y_1\times_{t,Y_0} P  \arrow[r,"\tilde{\rho_2}"] \arrow[d, red, shift right=1.5ex] \arrow[d, blue]& Y_1 \arrow[d, red]\arrow[d, blue, shift left=1.5ex] \\
+		P \arrow[r,"\rho_2"]
+		&Y_0
+	\end{tikzcd}
+\end{center}
+where
+\begin{equation}
+P \times_{s,Y_0} Y_1\times_{t,Y_0} P=\{(p,y,p') | p, p'\in P, x\in X_1, \rho_2(p)=s(y), \rho_2(p')=t(y) \}
+\end{equation}
+with structure maps
+\begin{align*}
+	s\big((p,y,p') \big)=p \quad t\big((p,y,p') \big)=p'\\
+	 (p,y,p')^{-1}=(p',y,p)  
+\end{align*}
+Note that in fact $t\big((p,y,p') \big)=p'=p\cdot y$. 
+Let $(p_1,y_1,p_1')$ and $(p_2,y_2,p_2')$ be composable morphisms, i.e. $p_1'=p_2$ then
+\begin{equation*}
+(p_1,y_1,p_1')\cdot (p_2,y_2,p_2')= (p_1, y_1y_2, p_2')
+\end{equation*}
+
+Since $t(y_1)= \rho_2(p\cdot y)=\rho_2(p_2)=s(y_2)$, the composition is well defined.
+
+Similarly, we define the pull back groupoid  $\rho_1^*\CG_1= P \times_{t,X_0} X_1\times_{s,X_0} P \rightrightarrows P$ and we have the similar diagram
+	\begin{center}
+	\begin{tikzcd}
+		
+	X_1 \arrow[d, red, shift right=1.5ex] \arrow[d, blue]& P \times_{t,X_0} X_1\times_{s,X_0} P \arrow[l,"\tilde{\rho_1}"]\arrow[d, red]\arrow[d, blue, shift left=1.5ex] \\
+		P 
+		&X_0\arrow[l,"\rho_1"]
+	\end{tikzcd}
+\end{center}
+
+\begin{lem} We claim that 
+	\begin{equation}
+\rho_1^*\CG_1 \quad \simeq \quad X_1\times_{X_0} P\times_{Y_0} Y_1 \rightrightarrows P  \quad\simeq\quad \rho_1^*\CG_1
+	\end{equation} Note that  $P \times_{t,X_0} X_1\times_{s,X_0} P=\rho_1^* \CG_1$, $ P \times_{s,Y_0} Y_1\times_{t,Y_0} P=\rho_2^*\CG_2$, and $X_1\times_{X_0} P\times_{Y_0} Y_1\rightrightarrows P$ is the bi-action groupoid.
+	\end{lem}
+
+\begin{proof} Let's consider $ P \times_{s,Y_0} Y_1\times_{t,Y_0} P \rightrightarrows P$ first. By definition, 
+	\begin{equation}
+	\rho_2^*\CG_2=\{(p,y,p')| p,p' \in P \ \text{such that}\   \rho_2(p)=s(y), \rho_2(p')=t(y) \}
+	\end{equation}
+	 
+ Now define a map $\phi: X_1\times_{X_0} P\times_{Y_0} Y_1 \to  P \times_{Y_0} Y_1\times_{Y_0}P$ by 
+	\begin{equation}
+	\phi: (x,p,y)\mapsto (  p, y, x\cdot p\cdot y).
+	\end{equation}
+	Let $(x_1,p_1,y_1)$ and $(x_2,p_2,y_2)$ be composable, so $t\big( (x_1,p_1,y_1)\big)=x_1\cdot p_1\cdot y_1= s\big((x_2,p_2,y_2) \big)=p_2$. Then 
+	\begin{align*}
+\phi\big( (x_1,p_1,y_1)\big)\cdot \phi\big( (x_2,p_2,y_2)\big)&=( p_1, y_1,x_1\cdot p_1\cdot y_1 )\cdot ( p_2, y_2,x_2\cdot p_2\cdot y_2 )\\
+&=( p_1, y_1,x_1\cdot p_1\cdot y_1 )\cdot ( x_1\cdot p_1\cdot y_1, y_2,x_2x_1\cdot p_1\cdot y_1 y_2 )\\
+&=(p_1,y_1y_2, x_2x_1\cdot p_2\cdot y_1 y_2)\\
+&=\phi\big( (x_1,p_1,y_1)\cdot(x_2,p_2,y_2)\big)
+	\end{align*}
+	since $t(y_1)=\rho_2(x_1\cdot p_1\cdot y_1)=\rho_2(p_2)=s(y_2).$
+
+
+
+	Next, define $\psi: P \times_{Y_0} Y_1\times_{Y_0}P\to X_1\times_{X_0} P\times_{Y_0} Y_1$ by
+	\begin{equation}
+	\psi: (p,y,p')=\big(x(p,y,p'),p,y\big)
+	\end{equation}  
+	where $x(p,y,p')\in X_1$ is given by 
+	\begin{equation*}
+	t(x)=\rho_1(p) \quad s(x)=\rho_1(p')
+	\end{equation*}
+	Note that $x(p,p')$ is uniquely determined by $p$ and $p'$ since the $\CG_1$ action on $P$ is free. Let $(p_1,y_1,p_1')$ and $(p_2,y_2,p_2')$ be composable, i.e. $p_1'=p_1\cdot y_1=p_2$ and $t(y_1)=\rho_2(p_1\cdot y_1)=s(y_2)$. Then
+	\begin{align*}
+	\psi\big((p_1,y_1,p_1')\big)\cdot \psi \big( (p_2,y_2,p_2')\big)=& (x_1(p_1,p_1'), p_1, y_1)\cdot (x_2(p_2,p_2'), p_2,y_2)
+	\end{align*}  
+	Since $t\big( (x_1(p_1,p_1'), p_1, y_1)\big)=x_1\cdot p_1\cdot y_1$, $\rho_2(x_1\cdot p_1\cdot y_1)=\rho_2(p_1\cdot y_1)=\rho_2(p_2)=s(y_2)$. Hence they are composable and we get 
+	\begin{align*}
+	(x_1(p_1,p_1'), p_1, y_1)\cdot (x_2(p_2,p_2'), p_2,y_2)=& (x_2x_1,p_1,y_1y_2)\\
+	=&\psi\big(p_1, y_1y_2, x_2x_1\cdot p_1\cdot y_1y_2 \big)
+	\end{align*}
+By our construction, $	t(x_1)=\rho_1(p_1)$ and $s(x_1)=\rho_1(p_1')=\rho_1(x_1\cdot p_1)=\rho_1(x_1\cdot p_1\cdot y_1)$. Similarly $s(x_2)= \rho_1(p_2')=\rho_1(x_2\cdot p_2\cdot y_2)$. Since both $\CG_1, \CG_2$ actions are free, we get $p_1'=x_1\cdot p_1\cdot y_1$ and $p_2'=x_2\cdot p_2\cdot y_2$. Hence
+\begin{equation*}
+\psi\big((p_1, y_1y_2, x_2x_1\cdot p_1\cdot y_1y_2 )\big)=\psi\big((p_1, y_1y_2,p_2' \big).
+\end{equation*}
+%	Note that 	$p_2'=p_2\cdot y_2=p_1\cdot y_1y_2$ and $x_2x_1\cdot p_1\cdot y_1y_2$ is not the same in $P$ unless $x_2x_1$ is the identity morphism of $ p_1$ since $\CG_1$ action is free. But in the pull back groupoid $\rho_2^*\CG_2$, they are composable since $\rho_2(x_1\cdot p\cdot y_1)=\rho_2(x_2x_1\cdot p\cdot y_1)=\rho_2( p\cdot y_1)=y'\in Y_0$ hence $(x_1\cdot p\cdot y_1$ and  $x_2x_1\cdot p\cdot y_1)$ can be connected by an identity morphism of $y'$  , i.e. $(x_1\cdot p\cdot y_1, \mathbb{1}_{y'}, x_2x_1\cdot p\cdot y_1)\in  P \times_{Y_0} Y_1\times_{Y_0}P$. ,
+
+Finally, let's show both $\psi\circ \phi$ and $\phi\circ \psi$ are homotopic to identities. First	 
+	\begin{equation}
+	\psi\circ \phi \big((x,p,y)\big)=\psi \big((p, y, x\cdot p\cdot y)\big)=(x,p,y)
+	\end{equation}
+	since $t(x)=\rho_1(p)$ and $s(x)=\rho_1(x\cdot p\cdot y)=\rho_1(x\cdot p)$.
+	
+	Conversely,
+	\begin{equation}
+	\phi\circ \psi \big((p,y,p')\big)=(x(p,p'),p,y)=(p,y,p' )
+	\end{equation}	
+	since $(x\cdot p\cdot y=p'$ as verified before.
+	
+	Therefore, the groupoid $\rho_2^*\CG_2$ is equivalent to $X_1\times_{X_0} P\times_{Y_0} Y_1 \rightrightarrows P$.
+	The proof of $\rho_1^*\CG_1$ is similar.
+	\end{proof}
+Denote the groupoid $X_1\times_{X_0} P\times_{Y_0} Y_1 \rightrightarrows P$ by $\CP$. Now it suffices to show $B\CG_1\simeq B\CP \simeq B\CG_2$. More generally, we have
+\begin{lem}
+	Let $\CG: X_1\rightrightarrows X_0$ be a differentiable groupoid. Suppose $p:M\to X_0$ be a surjective submersion, then the classifying space of the  pullback groupoid $p^*\CG$ is homotopic to $B\CG$. 
+\end{lem}
+\begin{proof}
+	First, let's recall a basic result by Quillen:
+	\begin{thm}[Quillen Theorem A]
+		If $\CC, \CC'$ are topological categories and $f: \CC \to \CC'$ is a  continuous functor, 
+		if $B(d \downarrow f)$ is contractible for any object $d$ in $\CC'$, then the induced maps $Bf: B\CC \to B\CC'$ is a homotopic equivalence.
+	\end{thm}
+
+We have  the following diagram
+	\begin{center}
+	\begin{tikzcd}
+		
+		P \times_{s,Y_0} Y_1\times_{t,Y_0} P  \arrow[r,"\tilde{\rho_2}"] \arrow[d, red, shift right=1.5ex] \arrow[d, blue]& Y_1 \arrow[d, red]\arrow[d, blue, shift left=1.5ex] \\
+		P \arrow[r,"\rho_2"]
+		&Y_0
+	\end{tikzcd}
+\end{center}
+With a little abuse of notations, we denote the function $\rho_2^*\CG_2\to \CG_2$ also by $\rho_2$. Now let's look at the comma category $y\downarrow\rho_2$. The object of $y\downarrow\rho_2$  consists of pairs $(x,v)$ such that $v:y\to \rho_2(x)$ in $Y_1$. Morphisms between $(x,v)$ and $x',v')$ are maps $w:x\to x'$ such that $\rho_2(w)v=v'$, i.e. the commutative digram
+\begin{center}
+\begin{tikzcd}[column sep=small]
+	& y \arrow[dl,"v"] \arrow[dr,"v'"] & \\
+	\rho_2(x) \arrow[rr,"\rho_2(w)"] &                         & \rho_2(x')
+\end{tikzcd}
+\end{center}
+ First we will show that $y\downarrow\rho_2$ has an initial object. Let $p\in P$ be any element such that $\rho_2(p)=y$, then we claim $(p,\mathbb{1}_y)\in \mathsf{ob} (y\downarrow\rho_2)$ is initial. Let $(x,v)$ be arbitrary. Since $v: y\to \rho_2(x)$, we have the following diagram
+\begin{center}
+	\begin{tikzcd}[column sep=small]
+		& y \arrow[dl,"\mathbb{1}_y"] \arrow[dr,"v"] & \\
+		y=\rho_2(p) \arrow[rr,"v"] &                         & \rho_2(x)
+	\end{tikzcd}
+\end{center}
+Since $\rho_2$ is a submersion, we can lift $v:\rho_2(p)\to \rho_2(x)$ to $\tilde{v}:p\to x$ in $\rho_2^*\CG_2$. Hence our claim is verified. Next, we have 
+\begin{thm}[Segal 1967]
+		If $\CC, \CC'$ are topological categories and $F_0, F_1: \CC \to \CC'$ are  continuous functors, 
+and $F:F_0\to F_1$ is a morphism of functors, then the induced maps $BF_0, BF_1: B\CC \to B\CC'$ are homotopic.
+\end{thm}
+As a consequence, any functor which is a  left or right adjoint induced a homotopy on the classifying spaces. Since there is an adjunction $[0] \rightleftarrows \CC$, $\CC$ has an initial object implies $B\CC$ is contractible.
+Therefore, $B(y\downarrow\rho_2)$ is contractible for any $y\in Y_0$, which implies that $B\rho_2^*\CG_2$ is homotopic to $B\CG_2$.
+	\end{proof}
+
+Now we see that $B\CG_1\simeq B\CP \simeq B\CG_2$.
+\section{Hilsum-Skandalis maps}
+Let $(V_1,F_1), (V_2,F_2)$ be two foliations with  holonomy groupoid $\CG_1$ and $\CG_2$. A map of $f$ of $C^{\infty}$ class is given of $V_1/F_1$ to $V_2/F_2$ is given by its graph $G_f$ which is a variety (not necessarily separated) of class $C^{\infty}$ equipped with a $C^{\infty}$ map $r:G_f \to V_1$ and $s:G_f \to V_2$, and actions of $\CG_1$ and $\CG_2$ commute so that $r:G_f \to V_1$ is a principal groupoid fibration $\CG_2$, that is, $r$ is surjective and for all $x,y\in \CG_f$ such that if $r(x)=r(y)$, then there exists a unique $\gamma\in \CG_2$ with $x\gamma=y$, and the action of $\CG_2$ is proper.
+
+Note that if we have $x\in \CG_f, \gamma_2 \in \CG_2$ such that $s(x)=r(\gamma_2)$ and $x\gamma_2\in \CG_f$ with $r(x\gamma_2)=r(x)$, $s(x\gamma_2)=s(\gamma_2)$.
+
+If $\gamma_1 \in \CG_1$ with $s(\gamma_1)=r(x)$, then  $\gamma_1 x\in \CG_f$, $r(\gamma_1 x)=r(x)$, $s(\gamma_1x)=s(x)$, and $\gamma_1x\gamma_2=\gamma_1(x\gamma_2)$.
+
+The differentiability of the actions by $\CG_1$ and $\CG_2$ is defined as follows:
+
+Let $\CG_1 \times_{V_1} \CG_f=\{(\gamma_1,x)\in \CG_1 \times \CG_f| r(x)=s(\gamma_1) \}$ and $ G_f\times_{V_2}\CG_2 =\{(x,\gamma_2)\in \CG_f \times \CG_2| r(\gamma_2)=s(x) \}$. These are varieties as $s:\CG_1 \to V_1$, $r:\CG_2 \to V_2$ are submersions. The maps $(\gamma_1,x)\mapsto \gamma_1x$ and $(x,\gamma_2) \mapsto x\gamma_2$ are $C^{\infty}$.
+
+Note that then $\CG_f$ is foliated by $F=(dr)^{-1}(F_1)$, and the quotient space $V_1/F_1$ is isomorphic to $\CG_f/F$ by $r$ and the action $s$ defines a homomorphism of the groupoid of the graph of the foliation $G_f, F)$ with values in $\CG_2$. Therefore, we can regard $f$ as a homomorphism of the holonomy groupoid of a desingularization of $V_1/F_1$ in $\CG_2$ ( or in groupoid of any desingularization of $V_2/F_2$).
+
+An equivalent way of defining a map $f$ from $V_1/F_1$ to $V_2/F_2$ is given by the notion of a cocycle of $\CG_1$ with values in $\CG_2$, i.e. an open covering $\{\Omega_i\}$   of $V_1$ and a $C^{\infty}$ map $g_{ij}: \CG_{1,i}^j \to \CG_2$, where
+\begin{equation}
+\CG_{1,j}^i=\{ \gamma\in \CG_1, r(\gamma)\in \Omega_i\ \text{and}\ s(\gamma)\in \Omega_j\}
+\end{equation}
+such that $g_{ji}(\gamma^{-1})=g_{ij}(\gamma)^{-1}$ for $\gamma\in G_{1,i}^j$. If $\gamma'\in  G_{1,k}^j$ and $s(\gamma)=r(\gamma')$, $s(g_{i,j}(\gamma))=r(g_{j,k}(\gamma'))$, then  
+\begin{equation}
+g_{i,k}(\gamma\gamma')=g_{i,j}(\gamma)g_{j,k}(\gamma').
+\end{equation}
+
+In other words, $\CG_1'=\coprod_{i,j}\Omega_{1,i}^j$ is a groupoid, which is equivalent to $\CG_1$, and $g$ is a homomorphism of $\CG_1$ to $\CG_2$ (given by $g(\gamma, i , j) = g_{i, j} (\gamma)$. Note that if $g_{i,j}$ is a cocycle, then $r(g_{i,j}(\gamma))$ only depends on $i$ and $r(\gamma)$. Let $f_i:\Omega_i \to V_2$ by $f_i(r(\gamma))=r(g_{ij}(\gamma))$.  By replacing the covering by refinement, we can assume $\Omega_i$'s  are  trivialization open  of transversals $T_{1,i}$ and $f(\Omega_i)$ are included in trivializing opens of the  transversals $T_{2,i}$. Let $T_1=\coprod_i T_{1,i}$ and $T_2=\coprod T_{2,i}$. Let
+\begin{equation}
+g_{i,j}': \CG_{1,T_{1,j}}^{T_{1,i}}\to \CG_{2,T_{2,j}}^{T{_2,i}}
+\end{equation}
+be the projection to the transversal of the restriction of $g_{ij}$ to $\CG_{1,T_{1,j}}^{T_{1,i}}$. Note that $T_j$ is a transversal of $(V_i,F_j)$, and $T_1$ is faithful (i.e. meets all the leaves of $(V_1,F_1)$), and $g_{i,j}' $ defines a $C^{\infty}$ homomorphism $g': \CG_{1,T_1}^{T_1}\to \CG_{1,T_2}^{T_2}$ (where $\CG_{i,T_i}^{T_i} = \coprod_{j, k} \CG_{i,T_{i,k}}^{T_{i, j}}$} . 
+\begin{prop}
+	An $C^{\infty}$ map $f:V_1/F_1 \to V_2/F_2$ is defined by the following equivalent data
+	\begin{enumerate}
+		\item A $\CG_1$ principal bundle  $\CG_f$ over $V_1$ with structure groupoid $\CG_2$.
+		\item A cocycle of $\CG_1$ in $\CG_2$.
+		\item A homomorphism $g:\CG_1' \to \CG_2'$ where $\CG_j'$ is equivalent to $\CG_j$.
+		\item A homomorphism $\phi:  \CG_{1,T_1}^{T_1}\to \CG_{1,T_2}^{T_2}$ where $T_j$ is a faithful transversal of $(V_j,F_j)$.
+	\end{enumerate}
+\end{prop}
+
+We have already seen how $(i) \Rightarrow (ii)$, $(ii) \Rightarrow (iii)$, and $(ii) \Rightarrow (iv)$ is due to the fact that $T$ is a faithful transversal of $(V, F)$, and $\CG^T_T$ is equivalent to $\CG$. If $\CG_j'$ is equivalent to $\CG_j$ let $\CG_j''$ be the space which realizes this equivalence $r: \CG_j'' \to V_j$ the fibration of the groupoid $\CG_j'$, and $s: \CG_j'' \to V_j'$ the fibration of the groupoid $\CG_j$ $(V_j' = \CG_j'^{(0)})$. Define $\CG_f = \CG_1'' \times_{\CG_1'} \CG_2''^{-1}$: this is the quotient of 
+$$
+\{(x_1, x_2) \in \CG_1'' \times \CG_2'' | g(s_1(x_1)) = s_2(x_2) \}
+$$
+by relationship
+$$
+(x_1, x_2) \simeq (x_1y, x_2 g(y)), \quad y \in \CG_1', r(y) = s(x_1)
+$$
+This shows that $(iii)$ implies $(i)$. To go from point of view $(i)$ to point of view $(ii)$ we use the local section of the fibration $r: \CG_f \to V_1.$
+
+The composition of two maps $f_3: V_1/F_1 \to 
+V_2/F_2$ and $f_1: V_2/F_2 \to V_3/F_3$ is given by its graph $\CG_{f_1\circ f_3} = \CG_{f_3} \times _{\CG_2} \CG_{f_1}$, i.e. the quotient of $\{(x_3, x_1) \in \CG_{f_3} \times \CG_{f_1}, s(x_3) = r(x_1)\}$ by the relation $(x_3, x_1) \sim (y_3, y_1) \rightleftarrows$ there exists $\gamma \in \CG_2$ with $x_3 \gamma = y_3$ and $\gamma y_1 = x_1$.
+
+Note that from the point of view $(iii)$ and $(iv)$ of the definition 1.1, given $\CG_2'$ or $\CG_{2, T_2}^{T_2}$, there exists a transeversal $T_1$ and a homomorphism $g: \CG_{1, T_1}^{T_1} \to \CG_2'$ or $\phi: \CG_{1, T_1}^{T_1} \to \CG_{2, T_2}^{T_2} $ (of class $C^{\infty}$ realizing $f_3$. This shows that we can calculate $f_1\circ f_3$ by using the composition of well chosen homomorphisms.
+\begin{defn}
+The map $f: V_1/F_1 \to V_2/F_2$ is said to be a submersion if the following equivalent conditions are satisfied:
+\begin{enumerate}
+    \item The map $s: \CG_f \to V_2$ is a submersion.
+    \item The cocycle $g_{i, j}: \CG_1 \to \CG_2$ is transverse (i.e. the map $f_i: \Omega_i \to V_2 $ is transverse to $F_2$).
+    \item The homomorphism $g: \CG_1' \to \CG_2'$ is transverse (for the leaves of $\CG_2'$ given by $r^{-1}(F_2')$).
+    \item The homomorphism $\phi: \CG_{1, T_1}^{T_1} \to \CG_{2, T_2}^{T_2} $ is a submersion.
+\end{enumerate}
+\end{defn}
+
+If $f: V_1/F_1 \to V_2/F_2$ is a submersion, then the foliation $F_2$ is pulled back by $f$ to a foliation $F_2'$ on $V_1$. In this case $F_1 \subset F_2'$ and the whole situation is described by this double foliation of $V_1$ and the etale map $V_1/F_2' \to V_2\F_2$.
+
+We only give the definition of immersions according to the equivalent data $(i)$ and $(iv)$ in the definition 2.1.
+
+\begin{defn}
+A map $f: V_1/ F_1 \to V_2/F_2$ is said to be an immersion if the following equivalent conditions are satisfied:
+\begin{enumerate}
+    \item We have $dr^{-1}(F_1) = ds^{-1}(F_2)$ (these are subspaces of $T\CG_f$).
+    \item The map $\phi: \CG_{1, T_1}^{T_1} \to \CG_{2, T_2}^{T_2} $ is an immersion.
+\end{enumerate}
+\end{defn}
+
+\begin{rem}
+
+
+ \begin{itemize}
+     \item If $f$ is an immersion, we can, even if modifying $T_2$, suppose that the map $\phi: T_1 \to T_2$ is a proper inclusion (it's very easy to do it locally of $T_{1,i}$ in $T_{2,i}$. We then obtain it globally by taking $T_1 = \coprod T_{1,i}$ and $T_2 = \coprod T_{2,i}$).
+     
+     \item For any map $f$, as $r: \CG_f \to V_1$ is a submersion, $dr^{-1}(F_1)$ is intergrable fiber bundle of $T\CG_f$ and we have $dr^{-1}(F_1) \subset ds^{-1}(F_2)$. However $ds^{-1}(F_2)$ is not always a vector bundle since the dimesion can vary. We will say that $f$ is of {\it constant rank} if the dimension of $ds^{-1}(F_2)$ is constant. In this case $ds^{-1}(F_2)$ is a foliation on $\CG_f$.
+     
+     \item From a naive point of view, a map of $V_1/F_1 \to V_2/F_2$ is a map $f: V_1 \to V_2/F_2$ which passes to the quotient $V_1/F_1$ i.e. contant on the leaves of $(V_1, F_1)$. A map $f: V_1 \to V_2/ F_2$ is given by its graph $\CG_f$ which is a $\CG_2$ principal bundle over $V_1$. From a set point of view, $f$ passes to quotient if $dr^{-1}(F_1) \subset ds^{-1}(F_2)$. However this condition is not sufficient \footnote{It is in the case where $f$ is a submerion.} and we must suppose that $\CG_1$ acts in $\CG_f$. A simple example where these two notions are distinct is given by the case where $V_1$,  foliated by a single leaf, is a holonomy nontrivial leaf of $V_1/F_2$. The graph of inclusion is then $\CG_f = \CG_2^{V_1}= \{\gamma \in \CG_2, r(\gamma) \in V_1\} $. But the groupoid $CG_1 = V_1 \times 
+     V_1$ does not act in $\CG_f$. Note that we should not be confused with this map $f: V_1 \to V_1/F_1$ which does not pass to the quotient with the composition $V_1 \to pt \to V_2/F_2$ of graph $V_1 \times \CG_2^x$ (where $x\in V_1$ and $\CG_2^x = \{\gamma \in \CG_2, r(\gamma) = x\}$ which of course pass to the quotient. \end{itemize} 
+     
+     More generally, if $V_1$ is a submanifold of $V_2$, the map $f$ of $V_1$ in $V_2/F_2$ passes to the quotient id and only if:
+     \begin{enumerate}
+         \item $\forall x \in V_1$, $F_{1,x} \subset F_{2,x}$.
+         \item For any path $\gamma$ lying in a leaf of $(V_1, F_1)$, if its holonomy is trivial for $(V_1, F_1)$ then its holonomy is for $(V_2, F_2)$ is also trivial. Condition $(i)$ means that $f$ passes to quotient from the set point of view. Condition $(ii)$ means that the map $f$ induces a homomorphism of groupoids $\CG_1 \to \CG_2$, where $\CG_j$ is the graph (holonomy groupoid) of $(V_j, F_j)$. 
+         Note that if instead of considering the honolomy groupoid, we work with the foliation groupoid, the problem will not appear, the condition $(ii)$ will be always satisfied if we replace 'holonomy' by 'homotopy'.
+         
+
+     \end{enumerate}
+
+\end{rem}
+The case $V_1$ is a leaf of $(V_2, F_2)$ with non-trivial holonomy provides an example where $(i)$ does not imply $(ii)$. But as we indicated it above, the map $f: V_1\to V_2/F_2$ can be modified, keeping the same map from the set point of view which passes to the quotient. We now give an example where this no longer occurs.
+ 
+Let $T_1, T_2$ be two diffeomorphism of $S^1$ such that the fixed points of $T_1$ is an interval $[a, b] (a\not= b)$ and those of $T_2$ is a point $\{c\}$. Let $T$ be a diffeomorphism of $\mathbb{T}^2$ given by $T(x_1, x_2) = (T_1x_1, T_2x_2)$. 
+
+Let $V_2$ be the 'mapping torus' of $T$ i.e the quotient $(\mathbb{T}^2\times \R/\Z)$ where $\Z$ acts on $\mathbb{T}^2\times \R$ by $T'(u, t) = (Tu, t+1)$. The part $S^1 \times \{c\} \times \R$ of $\mathbb{T}^2\times \R$ is invariant by $T'$. Let $V_1$ be its image in $V_2$. Foliate $V_1$ and $V_2$ by the action of $\R$ (by translations in $\mathbb{T}^2 \times \R$). Let $c' \in ]a,b[$ and $\tilde{\gamma}: [0,1] \to \mathbb{T}^2 \times \R$ given by $(c', c, t)$. Then the image of $\tilde{\gamma}$ in $V_1$ is a path in a leaf of $(V_1, F_1)$. Its holonomy for $(V_1, F_1)$ is trivial but its holonomy for $(V_2, F_2)$ is not.
+
+\begin{example}
+\begin{enumerate}
+    \item The identity $id: V/F \to V/F$ whose graph $\CG_f$ is the graph (= the holonomy groupoid) of $(V, F)$.
+    \item The projection $p: V\to V/F$ whose graph is still $\CG$. In general, if $f: V_1/F_1 \to V_2/F_2$ and $f': V_1 \to V_2/F_2$, $f' = f \circ p$, we have $\CG_f = \CG_{f'}$.
+    \item The projection $V/F \to pt$ of graph $V$. Note that the graph $\CG$ of $(V, F)$ acts in $V = \CG^{(0)}$.
+    \item If $E$ is a real vector bundle on $V$ on which the graph $\CG$ of $(V,F)$ acts, $E$ is provided a horizontal foliation $F_E$. Then the zero section defines an immersion $i_E: V_F \to E/F_E$, and the projection $E \to V$ defines a submersion $p_E: E/F_E \to V/F$ (the graph of $i_E$ is equal to the graph of $(V, F)$, that of $p_E$ is equal to the graph of $(E, F_E)$).
+    \item If $f:V_1/F_1 \to V_2/F_2$ and $f':V_1/F_1 \to V_2'/F_2'$ are two maps then $(f, f'): V_1/F_1 \to V_2 \times V_2'/F_2 \times F_2'$ is given by its graph
+    $$
+    \CG_{(f,f')} = \CG_{f} \times_{V_1} \CG_{f'} =\{(x,x')| r(x) = r(x')\}.  
+    $$
+    If $f$ or $f'$ is an immersion then $(f, f')$ is an immersion. An important example for later is provided by $(id, f): V_1/F_1 \to V_1 \times V_2/ F_1 \times F_2 $ where $f:V_1/F_1 \to V_2/F_2$.
+    
+    \item If $f:V_1/F_1 \to V_2/F_2$ and $f':V_1'/F_1' \to V_2'/F_2'$ then 
+    $$(f\times f'): V_1\times V_1'/F_1\times F_1' \to V_2 \times V_2'/F_2 \times F_2'.$$ is given by
+    $\CG_{f \times f'} = \CG_f \times \CG_{f'}$. A useful example for later is provided by
+    $$
+    (p \times id): (V_1 \times V_2, F_1 \times F_2) \to V_2 / F_2.
+    $$
+    Note that $f = (p\times id) \circ (id, f)$.
+\end{enumerate}
+\end{example}
+
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{10}
+
+	\bibitem {A} Segal, Graeme. Classifying spaces and spectral sequences, \textit{Publications Mathématiques de l'IHÉS}. 34 (1968): 105-112
+	
+	\bibitem {B} Moerdijk, I.,  Mrcun, J .  \textit{Introduction to Foliations and Lie Groupoids},
+Cambridge Studies in Advanced Mathematics, (2003)
+	
+	
+\end{thebibliography}
+\end{document}

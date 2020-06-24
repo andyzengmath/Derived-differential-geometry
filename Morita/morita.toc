@@ -1,0 +1,3 @@
+\contentsline {section}{\tocsection {}{1}{Biaction groupoid}}{1}
+\contentsline {section}{\tocsection {}{2}{applications}}{4}
+\contentsline {section}{\tocsection {}{}{References}}{5}
