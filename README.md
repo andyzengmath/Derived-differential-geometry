@@ -13,7 +13,7 @@ HDG seminar continues this summer. The references list can be found [here](https
 We are meeting each Tuesday at 3:00pm. Please let me know if you want to join the mail list.
 
 
-# Higher differential geometry seminar (Summer 2020)
+# Higher differential geometry seminar (Summer 2019)
 
 Together with Darrick, I am running the **Homotopy theory seminar** continuing in summer 2019 (mainly in June). We are mainly focusing on *higher structure in differential geometry and topology*. Topics includes: *higher holonomy/parallel transport, superconnections/representations up to homotopy, dg manifolds/$L_\infty$ algebroids, simplicial (pre)sheaves, $(\infty,1)$-sheaves/$\infty$-stacks, and string topology*.
 
