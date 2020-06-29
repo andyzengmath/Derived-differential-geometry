@@ -1,12 +1,14 @@
 <img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+
+
+
 # Higher differential geometry seminar (Summer 2020)
+
+
 HDG seminar continues this summer. The references list can be found [here](https://docs.google.com/document/d/1Fw3eUyBT183L7mn9p7KMLIQWyqIpdQ8KgZ3uZS6evqA/edit?fbclid=IwAR1fSkbuOt05aGbaGDEJhw1YzdUKBomUtLr31LNiIueGEH0ejtyjFgNVx7w). Topics include: 1) Iterated integrals, superconnections, and higher holonomy; 2) Higher Riemann-Hilbert correspondance; 3) Lie groupoids, higher groupoids and stacks. We are meeting each Tuesday at 3:00pm.
 
 
-
-
-
-# Higher differential geometry seminar (Summer 2019)
+# Higher differential geometry seminar (Summer 2020)
 
 Together with Darrick, I am running the **Homotopy theory seminar** continuing in summer 2019 (mainly in June). We are mainly focusing on *higher structure in differential geometry and topology*. Topics includes: *higher holonomy/parallel transport, superconnections/representations up to homotopy, dg manifolds/$L_\infty$ algebroids, simplicial (pre)sheaves, $(\infty,1)$-sheaves/$\infty$-stacks, and string topology*.
 
